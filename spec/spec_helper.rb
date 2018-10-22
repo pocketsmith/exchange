@@ -14,6 +14,7 @@ end
 
 require 'exchange'
 require 'dalli'
+require 'timecop'
 
 module HelperMethods
   def fixture(name)

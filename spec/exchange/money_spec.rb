@@ -7,7 +7,7 @@ describe "Exchange::Money" do
     Exchange.configuration = Exchange::Configuration.new do |c|
       c.api = {
         :subclass => :open_exchange_rates,
-        :fallback => [:xavier_media, :ecb]
+        :fallback => :ecb
       }
       c.cache = {
         :subclass => :no_cache
@@ -57,11 +57,14 @@ describe "Exchange::Money" do
       end
     end
     context "when an api is not reachable" do
+      before(:each) { Timecop.freeze(Time.gm(2012, 02, 03)) }
+      after(:each) { Timecop.return }
+
       context "and a fallback api is" do
         it "should use the fallback " do
           expect(URI).to receive(:parse).with("http://openexchangerates.org/api/latest.json?app_id=").once.and_raise Exchange::ExternalAPI::APIError
-          mock_api("http://api.finance.xaviermedia.com/api/#{Time.now.strftime("%Y/%m/%d")}.xml", fixture('api_responses/example_xml_api.xml'), 3)
-          expect(subject.to(:ch).value.round(2)).to eq(36.36)
+          mock_api("http://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist-90d.xml", fixture('api_responses/example_ecb_xml_90d.xml'), 3)
+          expect(subject.to(:ch).value.round(2)).to eq(36.63)
           expect(subject.to(:ch).currency).to eq(:chf)
           expect(subject.to(:ch)).to be_kind_of Exchange::Money
         end
@@ -69,32 +72,37 @@ describe "Exchange::Money" do
       context "and no fallback api is" do
         it "should raise the api error" do
           expect(URI).to receive(:parse).with("http://openexchangerates.org/api/latest.json?app_id=").once.and_raise Exchange::ExternalAPI::APIError
-          expect(URI).to receive(:parse).with("http://api.finance.xaviermedia.com/api/#{Time.now.strftime("%Y/%m/%d")}.xml").once.and_raise Exchange::ExternalAPI::APIError
           expect(URI).to receive(:parse).with("http://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist-90d.xml").once.and_raise Exchange::ExternalAPI::APIError
           expect { subject.to(:ch) }.to raise_error Exchange::ExternalAPI::APIError
         end
       end
     end
     context "with a 'from' currency not provided by the given api" do
+      before(:each) { Timecop.freeze(Time.gm(2012, 02, 03)) }
+      after(:each) { Timecop.return }
+
       subject { Exchange::Money.new(36.36, :chf) }
       context "but provided by a fallback api" do
         it "should use the fallback" do
           expect(subject.api::CURRENCIES).to receive(:include?).with(:usd).and_return true
           expect(subject.api::CURRENCIES).to receive(:include?).with(:chf).and_return true
           expect(URI).to receive(:parse).with("http://openexchangerates.org/api/latest.json?app_id=").once.and_raise Exchange::ExternalAPI::APIError
-          mock_api("http://api.finance.xaviermedia.com/api/#{Time.now.strftime("%Y/%m/%d")}.xml", fixture('api_responses/example_xml_api.xml'), 3)
-          expect(subject.to(:usd).value.round(2)).to eq(40.00)
+          mock_api("http://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist-90d.xml", fixture('api_responses/example_ecb_xml_90d.xml'), 3)
+          expect(subject.to(:usd).value.round(2)).to eq(39.71)
           expect(subject.to(:usd).currency).to eq(:usd)
           expect(subject.to(:usd)).to be_kind_of Exchange::Money
         end
       end
     end
     context "with a 'to' currency not provided by the given api" do
+      before(:each) { Timecop.freeze(Time.gm(2012, 02, 03)) }
+      after(:each) { Timecop.return }
+
       context "but provided by a fallback api" do
         it "should use the fallback" do
           allow(subject.api::CURRENCIES).to receive(:include?).and_return(false)
-          mock_api("http://api.finance.xaviermedia.com/api/#{Time.now.strftime("%Y/%m/%d")}.xml", fixture('api_responses/example_xml_api.xml'), 3)
-          expect(subject.to(:chf).value.round(2)).to eq(36.36)
+          mock_api("http://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist-90d.xml", fixture('api_responses/example_ecb_xml_90d.xml'), 3)
+          expect(subject.to(:chf).value.round(2)).to eq(36.63)
           expect(subject.to(:chf).currency).to eq(:chf)
           expect(subject.to(:chf)).to be_kind_of Exchange::Money
         end
@@ -102,7 +110,6 @@ describe "Exchange::Money" do
       context "but not provided by any fallback api" do
         it "should raise the no rate error" do
           allow(Exchange::ExternalAPI::OpenExchangeRates::CURRENCIES).to receive(:include?).and_return false
-          allow(Exchange::ExternalAPI::XavierMedia::CURRENCIES).to receive(:include?).and_return false
           allow(Exchange::ExternalAPI::Ecb::CURRENCIES).to receive(:include?).and_return false
           expect { subject.to(:xaf) }.to raise_error Exchange::NoRateError
         end

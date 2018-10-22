@@ -7,4 +7,5 @@ group :test do
   gem "dalli",      "~> 2.6", :require => false
   gem "redis",      "~> 3.0", :require => false
   gem "rspec"
+  gem "timecop"
 end

@@ -35,7 +35,6 @@ describe "Exchange::Cache::Memory" do
       subject.instance_variable_set '@exchange_externalapi_something_2012_284_12_2012_284_12', 'Valid3'
       subject.instance_variable_set '@exchange_externalapi_something_2009_284_12_2012_284_12', 'Valid4'
       subject.instance_variable_set '@exchange_externalapi_open_exchange_rates_2010_280_8_2012_284_8', 'Expired'
-      subject.instance_variable_set '@exchange_externalapi_xaviermedia_2012_84_12_2012_123_8', 'Expired'
     end
     it "should unset all expired instance variables" do
       subject.send(:clean!)
