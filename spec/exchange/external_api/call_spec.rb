@@ -50,11 +50,11 @@ describe "Exchange::ExternalAPI::Call" do
   end
   context "with an xml api" do
     before(:each) do
-      mock_api('XML_API', fixture('api_responses/example_xml_api.xml'), 7)
+      mock_api('XML_API', fixture('api_responses/example_ecb_xml_90d.xml'), 7)
     end
     it "should call the api and yield a block with the result" do
       Exchange::ExternalAPI::Call.new('XML_API', :format => :xml) do |result|
-        expect(result.to_s).to eq(Nokogiri::XML.parse(fixture('api_responses/example_xml_api.xml').sub("\n", '')).to_s)
+        expect(result.to_s).to eq(Nokogiri::XML.parse(fixture('api_responses/example_ecb_xml_90d.xml').sub("\n", '')).to_s)
       end
     end
     context "with http errors" do
@@ -62,10 +62,10 @@ describe "Exchange::ExternalAPI::Call" do
         @count = 0
         expect(@uri_mock).to receive(:open).at_most(3).times do
           @count += 1
-          @count == 3 ? double('opened', :read => fixture('api_responses/example_xml_api.xml')) : raise(OpenURI::HTTPError.new('404', 'URI'))
+          @count == 3 ? double('opened', :read => fixture('api_responses/example_ecb_xml_90d.xml')) : raise(OpenURI::HTTPError.new('404', 'URI'))
         end
         Exchange::ExternalAPI::Call.new('XML_API', :format => :xml) do |result|
-          expect(result.to_s).to eq(Nokogiri::XML.parse(fixture('api_responses/example_xml_api.xml').sub("\n", '')).to_s)
+          expect(result.to_s).to eq(Nokogiri::XML.parse(fixture('api_responses/example_ecb_xml_90d.xml').sub("\n", '')).to_s)
         end
       end
       it "should raise if the maximum recall size is reached" do

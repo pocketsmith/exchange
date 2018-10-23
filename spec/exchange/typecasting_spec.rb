@@ -2,42 +2,46 @@
 require 'spec_helper'
 
 describe "Exchange::Typecasting" do
-  
+
   class Manager
-    
+
     attr_accessor :currency
-    
+
     def initialize *args
       self.currency = :eur
-      
+
       super
     end
-    
+
   end
-  
+
   class MyClass
     extend Exchange::Typecasting
-    
+
     attr_accessor :price, :manager
-    
+
     def initialize *args
       self.manager = Manager.new
-      
+
       super
     end
-    
+
     def created_at
-      Time.gm(2012,8,8)
+      Time.now
     end
-    
+
     money :price, :at => :created_at, :currency => lambda { |s| s.manager.currency }
-    
+
   end
-  
+
   describe "get" do
     subject { MyClass.new }
     before(:each) do
       subject.price = 0.77
+      Timecop.freeze(Time.now)
+    end
+    after(:each) do
+      Timecop.return
     end
     it "should instantiate the attribute as a currency" do
       expect(subject.price).to be_instance_of(Exchange::Money)
@@ -49,7 +53,7 @@ describe "Exchange::Typecasting" do
       expect(subject.price.value).to eq(0.77)
     end
     it "should instantiate the currency with the right time" do
-      expect(subject.price.time).to eq(Time.gm(2012,8,8))
+      expect(subject.price.time).to eq(Time.now)
     end
     context "when changing the currency value" do
       before(:each) do
@@ -80,7 +84,7 @@ describe "Exchange::Typecasting" do
       end
     end
   end
-  
+
   describe "set" do
     subject { MyClass.new }
     before(:each) do
@@ -95,9 +99,9 @@ describe "Exchange::Typecasting" do
       expect(subject.price).to eq(0.83.in(:eur))
     end
     it "should convert the value if the given value is in another currency" do
-      mock_api("http://api.finance.xaviermedia.com/api/#{Time.now.strftime("%Y/%m/%d")}.xml", fixture('api_responses/example_xml_api.xml'))
+      mock_api("http://openexchangerates.org/api/latest.json?app_id=", fixture('api_responses/example_json_api.json'), 3)
       subject.price = 0.83.in(:usd)
-      expect(subject.price).to eq(0.62.in(:eur))
+      expect(subject.price).to eq(0.63.in(:eur))
     end
     context "when the preset value is nil" do
       before(:each) do
@@ -113,11 +117,11 @@ describe "Exchange::Typecasting" do
         expect(subject.price).to eq(0.83.in(:eur))
       end
       it "should convert the value if the given value is in another currency" do
-        mock_api("http://api.finance.xaviermedia.com/api/#{Time.now.strftime("%Y/%m/%d")}.xml", fixture('api_responses/example_xml_api.xml'))
+        mock_api("http://openexchangerates.org/api/latest.json?app_id=", fixture('api_responses/example_json_api.json'), 3)
         subject.price = 0.83.in(:usd)
-        expect(subject.price).to eq(0.62.in(:eur))
+        expect(subject.price).to eq(0.63.in(:eur))
       end
     end
   end
-  
+
 end

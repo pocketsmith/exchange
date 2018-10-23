@@ -22,15 +22,15 @@ describe "Exchange::Conversability" do
       expect(-3.in(:eur).value).to eq(-3)
     end
     it "should allow to do full conversions" do
-      mock_api("http://api.finance.xaviermedia.com/api/2012/08/27.xml", fixture('api_responses/example_xml_api.xml'), 3)
+      mock_api("http://openexchangerates.org/api/latest.json?app_id=", fixture('api_responses/example_json_api.json'), 3)
       expect(3.in(:eur).to(:chf)).to be_kind_of Exchange::Money
-      expect(3.in(:eur).to(:chf).value.round(2)).to eq(3.68)
+      expect(3.in(:eur).to(:chf).value.round(2)).to eq(3.62)
       expect(3.in(:eur).to(:chf).currency).to eq(:chf)
     end
     it "should allow to do full conversions with negative numbers" do
-      mock_api("http://api.finance.xaviermedia.com/api/2012/08/27.xml", fixture('api_responses/example_xml_api.xml'), 3)
+      mock_api("http://openexchangerates.org/api/latest.json?app_id=", fixture('api_responses/example_json_api.json'), 3)
       expect(-3.in(:eur).to(:chf)).to be_kind_of Exchange::Money
-      expect(-3.in(:eur).to(:chf).value.round(2)).to eq(-3.68)
+      expect(-3.in(:eur).to(:chf).value.round(2)).to eq(-3.62)
       expect(-3.in(:eur).to(:chf).currency).to eq(:chf)
     end
     it "should allow to define a historic time in which the currency should be interpreted" do
@@ -52,15 +52,15 @@ describe "Exchange::Conversability" do
       expect(-3.25.in(:eur).value.round(2)).to eq(-3.25)
     end
     it "should allow to do full conversions" do
-      mock_api("http://api.finance.xaviermedia.com/api/2012/08/27.xml", fixture('api_responses/example_xml_api.xml'), 3)
+      mock_api("http://openexchangerates.org/api/latest.json?app_id=", fixture('api_responses/example_json_api.json'), 3)
       expect(3.25.in(:eur).to(:chf)).to be_kind_of Exchange::Money
-      expect(3.25.in(:eur).to(:chf).value.round(2)).to eq(3.99)
+      expect(3.25.in(:eur).to(:chf).value.round(2)).to eq(3.92)
       expect(3.25.in(:eur).to(:chf).currency).to eq(:chf)
     end
     it "should allow to do full conversions with negative numbers" do
-      mock_api("http://api.finance.xaviermedia.com/api/2012/08/27.xml", fixture('api_responses/example_xml_api.xml'), 3)
+      mock_api("http://openexchangerates.org/api/latest.json?app_id=", fixture('api_responses/example_json_api.json'), 3)
       expect(-3.25.in(:eur).to(:chf)).to be_kind_of Exchange::Money
-      expect(-3.25.in(:eur).to(:chf).value.round(2)).to eq(-3.99)
+      expect(-3.25.in(:eur).to(:chf).value.round(2)).to eq(-3.92)
       expect(-3.25.in(:eur).to(:chf).currency).to eq(:chf)
     end
     it "should allow to define a historic time in which the currency should be interpreted" do
@@ -82,15 +82,15 @@ describe "Exchange::Conversability" do
       expect(BigDecimal.new("-3.25").in(:eur).value.round(2)).to eq(-3.25)
     end
     it "should allow to do full conversions" do
-      mock_api("http://api.finance.xaviermedia.com/api/2012/08/27.xml", fixture('api_responses/example_xml_api.xml'), 3)
+      mock_api("http://openexchangerates.org/api/latest.json?app_id=", fixture('api_responses/example_json_api.json'), 3)
       expect(BigDecimal.new("3.25").in(:eur).to(:chf)).to be_kind_of Exchange::Money
-      expect(BigDecimal.new("3.25").in(:eur).to(:chf).value.round(2)).to eq(3.99)
+      expect(BigDecimal.new("3.25").in(:eur).to(:chf).value.round(2)).to eq(3.92)
       expect(BigDecimal.new("3.25").in(:eur).to(:chf).currency).to eq(:chf)
     end
     it "should allow to do full conversions with negative numbers" do
-      mock_api("http://api.finance.xaviermedia.com/api/2012/08/27.xml", fixture('api_responses/example_xml_api.xml'), 3)
+      mock_api("http://openexchangerates.org/api/latest.json?app_id=", fixture('api_responses/example_json_api.json'), 3)
       expect(BigDecimal.new("-3.25").in(:eur).to(:chf)).to be_kind_of Exchange::Money
-      expect(BigDecimal.new("-3.25").in(:eur).to(:chf).value.round(2)).to eq(-3.99)
+      expect(BigDecimal.new("-3.25").in(:eur).to(:chf).value.round(2)).to eq(-3.92)
       expect(BigDecimal.new("-3.25").in(:eur).to(:chf).currency).to eq(:chf)
     end
     it "should allow to define a historic time in which the currency should be interpreted" do
