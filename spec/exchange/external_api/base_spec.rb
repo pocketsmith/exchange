@@ -25,6 +25,11 @@ describe "Exchange::ExternalAPI::Base" do
       expect(subject).to receive(:update).with(:at => time).once
       expect(subject.rate(:eur, :chf, :at => time).round(3)).to eq(1.613)
     end
+    it "raises an error if no rate is found" do
+      subject.instance_variable_set("@rates", {})
+      allow(subject).to receive(:update)
+      expect { subject.rate(:eur, :chf) }.to raise_error(Exchange::NoRateError)
+    end
   end
   describe "convert" do
     it "should convert according to the given rates" do
