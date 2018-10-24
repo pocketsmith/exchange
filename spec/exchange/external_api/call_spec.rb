@@ -82,4 +82,12 @@ describe "Exchange::ExternalAPI::Call" do
       end
     end
   end
+  context "with an api returning blank responses" do
+    before(:each) { mock_api('BLANK_API', '') }
+
+    it "should raise an error" do
+      expect { Exchange::ExternalAPI::Call.new('BLANK_API') }.
+        to raise_error(Exchange::ExternalAPI::APIError, /blank/)
+    end
+  end
 end
