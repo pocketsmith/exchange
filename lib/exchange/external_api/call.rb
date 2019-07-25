@@ -63,12 +63,11 @@ module Exchange
         # @todo install a timeout for slow requests, but respect when loading large files
         #
         def load_url url, retries, retry_with
-          timeout = 15 # TODO: move this into Exchange.configuration
           begin
             uri = URI.parse(url)
             http = Net::HTTP.new(uri.host, uri.port)
-            http.open_timeout = timeout
-            http.read_timeout = timeout
+            http.open_timeout = config.timeout
+            http.read_timeout = config.timeout
             response = http.get("#{uri.path}?#{uri.query}")
             response.value # Will throw Net::HTTPServerException if an error code is returned
             result = response.body
