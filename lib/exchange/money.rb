@@ -12,28 +12,28 @@ module Exchange
   #
   class Money
     include Comparable
-    
+
     # @return [BigDecimal] number The number the money object has been instantiated from
     #
     attr_accessor :value
-    
+
     # @return [Symbol, String] currency the currency of the money object
     #
     attr_accessor :currency
-    
+
     # @return [Time] The time at which the conversion has taken place or should take place if the object is involved in operations
     #
     attr_accessor :time
-    
+
     # @attr_reader
     # @return [Exchange::Money] The original money object this money object was converted from
     #
     attr_reader :from
-    
+
     # @attr_reader
     # @return [Exchange::ExternalAPI] The current api subclass
     attr_reader :api
-    
+
     # Intialize the currency with a number and a currency
     # @param [Integer, Float] value The number the currency is instantiated from
     # @param [Symbol] currency_arg The currency the money object is in as a downcased symbol
@@ -43,36 +43,36 @@ module Exchange
     # @version 0.9
     #
     # @example Instantiate a money object of 40 US Dollars
-    #   Exchange::Money.new(40, :usd) 
+    #   Exchange::Money.new(40, :usd)
     #     #=> #<Exchange::Money @number=40.0 @currency=:usd @time=#<Time>>
     # @example Instantiate a money object of 40 US Dollars and convert it to Euro. It shows the conversion date and the original currency
-    #   Exchange::Money.new(40, :usd).to(:eur, :at => Time.gm(2012,9,1)) 
+    #   Exchange::Money.new(40, :usd).to(:eur, :at => Time.gm(2012,9,1))
     #     #=> #<Exchange::Money @number=37.0 @currency=:usd @time=#<Time> @from=#<Exchange::Money @number=40.0 @currency=:usd>>
     #
     def initialize value, currency_arg=nil, opts={}, &block
       currency_arg      = ISO.assert_currency!(currency_arg) if currency_arg
-      
+
       @from             = opts[:from]
       @api              = Exchange.configuration.api.subclass
-      
+
       yield(self) if block_given?
-      
+
       self.time             = Helper.assure_time(time || opts[:at], :default => :now)
       self.value            = ISO.instantiate(value, currency || currency_arg)
       self.currency         = currency || currency_arg
     end
-    
+
     # Method missing is used to handle conversions from one money object to another. It only handles currencies which are available in
     # the API class set in the configuration.
     # @example convert to chf
-    #   Exchange::Money.new(40,:usd).to(:chf)    
+    #   Exchange::Money.new(40,:usd).to(:chf)
     # @example convert to sek at a given time
     #   Exchange::Money.new(40,:nok).to(:sek, :at => Time.gm(2012,2,2))
     #
     def method_missing method, *args, &block
       value.send method, *args, &block
     end
-    
+
     # Converts this instance of currency into another currency
     # @return [Exchange::Money] An instance of Exchange::Money with the converted number and the converted currency
     # @param [Symbol, String] other The currency to convert the number to
@@ -87,7 +87,7 @@ module Exchange
       other = ISO.assert_currency!(other)
 
       if api_supports_currency?(currency) && api_supports_currency?(other)
-        opts = { :at => time, :from => self }.merge(options)
+        opts = { :at => time, :from => self }.merge(options) unless opts
         Money.new(api.new.convert(value, currency, other, opts), other, opts)
       elsif fallback!
         to other, options
@@ -98,15 +98,20 @@ module Exchange
       if fallback!
         to other, options
       else
-        raise
+        offset = 0 if offset.nil? # Initial retry offset in days
+        raise if offset >= 5 # Max range (5 days)
+        offset += 1 # Increment offset
+        opts[:at] = opts[:at] - (3600 * 24 * offset) # New time
+        puts "Retrying"
+        retry
       end
     end
     alias :in :to
-    
+
     class << self
-      
+
       private
-      
+
         # @private
         # @!macro [attach] install_operation
         #
@@ -115,15 +120,15 @@ module Exchange
             psych       = arguments.first == :psych
             precision   = psych ? nil : arguments.first
             val         = ISO.send(op, self.value, self.currency, precision, {:psych => psych})
-            
+
             Exchange::Money.new(val, currency, :at => time, :from => self)
           end
         end
-      
+
         # @private
         # @!macro [attach] base_operation
         #   @method $1(other)
-        #   
+        #
         def base_operation op
           self.class_eval <<-EOV
             def #{op}(other)
@@ -133,9 +138,8 @@ module Exchange
             end
           EOV
         end
-      
     end
-    
+
     # Round the currency. Since this is a currency, it will round to the standard decimal value.
     # If you want to round it to another precision, you have to specifically ask for it.
     # @return [Exchange::Money] The currency you started with with a rounded value
@@ -150,8 +154,8 @@ module Exchange
     #     #=> #<Exchange::Money @value=41 @currency=:usd>
     #
     install_operation :round
-    
-    
+
+
     # Ceil the currency. Since this is a currency, it will ceil to the standard decimal value.
     # If you want to ceil it to another precision, you have to specifically ask for it.
     # @return [Exchange::Money] The currency you started with with a ceiled value
@@ -166,8 +170,8 @@ module Exchange
     #     #=> #<Exchange::Money @value=41 @currency=:usd>
     #
     install_operation :ceil
-    
-    
+
+
     # Floor the currency. Since this is a currency, it will ceil to the standard decimal value.
     # If you want to ceil it to another precision, you have to specifically ask for it.
     # @return [Exchange::Money] The currency you started with with a floored value
@@ -182,8 +186,8 @@ module Exchange
     #     #=> #<Exchange::Money @value=40 @currency=:usd>
     #
     install_operation :floor
-    
-    
+
+
     # Add value to the currency
     # @param [Integer, Float, Exchange::Money] other The value to be added to the currency. If an Exchange::Money, it is converted to the instance's currency and then the converted value is added.
     # @return [Exchange::Money] The currency with the added value
@@ -199,7 +203,7 @@ module Exchange
     # @version 0.7
     #
     base_operation '+'
-    
+
     # Subtract a value from the currency
     # @param [Integer, Float, Exchange::Money] other The value to be subtracted from the currency. If an Exchange::Money, it is converted to the instance's currency and then subtracted from the converted value.
     # @return [Exchange::Money] The currency with the added value
@@ -215,7 +219,7 @@ module Exchange
     # @version 0.7
     #
     base_operation '-'
-    
+
     # Multiply a value with the currency
     # @param [Integer, Float, Exchange::Money] other The value to be multiplied with the currency. If an Exchange::Money, it is converted to the instance's currency and multiplied with the converted value.
     # @return [Exchange::Money] The currency with the multiplied value
@@ -231,7 +235,7 @@ module Exchange
     # @version 0.7
     #
     base_operation '*'
-    
+
     # Divide the currency by a value
     # @param [Integer, Float, Exchange::Money] other The value to be divided by the currency. If an Exchange::Money, it is converted to the instance's currency and divided by the converted value.
     # @return [Exchange::Money] The currency with the divided value
@@ -247,8 +251,8 @@ module Exchange
     # @version 0.7
     #
     base_operation '/'
-    
-    # Compare a currency with another currency or another value. If the other is not an instance of Exchange::Money, the value 
+
+    # Compare a currency with another currency or another value. If the other is not an instance of Exchange::Money, the value
     # of the currency is compared
     # @param [Whatever you want to throw at it] other The counterpart to compare
     # @return [Boolean] true if the other is equal, false if not
@@ -271,8 +275,8 @@ module Exchange
         value == other
       end
     end
-    
-    # Sortcompare a currency with another currency. If the other is not an instance of Exchange::Money, the value 
+
+    # Sortcompare a currency with another currency. If the other is not an instance of Exchange::Money, the value
     # of the currency is compared. Different currencies will be converted to the comparing instances currency
     # @param [Whatever you want to throw at it] other The counterpart to compare
     # @return [Fixed] a number which can be used for sorting
@@ -296,7 +300,7 @@ module Exchange
         value <=> other
       end
     end
-    
+
     # Converts the currency to a string in ISO 4217 standardized format, either with or without the currency. This leaves you
     # with no worries how to display the currency.
     # @since 0.3
@@ -319,13 +323,13 @@ module Exchange
     def to_s format=:currency
       ISO.stringify(value, currency, :format => format)
     end
-    
+
     # Returns the symbol for the given currency
     # @since 1.0
     # @version 0.1
-    
+
     private
-    
+
       # Fallback to the next api defined in the api fallbacks. Changes the api for the given instance
       # @return [Boolean] true if the fallback was successful, false if not
       # @since 1.0
@@ -334,15 +338,15 @@ module Exchange
       def fallback!
         fallback = Exchange.configuration.api.fallback
         new_api  = fallback.index(api) ? fallback[fallback.index(api) + 1] : fallback.first
-        
+
         if new_api
           @api = new_api
           return true
         end
-        
+
         return false
       end
-    
+
       # determine if another given object is an instance of Exchange::Money
       # @param [Object] other The object to be tested against
       # @return [Boolean] true if the other is an instance of Exchange::Money, false if not
@@ -352,7 +356,7 @@ module Exchange
       def is_money? other
         other.is_a?(Exchange::Money)
       end
-      
+
       # determine if another given object is an instance of Exchange::Money and the same currency
       # @param [Object] other The object to be tested against
       # @return [Boolean] true if the other is an instance of Exchange::Money and has the same currency as self, false if not
@@ -362,7 +366,7 @@ module Exchange
       def is_same_currency? other
         is_money?(other) && other.currency == currency
       end
-      
+
       # determine if another given object is an instance of Exchange::Money and has another currency
       # @param [Object] other The object to be tested against
       # @return [Boolean] true if the other is an instance of Exchange::Money and has another currency as self, false if not
@@ -372,7 +376,7 @@ module Exchange
       def is_other_currency? other
         is_money?(other) && other.currency != currency
       end
-      
+
       # determine wether the chosen api supports converting the given currency
       # @param [String] currency The currency to test the api for
       # @return [Boolean] True if the api supports the given currency, false if not
@@ -380,7 +384,7 @@ module Exchange
       def api_supports_currency? currency
         api::CURRENCIES.include?(currency)
       end
-      
+
       # Test if another currency is used in an operation, and if so, if the operation is allowed
       # @param [Numeric, Exchange::Money] other The counterpart in the operation
       # @raise [ImplicitConversionError] an error if mixing currencies is not allowed and currencies where mixed
@@ -390,7 +394,7 @@ module Exchange
       def test_for_currency_mix_error other
         raise ImplicitConversionError.new("You\'re trying to mix up #{currency} with #{other.currency}. You denied mixing currencies in the configuration, allow it or convert the currencies before mixing") if !Exchange.configuration.implicit_conversions && is_other_currency?(other)
       end
-      
+
       # Helper method to raise a no rate error for a given currency if no rate is given
       # @param [String] other a possible currency
       # @raise [NoRateError] an error indicating that the given string is a currency, but no rate is present
@@ -400,11 +404,9 @@ module Exchange
       def raise_no_rate_error other
         raise NoRateError.new("Cannot convert #{currency} to #{other} because the defined api nor the fallbacks provide a rate")
       end
-  
   end
-  
+
   # The error that will get thrown when implicit conversions take place and are not allowed
   #
   ImplicitConversionError = Class.new Error
-  
 end

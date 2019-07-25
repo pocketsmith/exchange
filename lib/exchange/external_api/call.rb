@@ -1,6 +1,7 @@
 # -*- encoding : utf-8 -*-
 module Exchange
   module ExternalAPI
+    require 'net/http'
 
     # A class to handle API calls in a standardized way for all APIs
     # @author Beat Richartz
@@ -38,7 +39,16 @@ module Exchange
           load_url(url, options[:retries] || config.retries, options[:retry_with])
         end
 
-        parsed = options[:format] == :xml ? Nokogiri::XML.parse(result.sub("\n", '')) : ::JSON.load(result)
+        # jrkw temporary hacks for when xml is returned from fallback, but we expect open exchange rates json
+        # this should be properly resolved through caching Xavier results as that, instead of still OpenExchangeRate
+        is_xml_format = options[:format] == :xml || result.match(/<\?xml/) != nil
+        parsed = is_xml_format ? Nokogiri::XML.parse(result.sub("\n", '')) : ::JSON.load(result)
+        if is_xml_format && options[:format] != :xml
+          array = parsed.css('fx currency_code').children.map{|c| c.to_s }.zip(parsed.css('fx rate').children.map{|c| BigDecimal.new(c.to_s) }).flatten
+          timestamp = Time.gm(*parsed.css('fx_date').children[0].to_s.split('-')).to_i
+          base = parsed.css('basecurrency').children[0].to_s.downcase.to_sym
+          parsed = { 'rates' => Hash[*array], 'timestamp' => timestamp, 'base' => base, 'is_fallback' => true }
+        end
 
         return parsed unless block_given?
         yield  parsed
@@ -53,11 +63,20 @@ module Exchange
         # @todo install a timeout for slow requests, but respect when loading large files
         #
         def load_url url, retries, retry_with
+          timeout = 15 # TODO: move this into Exchange.configuration
           begin
-            result = URI.parse(url).open.read
+            uri = URI.parse(url)
+            http = Net::HTTP.new(uri.host, uri.port)
+            http.open_timeout = timeout
+            http.read_timeout = timeout
+            response = http.get("#{uri.path}?#{uri.query}")
+            response.value # Will throw Net::HTTPServerException if an error code is returned
+            result = response.body
           rescue SocketError
             raise APIError.new("Calling API #{url} produced a socket error")
-          rescue OpenURI::HTTPError => e
+          rescue Timeout::Error => e
+            raise APIError.new("API #{url} took too long to respond and returned #{e.message}")
+          rescue Net::HTTPServerException => e # Try fallback APIs instead (if any)
             retries -= 1
             if retries > 0
               url = retry_with.shift if retry_with && !retry_with.empty?
@@ -66,8 +85,18 @@ module Exchange
               raise APIError.new("API #{url} was not reachable and returned #{e.message}. May be you requested a historic rate not provided")
             end
           end
-          if result == ''
-            raise APIError.new("API #{url} returned a blank response")
+
+          # Handle empty responses
+          raise APIError.new("API #{url} returned a blank response") if result == ''
+          # Handle other bad responses - covers any response where the rates cannot be determined
+          begin
+            # Check to see if we've got XML back, assume JSON otherwise
+            if result.match(/<\?xml/).nil?
+              usd_rate = JSON.load(result)['rates']['USD']
+              raise "No rate for USD" unless usd_rate.is_a?(Numeric) # Overkill perhaps?
+            end
+          rescue
+            raise APIError.new("API #{url} returned a bad response")
           end
           result
         end
@@ -77,6 +106,5 @@ module Exchange
     # The Api Error to throw when an API Call fails
     #
     APIError = Class.new Error
-
   end
 end

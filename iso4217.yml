@@ -55,11 +55,11 @@ AMD:
     minor: '.'
   minor_unit: 2
   currency: Armenian Dram
-  symbol: 
+  symbol:
 CDF:
   minor_unit: 2
   currency: Congolese Franc
-  symbol: 
+  symbol:
 KPW:
   minor_unit: 2
   currency: North Korean Won
@@ -77,14 +77,14 @@ KES:
     minor: '.'
   minor_unit: 2
   currency: Kenyan Shilling
-  symbol: 
+  symbol:
 KHR:
   minor_unit: 2
   currency: Riel
   symbol: ៛
 PLN:
   separators:
-    major: ' '
+    major: '.'
     minor: ','
   minor_unit: 2
   currency: Zloty
@@ -92,7 +92,7 @@ PLN:
 MVR:
   minor_unit: 2
   currency: Rufiyaa
-  symbol: 
+  symbol:
 GTQ:
   separators:
     major: ','
@@ -163,7 +163,7 @@ BYR:
 LYD:
   minor_unit: 3
   currency: Libyan Dinar
-  symbol: 
+  symbol:
 RON:
   separators:
     major: '.'
@@ -174,11 +174,11 @@ RON:
 DZD:
   minor_unit: 2
   currency: Algerian Dinar
-  symbol: 
+  symbol:
 BIF:
   minor_unit: 0
   currency: Burundi Franc
-  symbol: 
+  symbol:
 ARS:
   separators:
     major: '.'
@@ -196,7 +196,7 @@ GIP:
 UYI:
   minor_unit: 0
   currency: Uruguay Peso en Unidades Indexadas (URUIURUI)
-  symbol: 
+  symbol:
 BOB:
   separators:
     major: ','
@@ -207,7 +207,7 @@ BOB:
 SSP:
   minor_unit: 2
   currency: South Sudanese Pound
-  symbol: 
+  symbol:
 NGN:
   minor_unit: 2
   currency: Naira
@@ -215,30 +215,30 @@ NGN:
 PGK:
   minor_unit: 2
   currency: Kina
-  symbol: 
+  symbol:
 STD:
   minor_unit: 2
   currency: Dobra
-  symbol: 
+  symbol:
 XOF:
   minor_unit: 0
   currency: CFA Franc BCEAO
-  symbol: 
+  symbol:
 AED:
   separators:
     major: ','
     minor: '.'
   minor_unit: 2
   currency: UAE Dirham
-  symbol: 
+  symbol:
 ERN:
   minor_unit: 2
   currency: Nakfa
-  symbol: 
+  symbol:
 MWK:
   minor_unit: 2
   currency: Kwacha
-  symbol: 
+  symbol:
 CUP:
   separators:
     major: ','
@@ -249,38 +249,38 @@ CUP:
 USN:
   minor_unit: 2
   currency: US Dollar (Next day)
-  symbol: 
+  symbol:
 GMD:
   minor_unit: 2
   currency: Dalasi
-  symbol: 
+  symbol:
 CVE:
   minor_unit: 2
   currency: Cape Verde Escudo
-  symbol: 
+  symbol:
 TZS:
   separators:
     major: ','
     minor: '.'
   minor_unit: 2
   currency: Tanzanian Shilling
-  symbol: 
+  symbol:
 COU:
   minor_unit: 2
   currency: Unidad de Valor Real
-  symbol: 
+  symbol:
 BTN:
   minor_unit: 2
   currency: Ngultrum
-  symbol: 
+  symbol:
 ZWL:
   minor_unit: 2
   currency: Zimbabwe Dollar
-  symbol: 
+  symbol:
 UGX:
   minor_unit: 2
   currency: Uganda Shilling
-  symbol: 
+  symbol:
 SYP:
   minor_unit: 2
   currency: Syrian Pound
@@ -288,7 +288,7 @@ SYP:
 MAD:
   minor_unit: 2
   currency: Moroccan Dirham
-  symbol: 
+  symbol:
 MNT:
   minor_unit: 2
   currency: Tugrik
@@ -296,11 +296,11 @@ MNT:
 LSL:
   minor_unit: 2
   currency: Loti
-  symbol: 
+  symbol:
 XAF:
   minor_unit: 0
   currency: CFA Franc BEAC
-  symbol: 
+  symbol:
 SHP:
   minor_unit: 2
   currency: Saint Helena Pound
@@ -308,7 +308,7 @@ SHP:
 HTG:
   minor_unit: 2
   currency: Gourde
-  symbol: 
+  symbol:
 RSD:
   minor_unit: 2
   currency: Serbian Dinar
@@ -316,14 +316,14 @@ RSD:
 MGA:
   minor_unit: 2
   currency: Malagasy Ariary
-  symbol: 
+  symbol:
 TOP:
   separators:
     major: ','
     minor: '.'
   minor_unit: 2
   currency: Pa’anga
-  symbol: 
+  symbol:
 MZN:
   minor_unit: 2
   currency: Mozambique Metical
@@ -342,7 +342,7 @@ FKP:
 USS:
   minor_unit: 2
   currency: US Dollar (Same day)
-  symbol: 
+  symbol:
 BWP:
   separators:
     major: ','
@@ -390,7 +390,7 @@ PYG:
   symbol: Gs
 LBP:
   separators:
-    major: ' '
+    major: ','
     minor: '.'
   minor_unit: 2
   currency: Lebanese Pound
@@ -405,7 +405,7 @@ ANG:
 KZT:
   minor_unit: 2
   currency: Tenge
-  symbol: лв
+  symbol: ₸
 GYD:
   minor_unit: 2
   currency: Guyana Dollar
@@ -413,7 +413,7 @@ GYD:
 WST:
   minor_unit: 2
   currency: Tala
-  symbol: 
+  symbol:
 NPR:
   separators:
     major: ','
@@ -424,7 +424,7 @@ NPR:
 KMF:
   minor_unit: 0
   currency: Comoro Franc
-  symbol: 
+  symbol:
 THB:
   separators:
     major: ','
@@ -466,7 +466,7 @@ UYU:
 MOP:
   minor_unit: 2
   currency: Pataca
-  symbol: 
+  symbol:
 BMD:
   separators:
     major: ','
@@ -480,18 +480,18 @@ SZL:
     minor: '.'
   minor_unit: 2
   currency: Lilangeni
-  symbol: 
+  symbol:
 ETB:
   minor_unit: 2
   currency: Ethiopian Birr
-  symbol: 
+  symbol:
 JOD:
   separators:
     major: ','
     minor: '.'
   minor_unit: 3
   currency: Jordanian Dinar
-  symbol: 
+  symbol:
 IDR:
   separators:
     major: '.'
@@ -502,15 +502,15 @@ IDR:
 MDL:
   minor_unit: 2
   currency: Moldovan Leu
-  symbol: 
+  symbol:
 XPF:
   minor_unit: 0
   currency: CFP Franc
-  symbol: 
+  symbol:
 MRO:
   minor_unit: 2
   currency: Ouguiya
-  symbol: 
+  symbol:
 YER:
   minor_unit: 2
   currency: Yemeni Rial
@@ -546,7 +546,7 @@ PEN:
 AOA:
   minor_unit: 2
   currency: Kwanza
-  symbol: 
+  symbol:
 KYD:
   separators:
     major: ','
@@ -557,7 +557,7 @@ KYD:
 SLL:
   minor_unit: 2
   currency: Leone
-  symbol: 
+  symbol:
 TRY:
   separators:
     major: ','
@@ -580,7 +580,7 @@ ISK:
 GNF:
   minor_unit: 0
   currency: Guinea Franc
-  symbol: 
+  symbol:
 BSD:
   separators:
     major: ','
@@ -591,7 +591,7 @@ BSD:
 DJF:
   minor_unit: 0
   currency: Djibouti Franc
-  symbol: 
+  symbol:
 HUF:
   separators:
     major: '.'
@@ -601,7 +601,7 @@ HUF:
   symbol: Ft
 LTL:
   separators:
-    major: ' '
+    major: '.'
     minor: ','
   minor_unit: 2
   currency: Lithuanian Litas
@@ -631,11 +631,11 @@ LKR:
 TJS:
   minor_unit: 2
   currency: Somoni
-  symbol: 
+  symbol:
 TND:
   minor_unit: 3
   currency: Tunisian Dinar
-  symbol: 
+  symbol:
 DOP:
   separators:
     major: ','
@@ -650,17 +650,17 @@ FJD:
 GEL:
   minor_unit: 2
   currency: Lari
-  symbol: 
+  symbol:
 SDG:
   minor_unit: 2
   currency: Sudanese Pound
-  symbol: 
+  symbol:
 VUV:
   separators:
     major: ','
   minor_unit: 0
   currency: Vatu
-  symbol: 
+  symbol:
 BBD:
   minor_unit: 2
   currency: Barbados Dollar
@@ -678,7 +678,7 @@ KRW:
 MMK:
   minor_unit: 2
   currency: Kyat
-  symbol: 
+  symbol:
 MUR:
   separators:
     major: ','
@@ -695,7 +695,7 @@ PHP:
   symbol: ₱
 ZAR:
   separators:
-    major: ' '
+    major: ','
     minor: '.'
   minor_unit: 2
   currency: Rand
@@ -718,14 +718,14 @@ BGN:
 IQD:
   minor_unit: 3
   currency: Iraqi Dinar
-  symbol: 
+  symbol:
 TMT:
   minor_unit: 2
   currency: Turkmenistan New Manat
-  symbol: 
+  symbol:
 UAH:
   separators:
-    major: ' '
+    major: '.'
     minor: ','
   minor_unit: 2
   currency: Hryvnia
@@ -739,11 +739,11 @@ VND:
 ZMK:
   minor_unit: 2
   currency: Zambian Kwacha
-  symbol: 
+  symbol:
 BOV:
   minor_unit: 2
   currency: Mvdol
-  symbol: 
+  symbol:
 HRK:
   separators:
     major: '.'
@@ -761,15 +761,15 @@ BHD:
     minor: '.'
   minor_unit: 3
   currency: Bahraini Dinar
-  symbol: 
+  symbol:
 CLF:
   minor_unit: 0
   currency: Unidades de fomento
-  symbol: 
+  symbol:
 RWF:
   minor_unit: 0
   currency: Rwanda Franc
-  symbol: 
+  symbol:
 MKD:
   separators:
     major: ','
@@ -779,7 +779,7 @@ MKD:
   symbol: ден
 AUD:
   separators:
-    major: ' '
+    major: ','
     minor: '.'
   minor_unit: 2
   currency: Australian Dollar
@@ -823,7 +823,7 @@ BDT:
     minor: '.'
   minor_unit: 2
   currency: Taka
-  symbol: 
+  symbol:
 NAD:
   minor_unit: 2
   currency: Namibia Dollar
@@ -835,14 +835,14 @@ AFN:
 MXV:
   minor_unit: 2
   currency: Mexican Unidad de Inversion (UDI)
-  symbol: 
+  symbol:
 CUC:
   separators:
     major: ','
     minor: '.'
   minor_unit: 2
-  currency: Peso Convertible
-  symbol: 
+  currency: Cuban Convertible Peso
+  symbol:
 PAB:
   minor_unit: 2
   currency: Balboa
@@ -858,7 +858,7 @@ SOS:
 CHW:
   minor_unit: 2
   currency: WIR Franc
-  symbol: 
+  symbol:
 CAD:
   separators:
     major: ','
@@ -898,11 +898,54 @@ SBD:
 GHS:
   minor_unit: 2
   currency: Ghana Cedi
-  symbol: 
+  symbol:
 KWD:
   separators:
     major: ','
     minor: '.'
   minor_unit: 3
   currency: Kuwaiti Dinar
-  symbol: 
+  symbol:
+BTC:
+  separators:
+    major: ','
+    minor: '.'
+  minor_unit: 2
+  currency: Bitcoin
+  symbol: B⃦
+EEK:
+  minor_unit: 2
+  currency: Estonian Kroon
+  symbol: kr
+XAG:
+  minor_unit: 2
+  currency: Silver
+  symbol: oz
+XAU:
+  minor_unit: 2
+  currency: Gold
+  symbol: oz
+XPT:
+  minor_unit: 2
+  currency: Platinum
+  symbol: oz
+XPD:
+  minor_unit: 2
+  currency: Palladium
+  symbol: oz
+GGP:
+  minor_unit: 2
+  currency: Guernsey Pound
+  symbol: £
+IMP:
+  minor_unit: 2
+  currency: Isle of Man Pound
+  symbol: £
+JEP:
+  minor_unit: 2
+  currency: Jersey Pound
+  symbol: £
+MTL:
+  minor_unit: 2
+  currency: Maltese Lira
+  symbol: Lm
