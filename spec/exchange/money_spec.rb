@@ -688,16 +688,16 @@ describe "Exchange::Money" do
 
       let(:comp1) { Exchange::Money.new(40.123, :usd) }
       let(:comp2) { Exchange::Money.new(40, :usd) }
-      let(:comp3) { Exchange::Money.new(50, :eur) }
+      let(:comp3) { Exchange::Money.new(50, :gbp) }
       let(:comp4) { Exchange::Money.new(45, :eur) }
 
       before(:each) do
-        stub_request(:get, test_url).to_return(body: fixture('api_responses/example_json_api.json'))
+        stub_request(:get, test_url).to_return(body: test_response)
       end
 
       it "should sort and by doing conversions" do
         expect([subject, comp1, comp2, comp3, comp4].sort).to eq([comp2, subject, comp1, comp4, comp3])
-        expect(a_request(:get, test_url)).to have_been_made.times(2)
+        expect(a_request(:get, test_url)).to have_been_made.times(3)
       end
 
       context "with implicit conversion turned off" do
