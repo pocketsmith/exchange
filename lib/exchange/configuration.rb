@@ -75,6 +75,7 @@ module Exchange
                   :api => {
                     :subclass => ExternalAPI::OpenExchangeRates,
                     :retries => 7,
+                    :timeout => 15,
                     :protocol => :http,
                     :app_id => nil,
                     :fallback => ExternalAPI::Ecb
