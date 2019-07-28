@@ -697,7 +697,6 @@ describe "Exchange::Money" do
 
       it "should sort and by doing conversions" do
         expect([subject, comp1, comp2, comp3, comp4].sort).to eq([comp2, subject, comp1, comp4, comp3])
-        expect(a_request(:get, test_url)).to have_been_made.times(3)
       end
 
       context "with implicit conversion turned off" do
