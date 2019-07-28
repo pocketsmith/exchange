@@ -20,9 +20,9 @@ version: 2
         command: |
           bundle exec rspec
     - save_cache:
-      key: v1-dep-{{ checksum "Gemfile.lock" }}
-      paths:
-        - ./vendor/bundle
+        key: v1-dep-{{ checksum "Gemfile.lock" }}
+        paths:
+          - ./vendor/bundle
   working_directory: ~/app
 
 jobs:
