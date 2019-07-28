@@ -1,0 +1,60 @@
+PATH
+  remote: .
+  specs:
+    exchange (1.3.0)
+      nokogiri (~> 1, >= 1.0.0)
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    addressable (2.6.0)
+      public_suffix (>= 2.0.2, < 4.0)
+    crack (0.4.3)
+      safe_yaml (~> 1.0.0)
+    dalli (2.7.10)
+    diff-lcs (1.3)
+    hashdiff (1.0.0)
+    json (1.8.6)
+    mini_portile2 (2.4.0)
+    nokogiri (1.10.3)
+      mini_portile2 (~> 2.4.0)
+    public_suffix (3.1.1)
+    redis (3.3.5)
+    rspec (3.8.0)
+      rspec-core (~> 3.8.0)
+      rspec-expectations (~> 3.8.0)
+      rspec-mocks (~> 3.8.0)
+    rspec-core (3.8.2)
+      rspec-support (~> 3.8.0)
+    rspec-expectations (3.8.4)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.8.0)
+    rspec-mocks (3.8.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.8.0)
+    rspec-support (3.8.2)
+    safe_yaml (1.0.5)
+    timecop (0.9.1)
+    webmock (3.6.0)
+      addressable (>= 2.3.6)
+      crack (>= 0.3.2)
+      hashdiff (>= 0.4.0, < 2.0.0)
+    yard (0.9.20)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  bundler (~> 1.3)
+  dalli (~> 2.6)
+  exchange!
+  json (~> 1, >= 1.0.0)
+  nokogiri (~> 1.6)
+  redis (~> 3.0)
+  rspec
+  timecop
+  webmock (~> 3.5)
+  yard (~> 0.8)
+
+BUNDLED WITH
+   1.17.3

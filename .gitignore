@@ -18,7 +18,9 @@ doc
 .bundle
 *.rdb
 
-Gemfile.lock
+# Current recommendation from https://bundler.io/v1.17/guides/faq.html is to
+# include the Gemfile.lock
+# Gemfile.lock
 
 # filestore
 exchange_filestore
@@ -26,7 +28,7 @@ exchange_filestore
 # jeweler generated
 pkg
 
-# Have editor/IDE/OS specific files you need to ignore? Consider using a global gitignore: 
+# Have editor/IDE/OS specific files you need to ignore? Consider using a global gitignore:
 #
 # * Create a file at ~/.gitignore
 # * Include files you want ignored
