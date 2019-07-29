@@ -24,7 +24,7 @@ version: 2
         command: |
           bundle exec rspec
     - save_cache:
-        key: v1-dep-{{ checksum "Gemfile.lock" }}
+        key: v1-dep-{{ checksum "Gemfile.lock" }}-{{ .Environment.CIRCLE_JOB }}
         paths:
           - ./vendor/bundle
   working_directory: ~/app
