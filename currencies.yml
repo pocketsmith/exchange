@@ -1286,7 +1286,7 @@ STD:
     :from_date: '1977-01-01'
     :to_date: '2018-04-01'
     :replaced_by: STN
-STD:
+STN:
   minor_unit: 2
   currency: Dobra
   symbol: Db
