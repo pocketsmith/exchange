@@ -1204,10 +1204,9 @@ EEK:
   symbol: kr
   tags:
   - :historical
-  history:
-    :from_date: '1992-01-01'
-    :to_date: '2010-01-01'
-    :replaced_by: EUR
+  :from_date: '1992-01-01'
+  :to_date: '2010-01-01'
+  :replaced_by: :eur
 XAG:
   minor_unit: 2
   currency: Silver
@@ -1256,20 +1255,18 @@ MTL:
   symbol: Lm
   tags:
   - :historical
-  history:
-    :from_date: '1972-01-01'
-    :to_date: '2006-01-01'
-    :replaced_by: EUR
+  :from_date: '1972-01-01'
+  :to_date: '2006-01-01'
+  :replaced_by: :eur
 BYR:
   minor_unit: 0
   currency: Belarussian Ruble
   symbol: p.
   tags:
   - :historical
-  history:
-    :from_date: '2000-01-01'
-    :to_date: '2016-06-30'
-    :replaced_by: BYN
+  :from_date: '2000-01-01'
+  :to_date: '2016-06-30'
+  :replaced_by: :byn
 BYN:
   minor_unit: 2
   currency: Belarusian Ruble
@@ -1282,10 +1279,9 @@ STD:
   symbol:
   tags:
   - :historical
-  history:
-    :from_date: '1977-01-01'
-    :to_date: '2018-04-01'
-    :replaced_by: STN
+  :from_date: '1977-01-01'
+  :to_date: '2018-04-01'
+  :replaced_by: :stn
 STN:
   minor_unit: 2
   currency: Dobra
@@ -1301,10 +1297,9 @@ LVL:
   symbol: Ls
   tags:
   - :historical
-  history:
-    :from_date: '1992-01-01'
-    :to_date: '2013-01-01'
-    :replaced_by: EUR
+  :from_date: '1992-01-01'
+  :to_date: '2013-01-01'
+  :replaced_by: :eur
 USS:
   minor_unit: 2
   currency: US Dollar (Same day)
@@ -1312,20 +1307,18 @@ USS:
   tags:
   tags:
   - :historical
-  history:
-    :from_date:
-    :to_date: '2014-03-28'
-    :replaced_by:
+  :from_date:
+  :to_date: '2014-03-28'
+  :replaced_by:
 MRO:
   minor_unit: 2
   currency: Ouguiya
   symbol:
   tags:
   - :historical
-  history:
-    :from_date: '1973-06-29'
-    :to_date: '2018-01-01'
-    :replaced_by: MRU
+  :from_date: '1973-06-29'
+  :to_date: '2018-01-01'
+  :replaced_by: :mru
 MRU:
   minor_unit: 2
   currency: Ouguiya
@@ -1341,10 +1334,9 @@ VEF:
   symbol: Bs
   tags:
   - :historical
-  history:
-    :from_date:
-    :to_date: '2018-08-20'
-    :replaced_by: VES
+  :from_date:
+  :to_date: '2018-08-20'
+  :replaced_by: :ves
 VES:
   separators:
     major: "."
@@ -1363,20 +1355,18 @@ LTL:
   symbol: Lt
   tags:
   - :historical
-  history:
-    :from_date: '1993-01-01'
-    :to_date: '2015-01-01'
-    :replaced_by: EUR
+  :from_date: '1993-01-01'
+  :to_date: '2015-01-01'
+  :replaced_by: :eur
 ZMK:
   minor_unit: 2
   currency: Zambian Kwacha
   symbol:
   tags:
   - :historical
-  history:
-    :from_date: '1968-01-16'
-    :to_date: '2013-01-01'
-    :replaced_by: ZMW
+  :from_date: '1968-01-16'
+  :to_date: '2013-01-01'
+  :replaced_by: :zmw
 ZMW:
   minor_unit: 2
   currency: Zambian Kwacha
