@@ -3,949 +3,1383 @@ NIO:
   minor_unit: 2
   currency: Cordoba Oro
   symbol: C$
+  tags:
+  - :iso4217
 LAK:
   minor_unit: 2
   currency: Kip
-  symbol: ₭
+  symbol: "₭"
+  tags:
+  - :iso4217
 SAR:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Saudi Riyal
-  symbol: ﷼
+  symbol: "﷼"
+  tags:
+  - :iso4217
 NOK:
   separators:
-    major: '.'
-    minor: ','
+    major: "."
+    minor: ","
   minor_unit: 2
   currency: Norwegian Krone
   symbol: kr
+  tags:
+  - :iso4217
 USD:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: US Dollar
-  symbol: $
+  symbol: "$"
+  tags:
+  - :iso4217
 RUB:
   separators:
-    major: '.'
-    minor: ','
+    major: "."
+    minor: ","
   minor_unit: 2
   currency: Russian Ruble
-  symbol: руб
+  symbol: "руб"
+  tags:
+  - :iso4217
 XCD:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: East Caribbean Dollar
-  symbol: $
+  symbol: "$"
+  tags:
+  - :iso4217
 OMR:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 3
   currency: Rial Omani
-  symbol: ﷼
+  symbol: "﷼"
+  tags:
+  - :iso4217
 AMD:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Armenian Dram
   symbol:
+  tags:
+  - :iso4217
 CDF:
   minor_unit: 2
   currency: Congolese Franc
   symbol:
+  tags:
+  - :iso4217
 KPW:
   minor_unit: 2
   currency: North Korean Won
-  symbol: ₩
+  symbol: "₩"
+  tags:
+  - :iso4217
 CNY:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Yuan Renminbi
-  symbol: ¥
+  symbol: "¥"
+  tags:
+  - :iso4217
 KES:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Kenyan Shilling
   symbol:
+  tags:
+  - :iso4217
 KHR:
   minor_unit: 2
   currency: Riel
-  symbol: ៛
+  symbol: "៛"
+  tags:
+  - :iso4217
 PLN:
   separators:
-    major: '.'
-    minor: ','
+    major: "."
+    minor: ","
   minor_unit: 2
   currency: Zloty
   symbol: zł
+  tags:
+  - :iso4217
 MVR:
   minor_unit: 2
   currency: Rufiyaa
   symbol:
+  tags:
+  - :iso4217
 GTQ:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Quetzal
   symbol: Q
+  tags:
+  - :iso4217
 CLP:
   separators:
-    major: '.'
+    major: "."
   minor_unit: 0
   currency: Chilean Peso
-  symbol: $
+  symbol: "$"
+  tags:
+  - :iso4217
 INR:
   separators:
-    major: ','
-    minor: '.'
-  format: ! '#,##,###.##'
+    major: ","
+    minor: "."
+  format: "#,##,###.##"
   minor_unit: 2
   currency: Indian Rupee
   symbol: ''
+  tags:
+  - :iso4217
 BZD:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Belize Dollar
   symbol: BZ$
+  tags:
+  - :iso4217
 MYR:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Malaysian Ringgit
   symbol: RM
+  tags:
+  - :iso4217
 HKD:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Hong Kong Dollar
-  symbol: $
+  symbol: "$"
+  tags:
+  - :iso4217
 COP:
   separators:
-    major: '.'
-    minor: ','
+    major: "."
+    minor: ","
   minor_unit: 2
   currency: Colombian Peso
-  symbol: $
+  symbol: "$"
+  tags:
+  - :iso4217
 DKK:
   separators:
-    major: '.'
-    minor: ','
+    major: "."
+    minor: ","
   minor_unit: 2
   currency: Danish Krone
   symbol: kr
+  tags:
+  - :iso4217
 SEK:
   separators:
-    major: '.'
-    minor: ','
+    major: "."
+    minor: ","
   minor_unit: 2
   currency: Swedish Krona
   symbol: kr
-BYR:
-  minor_unit: 0
-  currency: Belarussian Ruble
-  symbol: p.
+  tags:
+  - :iso4217
+BYR: &1
+  minor_unit: 2
+  currency: Belarusian Ruble
+  symbol: Br
+  tags: :iso4217
 LYD:
   minor_unit: 3
   currency: Libyan Dinar
   symbol:
+  tags:
+  - :iso4217
 RON:
   separators:
-    major: '.'
-    minor: ','
+    major: "."
+    minor: ","
   minor_unit: 2
   currency: New Romanian Leu
   symbol: lei
+  tags:
+  - :iso4217
 DZD:
   minor_unit: 2
   currency: Algerian Dinar
   symbol:
+  tags:
+  - :iso4217
 BIF:
   minor_unit: 0
   currency: Burundi Franc
   symbol:
+  tags:
+  - :iso4217
 ARS:
   separators:
-    major: '.'
-    minor: ','
+    major: "."
+    minor: ","
   minor_unit: 2
   currency: Argentine Peso
-  symbol: $
+  symbol: "$"
+  tags:
+  - :iso4217
 GIP:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Gibraltar Pound
-  symbol: £
+  symbol: "£"
+  tags:
+  - :iso4217
 UYI:
   minor_unit: 0
   currency: Uruguay Peso en Unidades Indexadas (URUIURUI)
   symbol:
+  tags:
+  - :iso4217
 BOB:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Boliviano
-  symbol: $b
+  symbol: "$b"
+  tags:
+  - :iso4217
 SSP:
   minor_unit: 2
   currency: South Sudanese Pound
   symbol:
+  tags:
+  - :iso4217
 NGN:
   minor_unit: 2
   currency: Naira
-  symbol: ₦
+  symbol: "₦"
+  tags:
+  - :iso4217
 PGK:
   minor_unit: 2
   currency: Kina
   symbol:
-STD:
-  minor_unit: 2
-  currency: Dobra
-  symbol:
+  tags:
+  - :iso4217
 XOF:
   minor_unit: 0
   currency: CFA Franc BCEAO
   symbol:
+  tags:
+  - :iso4217
 AED:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: UAE Dirham
   symbol:
+  tags:
+  - :iso4217
 ERN:
   minor_unit: 2
   currency: Nakfa
   symbol:
+  tags:
+  - :iso4217
 MWK:
   minor_unit: 2
   currency: Kwacha
   symbol:
+  tags:
+  - :iso4217
 CUP:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Cuban Peso
-  symbol: ₱
+  symbol: "₱"
+  tags:
+  - :iso4217
 USN:
   minor_unit: 2
   currency: US Dollar (Next day)
   symbol:
+  tags:
+  - :iso4217
 GMD:
   minor_unit: 2
   currency: Dalasi
   symbol:
+  tags:
+  - :iso4217
 CVE:
   minor_unit: 2
   currency: Cape Verde Escudo
   symbol:
+  tags:
+  - :iso4217
 TZS:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Tanzanian Shilling
   symbol:
+  tags:
+  - :iso4217
 COU:
   minor_unit: 2
   currency: Unidad de Valor Real
   symbol:
+  tags:
+  - :iso4217
 BTN:
   minor_unit: 2
   currency: Ngultrum
   symbol:
+  tags:
+  - :iso4217
 ZWL:
   minor_unit: 2
   currency: Zimbabwe Dollar
   symbol:
+  tags:
+  - :iso4217
 UGX:
   minor_unit: 2
   currency: Uganda Shilling
   symbol:
+  tags:
+  - :iso4217
 SYP:
   minor_unit: 2
   currency: Syrian Pound
-  symbol: £
+  symbol: "£"
+  tags:
+  - :iso4217
 MAD:
   minor_unit: 2
   currency: Moroccan Dirham
   symbol:
+  tags:
+  - :iso4217
 MNT:
   minor_unit: 2
   currency: Tugrik
-  symbol: ₮
+  symbol: "₮"
+  tags:
+  - :iso4217
 LSL:
   minor_unit: 2
   currency: Loti
   symbol:
+  tags:
+  - :iso4217
 XAF:
   minor_unit: 0
   currency: CFA Franc BEAC
   symbol:
+  tags:
+  - :iso4217
 SHP:
   minor_unit: 2
   currency: Saint Helena Pound
-  symbol: £
+  symbol: "£"
+  tags:
+  - :iso4217
 HTG:
   minor_unit: 2
   currency: Gourde
   symbol:
+  tags:
+  - :iso4217
 RSD:
   minor_unit: 2
   currency: Serbian Dinar
-  symbol: Дин.
+  symbol: "Дин."
+  tags:
+  - :iso4217
 MGA:
   minor_unit: 2
   currency: Malagasy Ariary
   symbol:
+  tags:
+  - :iso4217
 TOP:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Pa’anga
   symbol:
+  tags:
+  - :iso4217
 MZN:
   minor_unit: 2
   currency: Mozambique Metical
   symbol: MT
-LVL:
-  separators:
-    major: ','
-    minor: '.'
-  minor_unit: 2
-  currency: Latvian Lats
-  symbol: Ls
+  tags:
+  - :iso4217
 FKP:
   minor_unit: 2
   currency: Falkland Islands Pound
-  symbol: £
-USS:
-  minor_unit: 2
-  currency: US Dollar (Same day)
-  symbol:
+  symbol: "£"
+  tags:
+  - :iso4217
 BWP:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Pula
   symbol: P
+  tags:
+  - :iso4217
 HNL:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Lempira
   symbol: L
+  tags:
+  - :iso4217
 EUR:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Euro
-  symbol: €
+  symbol: "€"
+  tags:
+  - :iso4217
 EGP:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Egyptian Pound
-  symbol: £
+  symbol: "£"
+  tags:
+  - :iso4217
 CHF:
   separators:
     major: "'"
-    minor: '.'
+    minor: "."
   minor_unit: 2
   currency: Swiss Franc
+  tags:
+  - :iso4217
 ILS:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: New Israeli Sheqel
-  symbol: ₪
+  symbol: "₪"
+  tags:
+  - :iso4217
 PYG:
   minor_unit: 0
   currency: Guarani
   symbol: Gs
+  tags:
+  - :iso4217
 LBP:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Lebanese Pound
-  symbol: £
+  symbol: "£"
+  tags:
+  - :iso4217
 ANG:
   separators:
-    major: '.'
-    minor: ','
+    major: "."
+    minor: ","
   minor_unit: 2
   currency: Netherlands Antillean Guilder
-  symbol: ƒ
+  symbol: "ƒ"
+  tags:
+  - :iso4217
 KZT:
   minor_unit: 2
   currency: Tenge
-  symbol: ₸
+  symbol: "₸"
+  tags:
+  - :iso4217
 GYD:
   minor_unit: 2
   currency: Guyana Dollar
-  symbol: $
+  symbol: "$"
+  tags:
+  - :iso4217
 WST:
   minor_unit: 2
   currency: Tala
   symbol:
+  tags:
+  - :iso4217
 NPR:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Nepalese Rupee
-  symbol: ₨
+  symbol: "₨"
+  tags:
+  - :iso4217
 KMF:
   minor_unit: 0
   currency: Comoro Franc
   symbol:
+  tags:
+  - :iso4217
 THB:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Baht
-  symbol: ฿
+  symbol: "฿"
+  tags:
+  - :iso4217
 IRR:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Iranian Rial
-  symbol: ﷼
+  symbol: "﷼"
+  tags:
+  - :iso4217
 SRD:
   minor_unit: 2
   currency: Surinam Dollar
-  symbol: $
+  symbol: "$"
+  tags:
+  - :iso4217
 JPY:
   separators:
-    major: ','
+    major: ","
   minor_unit: 0
   currency: Yen
-  symbol: ¥
+  symbol: "¥"
+  tags:
+  - :iso4217
 BRL:
   separators:
-    major: '.'
-    minor: ','
+    major: "."
+    minor: ","
   minor_unit: 2
   currency: Brazilian Real
   symbol: R$
+  tags:
+  - :iso4217
 UYU:
   separators:
-    major: '.'
-    minor: ','
+    major: "."
+    minor: ","
   minor_unit: 2
   currency: Peso Uruguayo
-  symbol: $U
+  symbol: "$U"
+  tags:
+  - :iso4217
 MOP:
   minor_unit: 2
   currency: Pataca
   symbol:
+  tags:
+  - :iso4217
 BMD:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Bermudian Dollar
-  symbol: $
+  symbol: "$"
+  tags:
+  - :iso4217
 SZL:
   separators:
-    major: ', '
-    minor: '.'
+    major: ", "
+    minor: "."
   minor_unit: 2
   currency: Lilangeni
   symbol:
+  tags:
+  - :iso4217
 ETB:
   minor_unit: 2
   currency: Ethiopian Birr
   symbol:
+  tags:
+  - :iso4217
 JOD:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 3
   currency: Jordanian Dinar
   symbol:
+  tags:
+  - :iso4217
 IDR:
   separators:
-    major: '.'
-    minor: ','
+    major: "."
+    minor: ","
   minor_unit: 2
   currency: Rupiah
   symbol: Rp
+  tags:
+  - :iso4217
 MDL:
   minor_unit: 2
   currency: Moldovan Leu
   symbol:
+  tags:
+  - :iso4217
 XPF:
   minor_unit: 0
   currency: CFP Franc
   symbol:
-MRO:
-  minor_unit: 2
-  currency: Ouguiya
-  symbol:
+  tags:
+  - :iso4217
 YER:
   minor_unit: 2
   currency: Yemeni Rial
-  symbol: ﷼
+  symbol: "﷼"
+  tags:
+  - :iso4217
 BAM:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Convertible Mark
   symbol: KM
+  tags:
+  - :iso4217
 AWG:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Aruban Florin
-  symbol: ƒ
+  symbol: "ƒ"
+  tags:
+  - :iso4217
 NZD:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: New Zealand Dollar
-  symbol: $
+  symbol: "$"
+  tags:
+  - :iso4217
 PEN:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Nuevo Sol
   symbol: S/.
+  tags:
+  - :iso4217
 AOA:
   minor_unit: 2
   currency: Kwanza
   symbol:
+  tags:
+  - :iso4217
 KYD:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Cayman Islands Dollar
-  symbol: $
+  symbol: "$"
+  tags:
+  - :iso4217
 SLL:
   minor_unit: 2
   currency: Leone
   symbol:
+  tags:
+  - :iso4217
 TRY:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Turkish Lira
   symbol: ''
-VEF:
-  separators:
-    major: '.'
-    minor: ','
-  minor_unit: 2
-  currency: Bolivar Fuerte
-  symbol: Bs
+  tags:
+  - :iso4217
 ISK:
-  format: ! '#.###'
+  format: "#.###"
   minor_unit: 0
   currency: Iceland Krona
   symbol: kr
+  tags:
+  - :iso4217
 GNF:
   minor_unit: 0
   currency: Guinea Franc
   symbol:
+  tags:
+  - :iso4217
 BSD:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Bahamian Dollar
-  symbol: $
+  symbol: "$"
+  tags:
+  - :iso4217
 DJF:
   minor_unit: 0
   currency: Djibouti Franc
   symbol:
+  tags:
+  - :iso4217
 HUF:
   separators:
-    major: '.'
-    minor: '.'
+    major: "."
+    minor: "."
   minor_unit: 2
   currency: Forint
   symbol: Ft
-LTL:
-  separators:
-    major: '.'
-    minor: ','
-  minor_unit: 2
-  currency: Lithuanian Litas
-  symbol: Lt
+  tags:
+  - :iso4217
 MXN:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Mexican Peso
-  symbol: $
+  symbol: "$"
+  tags:
+  - :iso4217
 SCR:
   minor_unit: 2
   currency: Seychelles Rupee
-  symbol: ₨
+  symbol: "₨"
+  tags:
+  - :iso4217
 SGD:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Singapore Dollar
-  symbol: $
+  symbol: "$"
+  tags:
+  - :iso4217
 LKR:
   minor_unit: 2
   currency: Sri Lanka Rupee
-  symbol: ₨
+  symbol: "₨"
+  tags:
+  - :iso4217
 TJS:
   minor_unit: 2
   currency: Somoni
   symbol:
+  tags:
+  - :iso4217
 TND:
   minor_unit: 3
   currency: Tunisian Dinar
   symbol:
+  tags:
+  - :iso4217
 DOP:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Dominican Peso
   symbol: RD$
+  tags:
+  - :iso4217
 FJD:
   minor_unit: 2
   currency: Fiji Dollar
-  symbol: $
+  symbol: "$"
+  tags:
+  - :iso4217
 GEL:
   minor_unit: 2
   currency: Lari
   symbol:
+  tags:
+  - :iso4217
 SDG:
   minor_unit: 2
   currency: Sudanese Pound
   symbol:
+  tags:
+  - :iso4217
 VUV:
   separators:
-    major: ','
+    major: ","
   minor_unit: 0
   currency: Vatu
   symbol:
+  tags:
+  - :iso4217
 BBD:
   minor_unit: 2
   currency: Barbados Dollar
-  symbol: $
+  symbol: "$"
+  tags:
+  - :iso4217
 LRD:
   minor_unit: 2
   currency: Liberian Dollar
-  symbol: $
+  symbol: "$"
+  tags:
+  - :iso4217
 KRW:
   separators:
-    major: ','
+    major: ","
   minor_unit: 0
   currency: Won
-  symbol: ₩
+  symbol: "₩"
+  tags:
+  - :iso4217
 MMK:
   minor_unit: 2
   currency: Kyat
   symbol:
+  tags:
+  - :iso4217
 MUR:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Mauritius Rupee
-  symbol: ₨
+  symbol: "₨"
+  tags:
+  - :iso4217
 PHP:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Philippine Peso
-  symbol: ₱
+  symbol: "₱"
+  tags:
+  - :iso4217
 ZAR:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Rand
   symbol: R
+  tags:
+  - :iso4217
 KGS:
   minor_unit: 2
   currency: Som
-  symbol: лв
+  symbol: "лв"
+  tags:
+  - :iso4217
 GBP:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Pound Sterling
-  symbol: £
+  symbol: "£"
+  tags:
+  - :iso4217
 BGN:
   minor_unit: 2
   currency: Bulgarian Lev
-  symbol: лв
+  symbol: "лв"
+  tags:
+  - :iso4217
 IQD:
   minor_unit: 3
   currency: Iraqi Dinar
   symbol:
+  tags:
+  - :iso4217
 TMT:
   minor_unit: 2
   currency: Turkmenistan New Manat
   symbol:
+  tags:
+  - :iso4217
 UAH:
   separators:
-    major: '.'
-    minor: ','
+    major: "."
+    minor: ","
   minor_unit: 2
   currency: Hryvnia
-  symbol: ₴
+  symbol: "₴"
+  tags:
+  - :iso4217
 VND:
   separators:
-    major: '.'
+    major: "."
   minor_unit: 0
   currency: Dong
-  symbol: ₫
-ZMK:
-  minor_unit: 2
-  currency: Zambian Kwacha
-  symbol:
+  symbol: "₫"
+  tags:
+  - :iso4217
 BOV:
   minor_unit: 2
   currency: Mvdol
   symbol:
+  tags:
+  - :iso4217
 HRK:
   separators:
-    major: '.'
-    minor: ','
+    major: "."
+    minor: ","
   minor_unit: 2
   currency: Croatian Kuna
   symbol: kn
+  tags:
+  - :iso4217
 TTD:
   minor_unit: 2
   currency: Trinidad and Tobago Dollar
   symbol: TT$
+  tags:
+  - :iso4217
 BHD:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 3
   currency: Bahraini Dinar
   symbol:
+  tags:
+  - :iso4217
 CLF:
   minor_unit: 0
   currency: Unidades de fomento
   symbol:
+  tags:
+  - :iso4217
 RWF:
   minor_unit: 0
   currency: Rwanda Franc
   symbol:
+  tags:
+  - :iso4217
 MKD:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Denar
-  symbol: ден
+  symbol: "ден"
+  tags:
+  - :iso4217
 AUD:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Australian Dollar
-  symbol: $
+  symbol: "$"
+  tags:
+  - :iso4217
 CRC:
   separators:
-    major: '.'
-    minor: ','
+    major: "."
+    minor: ","
   minor_unit: 2
   currency: Costa Rican Colon
-  symbol: ₡
+  symbol: "₡"
+  tags:
+  - :iso4217
 PKR:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Pakistan Rupee
-  symbol: ₨
+  symbol: "₨"
+  tags:
+  - :iso4217
 TWD:
   minor_unit: 2
   currency: New Taiwan Dollar
   symbol: NT$
+  tags:
+  - :iso4217
 UZS:
   minor_unit: 2
   currency: Uzbekistan Sum
-  symbol: лв
+  symbol: "лв"
+  tags:
+  - :iso4217
 CZK:
   separators:
-    major: '.'
-    minor: ','
+    major: "."
+    minor: ","
   minor_unit: 2
   currency: Czech Koruna
   symbol: Kč
+  tags:
+  - :iso4217
 AZN:
   minor_unit: 2
   currency: Azerbaijanian Manat
-  symbol: ман
+  symbol: "ман"
+  tags:
+  - :iso4217
 BDT:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Taka
   symbol:
+  tags:
+  - :iso4217
 NAD:
   minor_unit: 2
   currency: Namibia Dollar
-  symbol: $
+  symbol: "$"
+  tags:
+  - :iso4217
 AFN:
   minor_unit: 2
   currency: Afghani
-  symbol: ؋
+  symbol: "؋"
+  tags:
+  - :iso4217
 MXV:
   minor_unit: 2
   currency: Mexican Unidad de Inversion (UDI)
   symbol:
+  tags:
+  - :iso4217
 CUC:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Cuban Convertible Peso
   symbol:
+  tags:
+  - :iso4217
 PAB:
   minor_unit: 2
   currency: Balboa
   symbol: B/.
+  tags:
+  - :iso4217
 QAR:
   minor_unit: 2
   currency: Qatari Rial
-  symbol: ﷼
+  symbol: "﷼"
+  tags:
+  - :iso4217
 SOS:
   minor_unit: 2
   currency: Somali Shilling
   symbol: S
+  tags:
+  - :iso4217
 CHW:
   minor_unit: 2
   currency: WIR Franc
   symbol:
+  tags:
+  - :iso4217
 CAD:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Canadian Dollar
-  symbol: $
+  symbol: "$"
+  tags:
+  - :iso4217
 JMD:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Jamaican Dollar
   symbol: J$
+  tags:
+  - :iso4217
 BND:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Brunei Dollar
-  symbol: $
+  symbol: "$"
+  tags:
+  - :iso4217
 ALL:
   minor_unit: 2
   currency: Lek
   symbol: Lek
+  tags:
+  - :iso4217
 SVC:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: El Salvador Colon
-  symbol: $
+  symbol: "$"
+  tags:
+  - :iso4217
 SBD:
   minor_unit: 2
   currency: Solomon Islands Dollar
-  symbol: $
+  symbol: "$"
+  tags:
+  - :iso4217
 GHS:
   minor_unit: 2
   currency: Ghana Cedi
   symbol:
+  tags:
+  - :iso4217
 KWD:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 3
   currency: Kuwaiti Dinar
   symbol:
+  tags:
+  - :iso4217
 BTC:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Bitcoin
   symbol: B⃦
+  tags:
+  - :crypto
+  - :noniso
 EEK:
   minor_unit: 2
   currency: Estonian Kroon
   symbol: kr
+  tags:
+  - :historical
+  history:
+    :from_date: '1992-01-01'
+    :to_date: '2010-01-01'
+    :replaced_by: EUR
 XAG:
   minor_unit: 2
   currency: Silver
   symbol: oz
+  tags:
+  - :iso4217
 XAU:
   minor_unit: 2
   currency: Gold
   symbol: oz
+  tags:
+  - :iso4217
 XPT:
   minor_unit: 2
   currency: Platinum
   symbol: oz
+  tags:
+  - :iso4217
 XPD:
   minor_unit: 2
   currency: Palladium
   symbol: oz
+  tags:
+  - :iso4217
 GGP:
   minor_unit: 2
   currency: Guernsey Pound
-  symbol: £
+  symbol: "£"
+  tags:
+  - :noniso
 IMP:
   minor_unit: 2
   currency: Isle of Man Pound
-  symbol: £
+  symbol: "£"
+  tags:
+  - :noniso
 JEP:
   minor_unit: 2
   currency: Jersey Pound
-  symbol: £
+  symbol: "£"
+  tags:
+  - :noniso
 MTL:
   minor_unit: 2
   currency: Maltese Lira
   symbol: Lm
+  tags:
+  - :historical
+  history:
+    :from_date: '1972-01-01'
+    :to_date: '2006-01-01'
+    :replaced_by: EUR
+BYR:
+  minor_unit: 0
+  currency: Belarussian Ruble
+  symbol: p.
+  tags:
+  - :historical
+  history:
+    :from_date: '2000-01-01'
+    :to_date: '2016-06-30'
+    :replaced_by: BYN
+BYN:
+  minor_unit: 2
+  currency: Belarusian Ruble
+  symbol: Br
+  tags:
+  - :iso4217
+STD:
+  minor_unit: 2
+  currency: Dobra
+  symbol:
+  tags:
+  - :historical
+  history:
+    :from_date: '1977-01-01'
+    :to_date: '2018-04-01'
+    :replaced_by: STN
+STD:
+  minor_unit: 2
+  currency: Dobra
+  symbol: Db
+  tags:
+  - :iso4217
+LVL:
+  separators:
+    major: ","
+    minor: "."
+  minor_unit: 2
+  currency: Latvian Lats
+  symbol: Ls
+  tags:
+  - :historical
+  history:
+    :from_date: '1992-01-01'
+    :to_date: '2013-01-01'
+    :replaced_by: EUR
+USS:
+  minor_unit: 2
+  currency: US Dollar (Same day)
+  symbol:
+  tags:
+  tags:
+  - :historical
+  history:
+    :from_date:
+    :to_date: '2014-03-28'
+    :replaced_by:
+MRO:
+  minor_unit: 2
+  currency: Ouguiya
+  symbol:
+  tags:
+  - :historical
+  history:
+    :from_date: '1973-06-29'
+    :to_date: '2018-01-01'
+    :replaced_by: MRU
+MRU:
+  minor_unit: 2
+  currency: Ouguiya
+  symbol: UM
+  tags:
+  - :iso4217
+VEF:
+  separators:
+    major: "."
+    minor: ","
+  minor_unit: 2
+  currency: Bolivar Fuerte
+  symbol: Bs
+  tags:
+  - :historical
+  history:
+    :from_date:
+    :to_date: '2018-08-20'
+    :replaced_by: VES
+VES:
+  separators:
+    major: "."
+    minor: ","
+  minor_unit: 2
+  currency: Bolivar Fuerte
+  symbol: Bs
+  tags:
+  - :iso4217
+LTL:
+  separators:
+    major: "."
+    minor: ","
+  minor_unit: 2
+  currency: Lithuanian Litas
+  symbol: Lt
+  tags:
+  - :historical
+  history:
+    :from_date: '1993-01-01'
+    :to_date: '2015-01-01'
+    :replaced_by: EUR
+ZMK:
+  minor_unit: 2
+  currency: Zambian Kwacha
+  symbol:
+  tags:
+  - :historical
+  history:
+    :from_date: '1968-01-16'
+    :to_date: '2013-01-01'
+    :replaced_by: ZMW
+ZMW:
+  minor_unit: 2
+  currency: Zambian Kwacha
+  symbol: K
+  tags:
+  - :iso4217

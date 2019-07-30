@@ -102,7 +102,6 @@ module Exchange
         raise if offset >= 5 # Max range (5 days)
         offset += 1 # Increment offset
         opts[:at] = opts[:at] - (3600 * 24 * offset) # New time
-        puts "Retrying"
         retry
       end
     end

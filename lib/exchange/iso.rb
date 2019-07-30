@@ -4,8 +4,8 @@ require 'forwardable'
 require 'yaml'
 
 module Exchange
-  
-  # This class handles everything that has to do with certified formatting of the different currencies. The standard is stored in 
+
+  # This class handles everything that has to do with certified formatting of the different currencies. The standard is stored in
   # the iso4217 YAML file.
   # @version 0.6
   # @since 0.3
@@ -14,13 +14,13 @@ module Exchange
   class ISO
     include Singleton
     extend SingleForwardable
-    
+
     class << self
-      
+
       private
         # @private
         # @macro [attach] install_operations
-      
+
         def install_operation op
           self.class_eval <<-EOV
             def #{op} amount, currency, precision=nil, opts={}
@@ -36,32 +36,36 @@ module Exchange
             end
           EOV
         end
-    
+
     end
-          
+
     # The ISO 4217 that have to be loaded. Use this method to get to the definitions
     # They are static, so they can be stored in a class variable without many worries
     # @return [Hash] The iso4217 Definitions with the currency code as keys
     #
     def definitions
-      @definitions ||= symbolize_keys(YAML.load_file(File.join(ROOT_PATH, 'iso4217.yml')))
+      @definitions ||= symbolize_keys(
+        YAML.load_file(File.join(ROOT_PATH, 'currencies.yml'))
+      )
     end
-    
+
     # A map of country abbreviations to currency codes. Makes an instantiation of currency codes via a country code
     # possible
     # @return [Hash] The ISO3166 (1 and 2) country codes matched to a currency
     #
     def country_map
-      @country_map ||= symbolize_keys(YAML.load_file(File.join(ROOT_PATH, 'iso4217_country_map.yml')))
+      @country_map ||= symbolize_keys(
+        YAML.load_file(File.join(ROOT_PATH, 'currency_country_map.yml'))
+      )
     end
-    
+
     # All currencies defined by ISO 4217 as an array of symbols for inclusion testing
     # @return [Array] An Array of currency symbols
     #
     def currencies
       @currencies  ||= definitions.keys.sort_by(&:to_s)
     end
-    
+
     # Check if a currency is defined by ISO 4217 standards
     # @param [Symbol] currency the downcased currency symbol
     # @return [Boolean] true if the symbol matches a currency, false if not
@@ -69,7 +73,7 @@ module Exchange
     def defines? currency
       currencies.include?(country_map[currency] ? country_map[currency] : currency)
     end
-    
+
     # Asserts a given argument is a currency. Tries to match with a country code if the argument is not a currency
     # @param [Symbol, String] arg The argument to assert
     # @return [Symbol] The matching currency as a symbol
@@ -77,7 +81,7 @@ module Exchange
     def assert_currency! arg
       defines?(arg) ? (country_map[arg] || arg) : raise(Exchange::NoCurrencyError.new("#{arg} is not a currency nor a country code matchable to a currency"))
     end
-    
+
     # Use this to instantiate a currency amount. For one, it is important that we use BigDecimal here so nothing gets lost because
     # of floating point errors. For the other, This allows us to set the precision exactly according to the iso definition
     # @param [BigDecimal, Fixed, Float, String] amount The amount of money you want to instantiate
@@ -94,7 +98,7 @@ module Exchange
         BigDecimal.new(amount.to_s, precision_for(amount, currency))
       end
     end
-    
+
     # Converts the currency to a string in ISO 4217 standardized format, either with or without the currency. This leaves you
     # with no worries how to display the currency.
     # @param [BigDecimal, Fixed, Float] amount The amount of currency you want to stringify
@@ -119,67 +123,67 @@ module Exchange
       major, minor  = string.split('.')
 
       major.gsub!(/(\d)(?=(\d\d\d)+(?!\d))/) { $1 + separators[:major] } if separators[:major] && opts[:format] != :plain
-      
+
       string      = minor ? major + (opts[:format] == :plain || !separators[:minor] ? '.' : separators[:minor]) + minor : major
       pre         = [[:amount, :plain].include?(opts[:format]) && '', opts[:format] == :symbol && definition[:symbol], currency.to_s.upcase + ' '].detect{|a| a.is_a?(String)}
-      
+
       "#{pre}#{string}"
     end
-    
+
     # Returns the symbol for a given currency. Returns nil if no symbol is present
     # @param currency The currency to return the symbol for
     # @return [String, NilClass] The symbol or nil
-    # 
+    #
     def symbol currency
       definitions[currency][:symbol]
     end
-    
-    # Use this to round a currency amount. This allows us to round exactly to the number of minors the currency has in the 
+
+    # Use this to round a currency amount. This allows us to round exactly to the number of minors the currency has in the
     # iso definition
     # @param [BigDecimal, Fixed, Float, String] amount The amount of money you want to round
     # @param [String, Symbol] currency The currency you want to round the money in
     # @example Round a currency with 2 minors
     #   Exchange::ISO.round("4523.456", "usd") #=> #<Bigdecimal 4523.46>
-    
+
     install_operation :round
-    
-    # Use this to ceil a currency amount. This allows us to ceil exactly to the number of minors the currency has in the 
+
+    # Use this to ceil a currency amount. This allows us to ceil exactly to the number of minors the currency has in the
     # iso definition
     # @param [BigDecimal, Fixed, Float, String] amount The amount of money you want to ceil
     # @param [String, Symbol] currency The currency you want to ceil the money in
     # @example Ceil a currency with 2 minors
     #   Exchange::ISO.ceil("4523.456", "usd") #=> #<Bigdecimal 4523.46>
-    
+
     install_operation :ceil
-    
-    # Use this to floor a currency amount. This allows us to floor exactly to the number of minors the currency has in the 
+
+    # Use this to floor a currency amount. This allows us to floor exactly to the number of minors the currency has in the
     # iso definition
     # @param [BigDecimal, Fixed, Float, String] amount The amount of money you want to floor
     # @param [String, Symbol] currency The currency you want to floor the money in
     # @example Floor a currency with 2 minors
     #   Exchange::ISO.floor("4523.456", "usd") #=> #<Bigdecimal 4523.46>
-    
+
     install_operation :floor
-    
+
     # Forwards the assure_time method to the instance using singleforwardable
     #
     def_delegators :instance, :definitions, :instantiate, :stringify, :symbol, :round, :ceil, :floor, :currencies, :country_map, :defines?, :assert_currency!
-    
+
     private
-    
+
     # symbolizes keys and returns a new hash
     #
     def symbolize_keys hsh
       new_hsh = Hash.new
-      
+
       hsh.each_pair do |k,v|
         v = symbolize_keys v if v.is_a?(Hash)
         new_hsh[k.downcase.to_sym] = v
       end
-      
+
       new_hsh
     end
-    
+
     # get a precision for a specified amount and a specified currency
     #
     # @params [Float, Integer] amount The amount to get the precision for
@@ -189,10 +193,10 @@ module Exchange
       defined_minor_precision                         = definitions[currency][:minor_unit]
       match                                           = amount.to_s.match(/^-?(\d*)\.?(\d*)e?(-?\d+)?$/).to_a[1..3]
       given_major_precision, given_minor_precision    = precision_from_match *match
-      
+
       given_major_precision + [defined_minor_precision, given_minor_precision].max
     end
-    
+
     # Get the precision from a match with /^-?(\d*)\.?(\d*)e?(-?\d+)?$/
     #
     # @params [String] major The major amount of the match as a string
@@ -209,6 +213,6 @@ module Exchange
         [major, minor].map(&:size)
       end
     end
-    
+
   end
 end

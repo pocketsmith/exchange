@@ -35,8 +35,8 @@ BD: :bdt
 BGD: :bdt
 BB: :bbd
 BRB: :bbd
-BY: :byr
-BLR: :byr
+BY: :byn
+BLR: :byn
 BE: :eur
 BEL: :eur
 BZ: :bzd
@@ -251,8 +251,8 @@ LY: :lyd
 LBY: :lyd
 LI: :chf
 LIE: :chf
-LT: :ltl
-LTU: :ltl
+LT: :eur
+LTU: :eur
 LU: :eur
 LUX: :eur
 MO: :mop
@@ -275,8 +275,8 @@ MH: :usd
 MHL: :usd
 MQ: :eur
 MTQ: :eur
-MR: :mro
-MRT: :mro
+MR: :mru
+MRT: :mru
 MU: :mur
 MUS: :mur
 YT: :eur
@@ -379,8 +379,8 @@ WS: :wst
 WSM: :wst
 SM: :eur
 SMR: :eur
-ST: :std
-STP: :std
+ST: :stn
+STP: :stn
 SA: :sar
 SAU: :sar
 SN: :xof
@@ -471,8 +471,8 @@ UZ: :uzs
 UZB: :uzs
 VU: :vuv
 VUT: :vuv
-VE: :vef
-VEN: :vef
+VE: :ves
+VEN: :ves
 VN: :vnd
 VNM: :vnd
 VG: :usd
@@ -485,8 +485,8 @@ EH: :mad
 ESH: :mad
 YE: :yer
 YEM: :yer
-ZM: :zmk
-ZMB: :zmk
+ZM: :zmw
+ZMB: :zmw
 ZW: :zwl
 ZWE: :zwl
 AX: :eur
