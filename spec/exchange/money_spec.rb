@@ -906,7 +906,7 @@ describe "Exchange::Money" do
     end
 
     it "should raise errors for currency conversions it does not have rates for" do
-      expect { subject.to(:ssp) }.to raise_error(Exchange::NoRateError)
+      expect { subject.to(:uss) }.to raise_error(Exchange::NoRateError)
     end
 
     it "should pass on methods it does not understand to its number" do

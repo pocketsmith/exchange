@@ -71,6 +71,11 @@ module Exchange
       definitions.select { |_, c| !c[:tags].include?(:historical) }
     end
 
+    # The currency definitions that aren't marked as historical
+    def oxr_definitions
+      definitions.select { |_, c| c[:tags].include?(:oxr) }
+    end
+
     # A map of country abbreviations to currency codes. Makes an instantiation of currency codes via a country code
     # possible
     # @return [Hash] The ISO3166 (1 and 2) country codes matched to a currency
@@ -117,6 +122,10 @@ module Exchange
     #
     def active_currencies
       @active_currencies ||= active_definitions.keys.sort_by(&:to_s)
+    end
+
+    def oxr_currencies
+      @oxr_currencies ||= oxr_definitions.keys.sort_by(&:to_s)
     end
 
     # Check if a currency is defined by ISO 4217 standards
@@ -223,8 +232,9 @@ module Exchange
     def_delegators :instance, :definitions, :instantiate, :stringify, :symbol,
       :round, :ceil, :floor, :currencies, :country_map, :defines?,
       :assert_currency!, :iso4217_definitions, :crypto_definitions,
-      :historical_definitions, :active_definitions, :iso4217_currencies,
-      :crypto_currencies, :historical_currencies, :active_currencies
+      :historical_definitions, :active_definitions, :oxr_definitions,
+      :iso4217_currencies, :crypto_currencies, :historical_currencies,
+      :active_currencies, :oxr_currencies
 
     private
 
