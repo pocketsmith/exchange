@@ -5,8 +5,9 @@ require 'yaml'
 
 module Exchange
 
-  # This class handles everything that has to do with certified formatting of the different currencies. The standard is stored in
-  # the iso4217 YAML file.
+  # This class handles everything that has to do with certified formatting of
+  # the different currencies. The standard is stored in the currencies YAML
+  # file, based around ISO4217 it has been extended to include other currencies
   # @version 0.6
   # @since 0.3
   # @author Beat Richartz
@@ -39,14 +40,35 @@ module Exchange
 
     end
 
-    # The ISO 4217 that have to be loaded. Use this method to get to the definitions
-    # They are static, so they can be stored in a class variable without many worries
-    # @return [Hash] The iso4217 Definitions with the currency code as keys
+    # The currencies that have been loaded. Use this method to get to the
+    # definitions
+    # They are static, so they can be stored in a class variable without many
+    # worries
+    # @return [Hash] The currency definitions with the currency code as keys
     #
     def definitions
-      @definitions ||= symbolize_keys(
-        YAML.load_file(File.join(ROOT_PATH, 'currencies.yml'))
-      )
+      @definitions ||= load_currencies
+    end
+
+    # The currency definitions marked as iso4217
+    def iso4217_definitions
+      definitions.select { |_, c| c[:tags].include?(:iso4217) }
+    end
+
+    # The currency definitions that have been marked as crypto
+    def crypto_definitions
+      definitions.select { |_, c| c[:tags].include?(:crypto) }
+    end
+
+    # The currency definitions that have been marked as historical (that is, they
+    # have been replaced in active use)
+    def historical_definitions
+      definitions.select { |_, c| c[:tags].include?(:historical) }
+    end
+
+    # The currency definitions that aren't marked as historical
+    def active_definitions
+      definitions.select { |_, c| !c[:tags].include?(:historical) }
     end
 
     # A map of country abbreviations to currency codes. Makes an instantiation of currency codes via a country code
@@ -59,11 +81,42 @@ module Exchange
       )
     end
 
-    # All currencies defined by ISO 4217 as an array of symbols for inclusion testing
+    # All defined currencies as an array of symbols for inclusion testing
     # @return [Array] An Array of currency symbols
     #
     def currencies
       @currencies  ||= definitions.keys.sort_by(&:to_s)
+    end
+
+    # All currencies defined by ISO 4217 as an array of symbols for inclusion
+    # testing
+    # Note this is implicitly only active ISO 4217 currencies
+    # @return [Array] An Array of currency symbols
+    #
+    def iso4217_currencies
+      @iso4217_currencies ||= iso4217_definitions.keys.sort_by(&:to_s)
+    end
+
+    # All crypto defined currencies as an array of symbols for inclusion testing
+    # @return [Array] An Array of currency symbols
+    #
+    def crypto_currencies
+      @crypto_currencies ||= crypto_definitions.keys.sort_by(&:to_s)
+    end
+
+    # All historical defined currencies as an array of symbols for inclusion
+    # testing
+    # @return [Array] An Array of currency symbols
+    #
+    def historical_currencies
+      @historical_currencies ||= historical_definitions.keys.sort_by(&:to_s)
+    end
+
+    # All active defined currencies as an array of symbols for inclusion testing
+    # @return [Array] An Array of currency symbols
+    #
+    def active_currencies
+      @active_currencies ||= active_definitions.keys.sort_by(&:to_s)
     end
 
     # Check if a currency is defined by ISO 4217 standards
@@ -167,9 +220,38 @@ module Exchange
 
     # Forwards the assure_time method to the instance using singleforwardable
     #
-    def_delegators :instance, :definitions, :instantiate, :stringify, :symbol, :round, :ceil, :floor, :currencies, :country_map, :defines?, :assert_currency!
+    def_delegators :instance, :definitions, :instantiate, :stringify, :symbol,
+      :round, :ceil, :floor, :currencies, :country_map, :defines?,
+      :assert_currency!, :iso4217_definitions, :crypto_definitions,
+      :historical_definitions, :active_definitions, :iso4217_currencies,
+      :crypto_currencies, :historical_currencies, :active_currencies
 
     private
+
+    # Load the currencies from their file, with a quick sanity check that
+    # any `replaced_by` references are included in the file
+    def load_currencies
+      loaded_currencies = symbolize_keys(
+        YAML.load_file(File.join(ROOT_PATH, 'currencies.yml'))
+      )
+
+      historical_keys = loaded_currencies.
+        select { |_, c| c[:tags].include?(:historical) }.keys
+
+      historical_keys.each do |key|
+        replacement_currency = loaded_currencies[key][:replaced_by]
+        if replacement_currency
+          unless loaded_currencies.keys.include?(replacement_currency)
+            raise(Exchange::NoCurrencyError.new(
+                "#{replacement_currency} is not a currency nor a country code matchable to a currency"
+              )
+            )
+          end
+        end
+      end
+
+      loaded_currencies
+    end
 
     # symbolizes keys and returns a new hash
     #
