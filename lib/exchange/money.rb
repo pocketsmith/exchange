@@ -50,7 +50,7 @@ module Exchange
     #     #=> #<Exchange::Money @number=37.0 @currency=:usd @time=#<Time> @from=#<Exchange::Money @number=40.0 @currency=:usd>>
     #
     def initialize value, currency_arg=nil, opts={}, &block
-      currency_arg      = ISO.assert_currency!(currency_arg) if currency_arg
+      currency_arg      = Currencies.assert_currency!(currency_arg) if currency_arg
 
       @from             = opts[:from]
       @api              = Exchange.configuration.api.subclass
@@ -58,7 +58,7 @@ module Exchange
       yield(self) if block_given?
 
       self.time             = Helper.assure_time(time || opts[:at], :default => :now)
-      self.value            = ISO.instantiate(value, currency || currency_arg)
+      self.value            = Currencies.instantiate(value, currency || currency_arg)
       self.currency         = currency || currency_arg
     end
 
@@ -84,7 +84,7 @@ module Exchange
     #   Exchange::Money.new(40,:nok).to(:sek, :at => Time.gm(2012,2,2))
     #
     def to other, options={}
-      other = ISO.assert_currency!(other)
+      other = Currencies.assert_currency!(other)
 
       if api_supports_currency?(currency) && api_supports_currency?(other)
         opts = { :at => time, :from => self }.merge(options) unless opts
@@ -118,7 +118,7 @@ module Exchange
           define_method op do |*arguments|
             psych       = arguments.first == :psych
             precision   = psych ? nil : arguments.first
-            val         = ISO.send(op, self.value, self.currency, precision, {:psych => psych})
+            val         = Currencies.send(op, self.value, self.currency, precision, {:psych => psych})
 
             Exchange::Money.new(val, currency, :at => time, :from => self)
           end
@@ -320,7 +320,7 @@ module Exchange
     #   Exchange::Money.new(3423.34, :omr).to_s(:plain) #=> "3423.340"
     #
     def to_s format=:currency
-      ISO.stringify(value, currency, :format => format)
+      Currencies.stringify(value, currency, :format => format)
     end
 
     # Returns the symbol for the given currency

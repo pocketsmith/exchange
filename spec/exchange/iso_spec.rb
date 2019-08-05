@@ -2,8 +2,8 @@
 
 require 'spec_helper'
 
-describe "Exchange::ISO" do
-  let(:subject) { Exchange::ISO }
+describe "Exchange::Currencies" do
+  let(:subject) { Exchange::Currencies }
 
   describe "self.defines?" do
     context "with a defined currency" do

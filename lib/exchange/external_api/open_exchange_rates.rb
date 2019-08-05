@@ -15,7 +15,7 @@ module Exchange
 
       # The currencies the Open Exchange Rates API can convert
       #
-      CURRENCIES           = ISO.oxr_currencies
+      CURRENCIES           = Currencies.oxr_currencies
 
       # Updates the rates by getting the information from Open Exchange Rates for today or a defined historical date
       # The call gets cached for a maximum of 24 hours.

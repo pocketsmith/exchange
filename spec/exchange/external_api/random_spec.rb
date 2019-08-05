@@ -32,7 +32,7 @@ describe "Exchange::ExternalAPI::OpenExchangeRates" do
     subject { Exchange::ExternalAPI::Random.new }
     it "should provide a rate for every ISO currency" do
       subject.update
-      Exchange::ISO.currencies.each do |c|
+      Exchange::Currencies.currencies.each do |c|
         expect(subject.rates[c]).not_to be_nil
       end
     end

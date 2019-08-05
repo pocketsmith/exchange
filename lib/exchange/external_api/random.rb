@@ -9,7 +9,7 @@ module Exchange
     #
     class Random < Base
 
-      CURRENCIES           = Exchange::ISO.currencies
+      CURRENCIES           = Exchange::Currencies.currencies
       RANDOM_RATES         = lambda { Hash[*CURRENCIES.map{|c| [c, rand] }.flatten] }
 
       # Updates the rates with new random ones
