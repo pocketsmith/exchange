@@ -6,8 +6,10 @@ require 'yaml'
 module Exchange
 
   # This class handles everything that has to do with certified formatting of
-  # the different currencies. The standard is stored in the currencies YAML
-  # file, based around ISO4217 it has been extended to include other currencies
+  # the different currencies. The standard is stored in the iso4217 YAML
+  # file, based around ISO4217. There are also files for historical ISO4217
+  # currencies (iso4217-historical.yml) and additional currencies that are
+  # not part of iso4217, but are in common use (unofficial.yml)
   # @version 0.6
   # @since 0.3
   # @author Beat Richartz
