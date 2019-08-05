@@ -250,15 +250,6 @@ module Exchange
 
     private
 
-    def tag_all(hsh, tag)
-      hsh.each do |k, v|
-        hsh[k][:tags] = [] if v[:tags].nil?
-        hsh[k][:tags] += [tag]
-      end
-
-      hsh
-    end
-
     # Load the currencies from their file, with a quick sanity check that
     # any `replaced_by` references are included in the file
     def load_currencies
