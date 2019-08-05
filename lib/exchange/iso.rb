@@ -55,9 +55,9 @@ module Exchange
       definitions.select { |_, c| c[:tags].include?(:iso4217) }
     end
 
-    # The currency definitions that have been marked as crypto
-    def crypto_definitions
-      definitions.select { |_, c| c[:tags].include?(:crypto) }
+    # The currency definitions that have been marked as unofficial
+    def unofficial_definitions
+      definitions.select { |_, c| c[:tags].include?(:unofficial) }
     end
 
     # The currency definitions that have been marked as historical (that is, they
@@ -71,9 +71,11 @@ module Exchange
       definitions.select { |_, c| !c[:tags].include?(:historical) }
     end
 
-    # The currency definitions that aren't marked as historical
+    # The currency definitions that are supported by OXR
     def oxr_definitions
-      definitions.select { |_, c| c[:tags].include?(:oxr) }
+      definitions.select do |_, c|
+        c[:supported_providers].include?(:oxr) if c[:supported_providers]
+      end
     end
 
     # A map of country abbreviations to currency codes. Makes an instantiation of currency codes via a country code
@@ -81,9 +83,7 @@ module Exchange
     # @return [Hash] The ISO3166 (1 and 2) country codes matched to a currency
     #
     def country_map
-      @country_map ||= symbolize_keys(
-        YAML.load_file(File.join(ROOT_PATH, 'currency_country_map.yml'))
-      )
+      @country_map ||= load_countries
     end
 
     # All defined currencies as an array of symbols for inclusion testing
@@ -102,11 +102,12 @@ module Exchange
       @iso4217_currencies ||= iso4217_definitions.keys.sort_by(&:to_s)
     end
 
-    # All crypto defined currencies as an array of symbols for inclusion testing
+    # All unofficial defined currencies as an array of symbols for inclusion
+    # testing
     # @return [Array] An Array of currency symbols
     #
-    def crypto_currencies
-      @crypto_currencies ||= crypto_definitions.keys.sort_by(&:to_s)
+    def unofficial
+      @unofficial_currencies ||= unofficial_definitions.keys.sort_by(&:to_s)
     end
 
     # All historical defined currencies as an array of symbols for inclusion
@@ -132,6 +133,7 @@ module Exchange
     # @param [Symbol] currency the downcased currency symbol
     # @return [Boolean] true if the symbol matches a currency, false if not
     #
+    # Note that this is also checking the country_map for the given currency!
     def defines? currency
       currencies.include?(country_map[currency] ? country_map[currency] : currency)
     end
@@ -238,22 +240,47 @@ module Exchange
 
     private
 
+    def tag_all(hsh, tag)
+      hsh.each do |k, v|
+        hsh[k][:tags] = [] if v[:tags].nil?
+        hsh[k][:tags] += [tag]
+      end
+
+      hsh
+    end
+
     # Load the currencies from their file, with a quick sanity check that
     # any `replaced_by` references are included in the file
     def load_currencies
-      loaded_currencies = symbolize_keys(
-        YAML.load_file(File.join(ROOT_PATH, 'currencies.yml'))
+      iso_currencies = symbolize_keys(
+        YAML.load_file(File.join(ROOT_PATH, 'iso4217.yml'))
       )
+      tag_all(iso_currencies, :iso4217)
 
-      historical_keys = loaded_currencies.
-        select { |_, c| c[:tags].include?(:historical) }.keys
+      historical_currencies = symbolize_keys(
+        YAML.load_file(File.join(ROOT_PATH, 'iso4217-historical.yml'))
+      )
+      tag_all(historical_currencies, :historical)
+
+      unofficial_currencies = symbolize_keys(
+        YAML.load_file(File.join(ROOT_PATH, 'unofficial.yml'))
+      )
+      tag_all(unofficial_currencies, :unofficial)
+
+      historical_keys = historical_currencies.keys
+
+      loaded_currencies = iso_currencies.merge(
+        unofficial_currencies.merge(
+          historical_currencies
+        )
+      )
 
       historical_keys.each do |key|
         replacement_currency = loaded_currencies[key][:replaced_by]
         if replacement_currency
           unless loaded_currencies.keys.include?(replacement_currency)
             raise(Exchange::NoCurrencyError.new(
-                "#{replacement_currency} is not a currency nor a country code matchable to a currency"
+                "#{replacement_currency} is not matchable to a currency"
               )
             )
           end
@@ -261,6 +288,21 @@ module Exchange
       end
 
       loaded_currencies
+    end
+
+    def load_countries
+      loaded_countries = symbolize_keys(
+        YAML.load_file(File.join(ROOT_PATH, 'currency_country_map.yml'))
+      )
+
+      loaded_countries.each do |k, v|
+        unless currencies.include?(v)
+          raise(Exchange::NoCurrencyError.new(
+              "Country #{k} maps to #{v} which is not matchable to a currency"
+            )
+          )
+        end
+      end
     end
 
     # symbolizes keys and returns a new hash

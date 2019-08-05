@@ -1,0 +1,99 @@
+---
+BYR:
+  minor_unit: 0
+  currency: Belarussian Ruble
+  symbol: p.
+  supported_providers:
+  - :oxr
+  :from_date: '2000-01-01'
+  :to_date: '2016-06-30'
+  :replaced_by: :byn
+EEK:
+  minor_unit: 2
+  currency: Estonian Kroon
+  symbol: kr
+  supported_providers:
+  - :oxr
+  :from_date: '1992-01-01'
+  :to_date: '2010-01-01'
+  :replaced_by: :eur
+MTL:
+  minor_unit: 2
+  currency: Maltese Lira
+  symbol: Lm
+  supported_providers:
+  - :oxr
+  :from_date: '1972-01-01'
+  :to_date: '2006-01-01'
+  :replaced_by: :eur
+STD:
+  minor_unit: 2
+  currency: Dobra
+  symbol:
+  supported_providers:
+  - :oxr
+  :from_date: '1977-01-01'
+  :to_date: '2018-04-01'
+  :replaced_by: :stn
+LVL:
+  separators:
+    major: ","
+    minor: "."
+  minor_unit: 2
+  currency: Latvian Lats
+  symbol: Ls
+  supported_providers:
+  - :oxr
+  :from_date: '1992-01-01'
+  :to_date: '2013-01-01'
+  :replaced_by: :eur
+USS:
+  minor_unit: 2
+  currency: US Dollar (Same day)
+  symbol:
+  supported_providers:
+  :from_date:
+  :to_date: '2014-03-28'
+  :replaced_by:
+MRO:
+  minor_unit: 2
+  currency: Ouguiya
+  symbol:
+  supported_providers:
+  - :oxr
+  :from_date: '1973-06-29'
+  :to_date: '2018-01-01'
+  :replaced_by: :mru
+VEF:
+  separators:
+    major: "."
+    minor: ","
+  minor_unit: 2
+  currency: Bolivar Fuerte
+  symbol: Bs
+  supported_providers:
+  - :oxr
+  :from_date:
+  :to_date: '2018-08-20'
+  :replaced_by: :ves
+LTL:
+  separators:
+    major: "."
+    minor: ","
+  minor_unit: 2
+  currency: Lithuanian Litas
+  symbol: Lt
+  supported_providers:
+  - :oxr
+  :from_date: '1993-01-01'
+  :to_date: '2015-01-01'
+  :replaced_by: :eur
+ZMK:
+  minor_unit: 2
+  currency: Zambian Kwacha
+  symbol:
+  supported_providers:
+  - :oxr
+  :from_date: '1968-01-16'
+  :to_date: '2013-01-01'
+  :replaced_by: :zmw

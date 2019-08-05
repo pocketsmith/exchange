@@ -3,15 +3,13 @@ NIO:
   minor_unit: 2
   currency: Cordoba Oro
   symbol: C$
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 LAK:
   minor_unit: 2
   currency: Kip
   symbol: "₭"
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 SAR:
   separators:
@@ -20,8 +18,7 @@ SAR:
   minor_unit: 2
   currency: Saudi Riyal
   symbol: "﷼"
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 NOK:
   separators:
@@ -30,8 +27,7 @@ NOK:
   minor_unit: 2
   currency: Norwegian Krone
   symbol: kr
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 USD:
   separators:
@@ -40,8 +36,7 @@ USD:
   minor_unit: 2
   currency: US Dollar
   symbol: "$"
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 RUB:
   separators:
@@ -50,8 +45,7 @@ RUB:
   minor_unit: 2
   currency: Russian Ruble
   symbol: "руб"
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 XCD:
   separators:
@@ -60,8 +54,7 @@ XCD:
   minor_unit: 2
   currency: East Caribbean Dollar
   symbol: "$"
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 OMR:
   separators:
@@ -70,8 +63,7 @@ OMR:
   minor_unit: 3
   currency: Rial Omani
   symbol: "﷼"
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 AMD:
   separators:
@@ -79,23 +71,20 @@ AMD:
     minor: "."
   minor_unit: 2
   currency: Armenian Dram
-  symbol: 
-  tags:
-  - :iso4217
+  symbol:
+  supported_providers:
   - :oxr
 CDF:
   minor_unit: 2
   currency: Congolese Franc
-  symbol: 
-  tags:
-  - :iso4217
+  symbol:
+  supported_providers:
   - :oxr
 KPW:
   minor_unit: 2
   currency: North Korean Won
   symbol: "₩"
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 CNY:
   separators:
@@ -104,8 +93,7 @@ CNY:
   minor_unit: 2
   currency: Yuan Renminbi
   symbol: "¥"
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 KES:
   separators:
@@ -113,16 +101,14 @@ KES:
     minor: "."
   minor_unit: 2
   currency: Kenyan Shilling
-  symbol: 
-  tags:
-  - :iso4217
+  symbol:
+  supported_providers:
   - :oxr
 KHR:
   minor_unit: 2
   currency: Riel
   symbol: "៛"
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 PLN:
   separators:
@@ -131,15 +117,13 @@ PLN:
   minor_unit: 2
   currency: Zloty
   symbol: zł
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 MVR:
   minor_unit: 2
   currency: Rufiyaa
-  symbol: 
-  tags:
-  - :iso4217
+  symbol:
+  supported_providers:
   - :oxr
 GTQ:
   separators:
@@ -148,8 +132,7 @@ GTQ:
   minor_unit: 2
   currency: Quetzal
   symbol: Q
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 CLP:
   separators:
@@ -157,8 +140,7 @@ CLP:
   minor_unit: 0
   currency: Chilean Peso
   symbol: "$"
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 INR:
   separators:
@@ -168,8 +150,7 @@ INR:
   minor_unit: 2
   currency: Indian Rupee
   symbol: ''
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 BZD:
   separators:
@@ -178,8 +159,7 @@ BZD:
   minor_unit: 2
   currency: Belize Dollar
   symbol: BZ$
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 MYR:
   separators:
@@ -188,8 +168,7 @@ MYR:
   minor_unit: 2
   currency: Malaysian Ringgit
   symbol: RM
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 HKD:
   separators:
@@ -198,8 +177,7 @@ HKD:
   minor_unit: 2
   currency: Hong Kong Dollar
   symbol: "$"
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 COP:
   separators:
@@ -208,8 +186,7 @@ COP:
   minor_unit: 2
   currency: Colombian Peso
   symbol: "$"
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 DKK:
   separators:
@@ -218,8 +195,7 @@ DKK:
   minor_unit: 2
   currency: Danish Krone
   symbol: kr
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 SEK:
   separators:
@@ -228,15 +204,13 @@ SEK:
   minor_unit: 2
   currency: Swedish Krona
   symbol: kr
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 BYR:
   minor_unit: 0
   currency: Belarussian Ruble
   symbol: p.
-  tags:
-  - :historical
+  supported_providers:
   - :oxr
   :from_date: '2000-01-01'
   :to_date: '2016-06-30'
@@ -244,9 +218,8 @@ BYR:
 LYD:
   minor_unit: 3
   currency: Libyan Dinar
-  symbol: 
-  tags:
-  - :iso4217
+  symbol:
+  supported_providers:
   - :oxr
 RON:
   separators:
@@ -255,22 +228,19 @@ RON:
   minor_unit: 2
   currency: New Romanian Leu
   symbol: lei
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 DZD:
   minor_unit: 2
   currency: Algerian Dinar
-  symbol: 
-  tags:
-  - :iso4217
+  symbol:
+  supported_providers:
   - :oxr
 BIF:
   minor_unit: 0
   currency: Burundi Franc
-  symbol: 
-  tags:
-  - :iso4217
+  symbol:
+  supported_providers:
   - :oxr
 ARS:
   separators:
@@ -279,8 +249,7 @@ ARS:
   minor_unit: 2
   currency: Argentine Peso
   symbol: "$"
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 GIP:
   separators:
@@ -289,15 +258,14 @@ GIP:
   minor_unit: 2
   currency: Gibraltar Pound
   symbol: "£"
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 UYI:
   minor_unit: 0
   currency: Uruguay Peso en Unidades Indexadas (URUIURUI)
-  symbol: 
-  tags:
-  - :iso4217
+  symbol:
+  supported_providers:
+  - :oxr
 BOB:
   separators:
     major: ","
@@ -305,36 +273,31 @@ BOB:
   minor_unit: 2
   currency: Boliviano
   symbol: "$b"
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 SSP:
   minor_unit: 2
   currency: South Sudanese Pound
-  symbol: 
-  tags:
-  - :iso4217
+  symbol:
+  supported_providers:
   - :oxr
 NGN:
   minor_unit: 2
   currency: Naira
   symbol: "₦"
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 PGK:
   minor_unit: 2
   currency: Kina
-  symbol: 
-  tags:
-  - :iso4217
+  symbol:
+  supported_providers:
   - :oxr
 XOF:
   minor_unit: 0
   currency: CFA Franc BCEAO
-  symbol: 
-  tags:
-  - :iso4217
+  symbol:
+  supported_providers:
   - :oxr
 AED:
   separators:
@@ -342,23 +305,20 @@ AED:
     minor: "."
   minor_unit: 2
   currency: UAE Dirham
-  symbol: 
-  tags:
-  - :iso4217
+  symbol:
+  supported_providers:
   - :oxr
 ERN:
   minor_unit: 2
   currency: Nakfa
-  symbol: 
-  tags:
-  - :iso4217
+  symbol:
+  supported_providers:
   - :oxr
 MWK:
   minor_unit: 2
   currency: Kwacha
-  symbol: 
-  tags:
-  - :iso4217
+  symbol:
+  supported_providers:
   - :oxr
 CUP:
   separators:
@@ -367,28 +327,25 @@ CUP:
   minor_unit: 2
   currency: Cuban Peso
   symbol: "₱"
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 USN:
   minor_unit: 2
   currency: US Dollar (Next day)
-  symbol: 
-  tags:
-  - :iso4217
+  symbol:
+  supported_providers:
+  - :oxr
 GMD:
   minor_unit: 2
   currency: Dalasi
-  symbol: 
-  tags:
-  - :iso4217
+  symbol:
+  supported_providers:
   - :oxr
 CVE:
   minor_unit: 2
   currency: Cape Verde Escudo
-  symbol: 
-  tags:
-  - :iso4217
+  symbol:
+  supported_providers:
   - :oxr
 TZS:
   separators:
@@ -396,99 +353,86 @@ TZS:
     minor: "."
   minor_unit: 2
   currency: Tanzanian Shilling
-  symbol: 
-  tags:
-  - :iso4217
+  symbol:
+  supported_providers:
   - :oxr
 COU:
   minor_unit: 2
   currency: Unidad de Valor Real
-  symbol: 
-  tags:
-  - :iso4217
+  symbol:
+  supported_providers:
+  - :oxr
 BTN:
   minor_unit: 2
   currency: Ngultrum
-  symbol: 
-  tags:
-  - :iso4217
+  symbol:
+  supported_providers:
   - :oxr
 ZWL:
   minor_unit: 2
   currency: Zimbabwe Dollar
-  symbol: 
-  tags:
-  - :iso4217
+  symbol:
+  supported_providers:
   - :oxr
 UGX:
   minor_unit: 2
   currency: Uganda Shilling
-  symbol: 
-  tags:
-  - :iso4217
+  symbol:
+  supported_providers:
   - :oxr
 SYP:
   minor_unit: 2
   currency: Syrian Pound
   symbol: "£"
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 MAD:
   minor_unit: 2
   currency: Moroccan Dirham
-  symbol: 
-  tags:
-  - :iso4217
+  symbol:
+  supported_providers:
   - :oxr
 MNT:
   minor_unit: 2
   currency: Tugrik
   symbol: "₮"
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 LSL:
   minor_unit: 2
   currency: Loti
-  symbol: 
-  tags:
-  - :iso4217
+  symbol:
+  supported_providers:
   - :oxr
 XAF:
   minor_unit: 0
   currency: CFA Franc BEAC
-  symbol: 
-  tags:
-  - :iso4217
+  symbol:
+  supported_providers:
   - :oxr
 SHP:
   minor_unit: 2
   currency: Saint Helena Pound
   symbol: "£"
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 HTG:
   minor_unit: 2
   currency: Gourde
-  symbol: 
-  tags:
-  - :iso4217
+  symbol:
+  supported_providers:
   - :oxr
 RSD:
   minor_unit: 2
   currency: Serbian Dinar
   symbol: "Дин."
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 MGA:
   minor_unit: 2
   currency: Malagasy Ariary
-  symbol: 
-  tags:
-  - :iso4217
+  symbol:
+  supported_providers:
   - :oxr
 TOP:
   separators:
@@ -496,23 +440,20 @@ TOP:
     minor: "."
   minor_unit: 2
   currency: Pa’anga
-  symbol: 
-  tags:
-  - :iso4217
+  symbol:
+  supported_providers:
   - :oxr
 MZN:
   minor_unit: 2
   currency: Mozambique Metical
   symbol: MT
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 FKP:
   minor_unit: 2
   currency: Falkland Islands Pound
   symbol: "£"
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 BWP:
   separators:
@@ -521,8 +462,7 @@ BWP:
   minor_unit: 2
   currency: Pula
   symbol: P
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 HNL:
   separators:
@@ -531,8 +471,7 @@ HNL:
   minor_unit: 2
   currency: Lempira
   symbol: L
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 EUR:
   separators:
@@ -541,8 +480,7 @@ EUR:
   minor_unit: 2
   currency: Euro
   symbol: "€"
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 EGP:
   separators:
@@ -551,8 +489,7 @@ EGP:
   minor_unit: 2
   currency: Egyptian Pound
   symbol: "£"
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 CHF:
   separators:
@@ -560,8 +497,7 @@ CHF:
     minor: "."
   minor_unit: 2
   currency: Swiss Franc
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 ILS:
   separators:
@@ -570,15 +506,13 @@ ILS:
   minor_unit: 2
   currency: New Israeli Sheqel
   symbol: "₪"
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 PYG:
   minor_unit: 0
   currency: Guarani
   symbol: Gs
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 LBP:
   separators:
@@ -587,8 +521,7 @@ LBP:
   minor_unit: 2
   currency: Lebanese Pound
   symbol: "£"
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 ANG:
   separators:
@@ -597,29 +530,25 @@ ANG:
   minor_unit: 2
   currency: Netherlands Antillean Guilder
   symbol: "ƒ"
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 KZT:
   minor_unit: 2
   currency: Tenge
   symbol: "₸"
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 GYD:
   minor_unit: 2
   currency: Guyana Dollar
   symbol: "$"
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 WST:
   minor_unit: 2
   currency: Tala
-  symbol: 
-  tags:
-  - :iso4217
+  symbol:
+  supported_providers:
   - :oxr
 NPR:
   separators:
@@ -628,15 +557,13 @@ NPR:
   minor_unit: 2
   currency: Nepalese Rupee
   symbol: "₨"
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 KMF:
   minor_unit: 0
   currency: Comoro Franc
-  symbol: 
-  tags:
-  - :iso4217
+  symbol:
+  supported_providers:
   - :oxr
 THB:
   separators:
@@ -645,8 +572,7 @@ THB:
   minor_unit: 2
   currency: Baht
   symbol: "฿"
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 IRR:
   separators:
@@ -655,15 +581,13 @@ IRR:
   minor_unit: 2
   currency: Iranian Rial
   symbol: "﷼"
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 SRD:
   minor_unit: 2
   currency: Surinam Dollar
   symbol: "$"
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 JPY:
   separators:
@@ -671,8 +595,7 @@ JPY:
   minor_unit: 0
   currency: Yen
   symbol: "¥"
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 BRL:
   separators:
@@ -681,8 +604,7 @@ BRL:
   minor_unit: 2
   currency: Brazilian Real
   symbol: R$
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 UYU:
   separators:
@@ -691,15 +613,13 @@ UYU:
   minor_unit: 2
   currency: Peso Uruguayo
   symbol: "$U"
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 MOP:
   minor_unit: 2
   currency: Pataca
-  symbol: 
-  tags:
-  - :iso4217
+  symbol:
+  supported_providers:
   - :oxr
 BMD:
   separators:
@@ -708,8 +628,7 @@ BMD:
   minor_unit: 2
   currency: Bermudian Dollar
   symbol: "$"
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 SZL:
   separators:
@@ -717,16 +636,14 @@ SZL:
     minor: "."
   minor_unit: 2
   currency: Lilangeni
-  symbol: 
-  tags:
-  - :iso4217
+  symbol:
+  supported_providers:
   - :oxr
 ETB:
   minor_unit: 2
   currency: Ethiopian Birr
-  symbol: 
-  tags:
-  - :iso4217
+  symbol:
+  supported_providers:
   - :oxr
 JOD:
   separators:
@@ -734,9 +651,8 @@ JOD:
     minor: "."
   minor_unit: 3
   currency: Jordanian Dinar
-  symbol: 
-  tags:
-  - :iso4217
+  symbol:
+  supported_providers:
   - :oxr
 IDR:
   separators:
@@ -745,29 +661,25 @@ IDR:
   minor_unit: 2
   currency: Rupiah
   symbol: Rp
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 MDL:
   minor_unit: 2
   currency: Moldovan Leu
-  symbol: 
-  tags:
-  - :iso4217
+  symbol:
+  supported_providers:
   - :oxr
 XPF:
   minor_unit: 0
   currency: CFP Franc
-  symbol: 
-  tags:
-  - :iso4217
+  symbol:
+  supported_providers:
   - :oxr
 YER:
   minor_unit: 2
   currency: Yemeni Rial
   symbol: "﷼"
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 BAM:
   separators:
@@ -776,8 +688,7 @@ BAM:
   minor_unit: 2
   currency: Convertible Mark
   symbol: KM
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 AWG:
   separators:
@@ -786,8 +697,7 @@ AWG:
   minor_unit: 2
   currency: Aruban Florin
   symbol: "ƒ"
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 NZD:
   separators:
@@ -796,8 +706,7 @@ NZD:
   minor_unit: 2
   currency: New Zealand Dollar
   symbol: "$"
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 PEN:
   separators:
@@ -806,15 +715,13 @@ PEN:
   minor_unit: 2
   currency: Nuevo Sol
   symbol: S/.
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 AOA:
   minor_unit: 2
   currency: Kwanza
-  symbol: 
-  tags:
-  - :iso4217
+  symbol:
+  supported_providers:
   - :oxr
 KYD:
   separators:
@@ -823,15 +730,13 @@ KYD:
   minor_unit: 2
   currency: Cayman Islands Dollar
   symbol: "$"
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 SLL:
   minor_unit: 2
   currency: Leone
-  symbol: 
-  tags:
-  - :iso4217
+  symbol:
+  supported_providers:
   - :oxr
 TRY:
   separators:
@@ -840,23 +745,20 @@ TRY:
   minor_unit: 2
   currency: Turkish Lira
   symbol: ''
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 ISK:
   format: "#.###"
   minor_unit: 0
   currency: Iceland Krona
   symbol: kr
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 GNF:
   minor_unit: 0
   currency: Guinea Franc
-  symbol: 
-  tags:
-  - :iso4217
+  symbol:
+  supported_providers:
   - :oxr
 BSD:
   separators:
@@ -865,15 +767,13 @@ BSD:
   minor_unit: 2
   currency: Bahamian Dollar
   symbol: "$"
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 DJF:
   minor_unit: 0
   currency: Djibouti Franc
-  symbol: 
-  tags:
-  - :iso4217
+  symbol:
+  supported_providers:
   - :oxr
 HUF:
   separators:
@@ -882,8 +782,7 @@ HUF:
   minor_unit: 2
   currency: Forint
   symbol: Ft
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 MXN:
   separators:
@@ -892,15 +791,13 @@ MXN:
   minor_unit: 2
   currency: Mexican Peso
   symbol: "$"
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 SCR:
   minor_unit: 2
   currency: Seychelles Rupee
   symbol: "₨"
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 SGD:
   separators:
@@ -909,29 +806,25 @@ SGD:
   minor_unit: 2
   currency: Singapore Dollar
   symbol: "$"
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 LKR:
   minor_unit: 2
   currency: Sri Lanka Rupee
   symbol: "₨"
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 TJS:
   minor_unit: 2
   currency: Somoni
-  symbol: 
-  tags:
-  - :iso4217
+  symbol:
+  supported_providers:
   - :oxr
 TND:
   minor_unit: 3
   currency: Tunisian Dinar
-  symbol: 
-  tags:
-  - :iso4217
+  symbol:
+  supported_providers:
   - :oxr
 DOP:
   separators:
@@ -940,52 +833,45 @@ DOP:
   minor_unit: 2
   currency: Dominican Peso
   symbol: RD$
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 FJD:
   minor_unit: 2
   currency: Fiji Dollar
   symbol: "$"
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 GEL:
   minor_unit: 2
   currency: Lari
-  symbol: 
-  tags:
-  - :iso4217
+  symbol:
+  supported_providers:
   - :oxr
 SDG:
   minor_unit: 2
   currency: Sudanese Pound
-  symbol: 
-  tags:
-  - :iso4217
+  symbol:
+  supported_providers:
   - :oxr
 VUV:
   separators:
     major: ","
   minor_unit: 0
   currency: Vatu
-  symbol: 
-  tags:
-  - :iso4217
+  symbol:
+  supported_providers:
   - :oxr
 BBD:
   minor_unit: 2
   currency: Barbados Dollar
   symbol: "$"
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 LRD:
   minor_unit: 2
   currency: Liberian Dollar
   symbol: "$"
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 KRW:
   separators:
@@ -993,15 +879,13 @@ KRW:
   minor_unit: 0
   currency: Won
   symbol: "₩"
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 MMK:
   minor_unit: 2
   currency: Kyat
-  symbol: 
-  tags:
-  - :iso4217
+  symbol:
+  supported_providers:
   - :oxr
 MUR:
   separators:
@@ -1010,8 +894,7 @@ MUR:
   minor_unit: 2
   currency: Mauritius Rupee
   symbol: "₨"
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 PHP:
   separators:
@@ -1020,8 +903,7 @@ PHP:
   minor_unit: 2
   currency: Philippine Peso
   symbol: "₱"
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 ZAR:
   separators:
@@ -1030,15 +912,13 @@ ZAR:
   minor_unit: 2
   currency: Rand
   symbol: R
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 KGS:
   minor_unit: 2
   currency: Som
   symbol: "лв"
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 GBP:
   separators:
@@ -1047,29 +927,25 @@ GBP:
   minor_unit: 2
   currency: Pound Sterling
   symbol: "£"
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 BGN:
   minor_unit: 2
   currency: Bulgarian Lev
   symbol: "лв"
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 IQD:
   minor_unit: 3
   currency: Iraqi Dinar
-  symbol: 
-  tags:
-  - :iso4217
+  symbol:
+  supported_providers:
   - :oxr
 TMT:
   minor_unit: 2
   currency: Turkmenistan New Manat
-  symbol: 
-  tags:
-  - :iso4217
+  symbol:
+  supported_providers:
   - :oxr
 UAH:
   separators:
@@ -1078,8 +954,7 @@ UAH:
   minor_unit: 2
   currency: Hryvnia
   symbol: "₴"
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 VND:
   separators:
@@ -1087,15 +962,14 @@ VND:
   minor_unit: 0
   currency: Dong
   symbol: "₫"
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 BOV:
   minor_unit: 2
   currency: Mvdol
-  symbol: 
-  tags:
-  - :iso4217
+  symbol:
+  supported_providers:
+  - :oxr
 HRK:
   separators:
     major: "."
@@ -1103,15 +977,19 @@ HRK:
   minor_unit: 2
   currency: Croatian Kuna
   symbol: kn
+  supported_providers:
+GMD:
+  minor_unit: 2
+  currency: Dalasi
+  symbol:
   tags:
   - :iso4217
-  - :oxr
+  - :oxr  - :oxr
 TTD:
   minor_unit: 2
   currency: Trinidad and Tobago Dollar
   symbol: TT$
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 BHD:
   separators:
@@ -1119,23 +997,20 @@ BHD:
     minor: "."
   minor_unit: 3
   currency: Bahraini Dinar
-  symbol: 
-  tags:
-  - :iso4217
+  symbol:
+  supported_providers:
   - :oxr
 CLF:
   minor_unit: 0
   currency: Unidades de fomento
-  symbol: 
-  tags:
-  - :iso4217
+  symbol:
+  supported_providers:
   - :oxr
 RWF:
   minor_unit: 0
   currency: Rwanda Franc
-  symbol: 
-  tags:
-  - :iso4217
+  symbol:
+  supported_providers:
   - :oxr
 MKD:
   separators:
@@ -1144,8 +1019,7 @@ MKD:
   minor_unit: 2
   currency: Denar
   symbol: "ден"
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 AUD:
   separators:
@@ -1154,8 +1028,7 @@ AUD:
   minor_unit: 2
   currency: Australian Dollar
   symbol: "$"
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 CRC:
   separators:
@@ -1164,8 +1037,7 @@ CRC:
   minor_unit: 2
   currency: Costa Rican Colon
   symbol: "₡"
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 PKR:
   separators:
@@ -1174,22 +1046,19 @@ PKR:
   minor_unit: 2
   currency: Pakistan Rupee
   symbol: "₨"
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 TWD:
   minor_unit: 2
   currency: New Taiwan Dollar
   symbol: NT$
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 UZS:
   minor_unit: 2
   currency: Uzbekistan Sum
   symbol: "лв"
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 CZK:
   separators:
@@ -1198,15 +1067,13 @@ CZK:
   minor_unit: 2
   currency: Czech Koruna
   symbol: Kč
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 AZN:
   minor_unit: 2
   currency: Azerbaijanian Manat
   symbol: "ман"
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 BDT:
   separators:
@@ -1214,67 +1081,58 @@ BDT:
     minor: "."
   minor_unit: 2
   currency: Taka
-  symbol: 
-  tags:
-  - :iso4217
+  symbol:
+  supported_providers:
   - :oxr
 NAD:
   minor_unit: 2
   currency: Namibia Dollar
   symbol: "$"
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 AFN:
   minor_unit: 2
   currency: Afghani
   symbol: "؋"
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 MXV:
   minor_unit: 2
   currency: Mexican Unidad de Inversion (UDI)
-  symbol: 
-  tags:
-  - :iso4217
+  symbol:
+  supported_providers:
 CUC:
   separators:
     major: ","
     minor: "."
   minor_unit: 2
   currency: Cuban Convertible Peso
-  symbol: 
-  tags:
-  - :iso4217
+  symbol:
+  supported_providers:
   - :oxr
 PAB:
   minor_unit: 2
   currency: Balboa
   symbol: B/.
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 QAR:
   minor_unit: 2
   currency: Qatari Rial
   symbol: "﷼"
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 SOS:
   minor_unit: 2
   currency: Somali Shilling
   symbol: S
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 CHW:
   minor_unit: 2
   currency: WIR Franc
-  symbol: 
-  tags:
-  - :iso4217
+  symbol:
+  supported_providers:
 CAD:
   separators:
     major: ","
@@ -1282,8 +1140,7 @@ CAD:
   minor_unit: 2
   currency: Canadian Dollar
   symbol: "$"
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 JMD:
   separators:
@@ -1292,8 +1149,7 @@ JMD:
   minor_unit: 2
   currency: Jamaican Dollar
   symbol: J$
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 BND:
   separators:
@@ -1302,15 +1158,13 @@ BND:
   minor_unit: 2
   currency: Brunei Dollar
   symbol: "$"
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 ALL:
   minor_unit: 2
   currency: Lek
   symbol: Lek
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 SVC:
   separators:
@@ -1319,22 +1173,19 @@ SVC:
   minor_unit: 2
   currency: El Salvador Colon
   symbol: "$"
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 SBD:
   minor_unit: 2
   currency: Solomon Islands Dollar
   symbol: "$"
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 GHS:
   minor_unit: 2
   currency: Ghana Cedi
-  symbol: 
-  tags:
-  - :iso4217
+  symbol:
+  supported_providers:
   - :oxr
 KWD:
   separators:
@@ -1342,166 +1193,51 @@ KWD:
     minor: "."
   minor_unit: 3
   currency: Kuwaiti Dinar
-  symbol: 
-  tags:
-  - :iso4217
+  symbol:
+  supported_providers:
   - :oxr
-BTC:
-  separators:
-    major: ","
-    minor: "."
-  minor_unit: 2
-  currency: Bitcoin
-  symbol: B⃦
-  tags:
-  - :crypto
-  - :noniso
-  - :oxr
-EEK:
-  minor_unit: 2
-  currency: Estonian Kroon
-  symbol: kr
-  tags:
-  - :historical
-  - :oxr
-  :from_date: '1992-01-01'
-  :to_date: '2010-01-01'
-  :replaced_by: :eur
 XAG:
   minor_unit: 2
   currency: Silver
   symbol: oz
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 XAU:
   minor_unit: 2
   currency: Gold
   symbol: oz
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 XPT:
   minor_unit: 2
   currency: Platinum
   symbol: oz
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
 XPD:
   minor_unit: 2
   currency: Palladium
   symbol: oz
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
-GGP:
-  minor_unit: 2
-  currency: Guernsey Pound
-  symbol: "£"
-  tags:
-  - :noniso
-  - :oxr
-IMP:
-  minor_unit: 2
-  currency: Isle of Man Pound
-  symbol: "£"
-  tags:
-  - :noniso
-  - :oxr
-JEP:
-  minor_unit: 2
-  currency: Jersey Pound
-  symbol: "£"
-  tags:
-  - :noniso
-  - :oxr
-MTL:
-  minor_unit: 2
-  currency: Maltese Lira
-  symbol: Lm
-  tags:
-  - :historical
-  - :oxr
-  :from_date: '1972-01-01'
-  :to_date: '2006-01-01'
-  :replaced_by: :eur
 BYN:
   minor_unit: 2
   currency: Belarusian Ruble
   symbol: Br
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
-STD:
-  minor_unit: 2
-  currency: Dobra
-  symbol: 
-  tags:
-  - :historical
-  - :oxr
-  :from_date: '1977-01-01'
-  :to_date: '2018-04-01'
-  :replaced_by: :stn
 STN:
   minor_unit: 2
   currency: Dobra
   symbol: Db
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
-LVL:
-  separators:
-    major: ","
-    minor: "."
-  minor_unit: 2
-  currency: Latvian Lats
-  symbol: Ls
-  tags:
-  - :historical
-  - :oxr
-  :from_date: '1992-01-01'
-  :to_date: '2013-01-01'
-  :replaced_by: :eur
-USS:
-  minor_unit: 2
-  currency: US Dollar (Same day)
-  symbol: 
-  tags:
-  - :historical
-  :from_date: 
-  :to_date: '2014-03-28'
-  :replaced_by: 
-MRO:
-  minor_unit: 2
-  currency: Ouguiya
-  symbol: 
-  tags:
-  - :historical
-  - :oxr
-  :from_date: '1973-06-29'
-  :to_date: '2018-01-01'
-  :replaced_by: :mru
 MRU:
   minor_unit: 2
   currency: Ouguiya
   symbol: UM
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
-VEF:
-  separators:
-    major: "."
-    minor: ","
-  minor_unit: 2
-  currency: Bolivar Fuerte
-  symbol: Bs
-  tags:
-  - :historical
-  - :oxr
-  :from_date: 
-  :to_date: '2018-08-20'
-  :replaced_by: :ves
 VES:
   separators:
     major: "."
@@ -1509,36 +1245,11 @@ VES:
   minor_unit: 2
   currency: Bolivar Fuerte
   symbol: Bs
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
-LTL:
-  separators:
-    major: "."
-    minor: ","
-  minor_unit: 2
-  currency: Lithuanian Litas
-  symbol: Lt
-  tags:
-  - :historical
-  - :oxr
-  :from_date: '1993-01-01'
-  :to_date: '2015-01-01'
-  :replaced_by: :eur
-ZMK:
-  minor_unit: 2
-  currency: Zambian Kwacha
-  symbol: 
-  tags:
-  - :historical
-  - :oxr
-  :from_date: '1968-01-16'
-  :to_date: '2013-01-01'
-  :replaced_by: :zmw
 ZMW:
   minor_unit: 2
   currency: Zambian Kwacha
   symbol: K
-  tags:
-  - :iso4217
+  supported_providers:
   - :oxr
