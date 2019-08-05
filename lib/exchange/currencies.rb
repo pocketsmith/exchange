@@ -47,28 +47,38 @@ module Exchange
     # @return [Hash] The currency definitions with the currency code as keys
     #
     def definitions
-      @definitions ||= load_currencies
+      load_currencies if @iso_definitions.nil?
+
+      @iso_definitions.merge(
+        @unofficial_definitions.merge(@historical_definitions)
+      )
     end
 
     # The currency definitions marked as iso4217
     def iso4217_definitions
-      definitions.select { |_, c| c[:tags].include?(:iso4217) }
+      load_currencies if @iso_definitions.nil?
+
+      @iso_definitions
     end
 
     # The currency definitions that have been marked as unofficial
     def unofficial_definitions
-      definitions.select { |_, c| c[:tags].include?(:unofficial) }
+      load_currencies if @unofficial_definitions.nil?
+
+      @unofficial_definitions
     end
 
     # The currency definitions that have been marked as historical (that is, they
     # have been replaced in active use)
     def historical_definitions
-      definitions.select { |_, c| c[:tags].include?(:historical) }
+      load_currencies if @historical_definitions.nil?
+
+      @historical_definitions
     end
 
     # The currency definitions that aren't marked as historical
     def active_definitions
-      definitions.select { |_, c| !c[:tags].include?(:historical) }
+      iso4217_definitions.merge(unofficial_definitions)
     end
 
     # The currency definitions that are supported by OXR
@@ -252,42 +262,29 @@ module Exchange
     # Load the currencies from their file, with a quick sanity check that
     # any `replaced_by` references are included in the file
     def load_currencies
-      iso_currencies = symbolize_keys(
+      @iso_definitions = symbolize_keys(
         YAML.load_file(File.join(ROOT_PATH, 'iso4217.yml'))
       )
-      tag_all(iso_currencies, :iso4217)
 
-      historical_currencies = symbolize_keys(
+      @historical_definitions = symbolize_keys(
         YAML.load_file(File.join(ROOT_PATH, 'iso4217-historical.yml'))
       )
-      tag_all(historical_currencies, :historical)
 
-      unofficial_currencies = symbolize_keys(
+      @unofficial_definitions = symbolize_keys(
         YAML.load_file(File.join(ROOT_PATH, 'unofficial.yml'))
       )
-      tag_all(unofficial_currencies, :unofficial)
 
-      historical_keys = historical_currencies.keys
-
-      loaded_currencies = iso_currencies.merge(
-        unofficial_currencies.merge(
-          historical_currencies
-        )
-      )
+      historical_keys = @historical_definitions.keys
 
       historical_keys.each do |key|
-        replacement_currency = loaded_currencies[key][:replaced_by]
+        replacement_currency = @historical_definitions[key][:replaced_by]
         if replacement_currency
-          unless loaded_currencies.keys.include?(replacement_currency)
-            raise(Exchange::NoCurrencyError.new(
-                "#{replacement_currency} is not matchable to a currency"
-              )
-            )
+          unless currencies.include?(replacement_currency)
+            raise Exchange::NoCurrencyError,
+              "#{replacement_currency} is not matchable to a currency"
           end
         end
       end
-
-      loaded_currencies
     end
 
     def load_countries
@@ -297,10 +294,8 @@ module Exchange
 
       loaded_countries.each do |k, v|
         unless currencies.include?(v)
-          raise(Exchange::NoCurrencyError.new(
-              "Country #{k} maps to #{v} which is not matchable to a currency"
-            )
-          )
+          raise Exchange::NoCurrencyError,
+            "Country #{k} maps to #{v} which is not matchable to a currency"
         end
       end
     end
