@@ -5,7 +5,7 @@ describe "Exchange::Configuration" do
   let(:subject) { Exchange::Configuration.new }
   it "should have a standard configuration" do
     expect(subject.api.retries).to eq(7)
-    expect(subject.api.subclass).to eq(Exchange::ExternalAPI::XavierMedia)
+    expect(subject.api.subclass).to eq(Exchange::ExternalAPI::OpenExchangeRates)
     expect(subject.cache.subclass).to eq(Exchange::Cache::Memory)
     expect(subject.cache.host).to be_nil
     expect(subject.cache.port).to be_nil
@@ -28,17 +28,17 @@ describe "Exchange::Configuration" do
   it "should allow to be defined with a block" do
     Exchange.configuration = Exchange::Configuration.new {|c|
       c.api = {
-        :subclass => :xavier_media,
+        :subclass => :open_exchange_rates,
         :retries => 60,
-        :fallback => :open_exchange_rates
+        :fallback => :ecb
       }
       c.cache = {
         :subclass => :redis
       }
     }
-    expect(Exchange.configuration.api.subclass).to eq(Exchange::ExternalAPI::XavierMedia)
+    expect(Exchange.configuration.api.subclass).to eq(Exchange::ExternalAPI::OpenExchangeRates)
     expect(Exchange.configuration.api.retries).to eq(60)
-    expect(Exchange.configuration.api.fallback).to eq([Exchange::ExternalAPI::OpenExchangeRates])
+    expect(Exchange.configuration.api.fallback).to eq([Exchange::ExternalAPI::Ecb])
     expect(Exchange.configuration.cache.subclass).to eq(Exchange::Cache::Redis)
   end
   it "should allow to be set directly" do
@@ -66,7 +66,7 @@ describe "Exchange::Configuration" do
     }
     it "should restore the defaults" do
       subject.reset
-      expect(subject.api.subclass).to eq(Exchange::ExternalAPI::XavierMedia)
+      expect(subject.api.subclass).to eq(Exchange::ExternalAPI::OpenExchangeRates)
       expect(subject.api.retries).to eq(7)
       expect(subject.api.app_id).to be_nil
       expect(subject.api.fallback).to eq([Exchange::ExternalAPI::Ecb])

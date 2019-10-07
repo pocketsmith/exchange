@@ -1,7 +1,7 @@
 = MAINTENANCE DISCONTINUED - LOOKING FOR A NEW MAINTAINER
 ==== This project has not seen any major updates since a year, and maintenance will not be continued. If you would like to take on maintenance of this gem, please tweet @beatrichartz
 
-= exchange {<img src="https://secure.travis-ci.org/beatrichartz/exchange.png?branch=master" />}[http://travis-ci.org/beatrichartz/exchange] {<img src="https://gemnasium.com/beatrichartz/exchange.png" alt="Dependency Status" />}[https://gemnasium.com/beatrichartz/exchange] {<img src="https://codeclimate.com/github/beatrichartz/exchange.png" />}[https://codeclimate.com/github/beatrichartz/exchange] {<img src="https://d2weczhvl823v0.cloudfront.net/beatrichartz/exchange/trend.png"/>}[https://bitdeli.com/free]
+= exchange {<img src="https://circleci.com/gh/pocketsmith/exchange.svg?style=svg" alt="CircleCI" />}[https://circleci.com/gh/pocketsmith/exchange] {<img src="https://secure.travis-ci.org/beatrichartz/exchange.png?branch=master" />}[http://travis-ci.org/beatrichartz/exchange] {<img src="https://gemnasium.com/beatrichartz/exchange.png" alt="Dependency Status" />}[https://gemnasium.com/beatrichartz/exchange] {<img src="https://codeclimate.com/github/beatrichartz/exchange.png" />}[https://codeclimate.com/github/beatrichartz/exchange] {<img src="https://d2weczhvl823v0.cloudfront.net/beatrichartz/exchange/trend.png"/>}[https://bitdeli.com/free]
 
 The Exchange Gem gives you easy access to currency functions directly on your Numbers. {It is tested against}[http://travis-ci.org/beatrichartz/exchange]: ruby 2.0, 1.9, ree and rubinius (1.9 and 2.0 mode). Exchange will in future versions take advantage of 2.1 features like refinements, be sure to check this page for updates!
 
@@ -21,7 +21,7 @@ Just install it as a gem
   gem install exchange
 Then require it
   require 'exchange'
-  
+
 === Production Ready
 Exchange is production-ready. It is in use on {rightclearing.com}[http://rightclearing.com], a music licensing service worth noticing. If you use this gem in production, {drop a note}[mailto:beat.richartz@gmail.com] so your app can be listed here.
 
@@ -33,29 +33,29 @@ Conversion of currencies does not get any easier
   1.in(:eur).to(:usd)
 or better for historic dates
   1.in(:eur).to(:usd, :at => Time.now - 84600)
-  
+
 === Fallbacks for Conversion APIs
 Never worry if an API is shortly unavailable – Exchange provides the possibility to fall back to other conversion API's if the chosen one is currently not available or does not provide a rate for the attempted conversion. Thus it is possible to combine different API's with incomplete currency sets to have a more complete currency set.
 
 The performance impact of a fallback if a rate is recognizably not provided by an API is minimal, whereas the performance impact on a http connection error can have a bigger impact on performance.
 
-The default fallback mechanism used calls the ECB API if the Xavier Media API is unavailable. You can set your own fallback chain using the API configuration.
-  
+The default fallback mechanism used calls the ECB API if the Open Exchange Rates API is unavailable. You can set your own fallback chain using the API configuration.
+
 === Precise Calculation
 
 You may know the deal: Floating Point Errors can cost you money:
-  
+
   (0.29 * 50).round #=> 14, which is incorrect
 
 Whereas
 
   (BigDecimal("0.29") * 50).round #=> 15, which is correct
-  
+
 Exchange uses BigDecimal in all its currency and conversion operations, so you will not be a likely victim for floating point inaccuracies. It even does implicitly convert counterparts of basic operations like (* / - +) to calculate your values safely:
 
   (50.in(:usd) * 0.29).round 0 #=> "USD 15.00"
   (0.29 * 50.in(:usd)).round 0 #=> 15
-  
+
 === BigDecimal? Sounds slow to me
 
 If performance combined with conversion is your concern, don't worry. With ruby 1.9.3, you'll get about the following results for money instantiation (e.g. 1.in(:eur))
@@ -68,7 +68,7 @@ If performance combined with conversion is your concern, don't worry. With ruby 
   Exchange gem Operation takes 	0.035287s
 
 You're right that Big Decimal is slower than Float operations, but then again, the exchange gem outscores the money gem.
-  
+
 === A mixin for typecasting
 
 There may be a need for you to typecast an attribute of an object as money. Exchange features a typecasting mixin, which you can use with Rails, Ohm, Datamapper, or just plain ruby classes to typecast an attribute as money. Use it like this:
@@ -77,24 +77,24 @@ There may be a need for you to typecast an attribute of an object as money. Exch
     # make the class method available
     #
     extend Exchange::Typecasting
-    
+
     # Install the typecasting for price
     #
     money :price, :currency => :currency
-    
+
     # let's say you have currency set in a unique place
     #
     def currency
       manager.currency
     end
   end
-  
+
 Now you're able to do this:
-  
+
   article = Article.new
   article.price #=> will give you money in the currency defined on the manager
   article.price = 3.45.in(:usd) #Will implicitly convert the price if manager.currency is not :usd
-  
+
 You can feed the currency option with a proc or a symbol representing the method. For in-depth information about typecasting {visit the documentation here}[http://rubydoc.info/github/beatrichartz/exchange/Exchange/Typecasting]
 
 === Only one request per day to keep you up to date
@@ -116,22 +116,21 @@ Specify the symbol format will print out the currency with a symbol. If no symbo
 Specifying the amount format will print out the formatted amount only
 
   1440.4.in(:usd).to_s(:amount) #=> "1,440.40"
-  
+
 Specifying the plain format will print out the amount formatted with just a dot separator
- 
+
   1440.4.in(:usd).to_s(:plain) #=> "1440.40"
 
 As seen above, exchange takes care of the right format for the separators
 
   155_000_000.in(:usd).to_s #=> "USD 155,000,000.00"
 
-=== Use three great APIs or your own
+=== Use two great APIs or your own
 
 Three open APIs are already included:
 
-- {Xaviermedia}[http://www.xavierforum.com/viewtopic.php?f=5&t=10979&sid=671a685edbfa5dbec219fbc6793d5057]
-- {European Central Bank}[http://www.ecb.int/stats/exchange/eurofxref/html/index.en.html]
 - {Open Exchange Rates}[http://openexchangerates.org/] (Look for the free plan at the bottom of the page)
+- {European Central Bank}[http://www.ecb.int/stats/exchange/eurofxref/html/index.en.html]
 
 but if you have another API you like to use, it becomes as easy as writing one Class and two methods to use it.
 {Example of a custom API Extension}[http://rubydoc.info/github/beatrichartz/exchange/Exchange/ExternalAPI]
@@ -162,18 +161,18 @@ Easily convert one currency to another at a historical rate
   1.52.in(:usd).to :eur, :at => '2011-01-01'           #=> #<Exchange::Money @value=1.23 @currency=:eur>
   3.45.in(:eur).to :sek, :at => Time.gm(2011,3,3)      #=> #<Exchange::Money @value=19.23 @currency=:sek>
   345.in(:sek).to :nok, :at => Time.gm(2011,3,3)       #=> #<Exchange::Money @value=348 @currency=:nok>
-  
+
 Or even define an instance of currency as historic by adding a time.
 
   1.52.in(:usd, :at => '2011-01-01').to(:eur)          #=> #<Exchange::Money @value=1.23 @currency=:eur>
   3.45.in(:usd, :at => Time.gm(2011,3,3)).to(:sek)     #=> #<Exchange::Money @value=19.23 @currency=:sek>
   345.in(:usd, :at => Time.gm(2011,3,3)).to(:nok)      #=> #<Exchange::Money @value=348 @currency=:nok>
-  
+
 Do multiple conversion steps at once (if in any way useful)
 
   3.in(:chf).to(:eur, :at => '2011-02-04').to(:usd)      #=> #<Exchange::Money @value=5.3 @currency=:eur>
-  
-  
+
+
 === Compare
 
 Compare Currencies, they will convert implicitly
@@ -188,15 +187,15 @@ Compare Currencies, they will convert implicitly
 Sort multiple currencies at once
 
   [5.in(:eur), 4.in(:usd), 4.in(:chf, :at => '2010-01-01')].sort   #=> [#<Exchange::Money @value=4 @currency=:usd>, #<Exchange::Money @value=4 @currency=:chf>, #<Exchange::Money @value=5 @currency=:eur>]
-  
+
 This is true, because it uses the same historic conversion rate
 
   3.in(:eur, :at => '201-01-01').to(:usd) == 3.in(:eur).to(:usd, :at => '201-01-01')
-  
+
 But this is false, obviously, because the second instance uses the present exchange rate which differs from the historic one (if the two rates match, this will be true again)
 
   3.in(:eur, :at => '2001-01-01').to(:usd) == 3.in(:eur).to(:usd)
-  
+
 === Operate
 
 Add, Subtract, Multiply, Divide Currencies and don't lose a dime. The result will get returned in the currency of the first argument
@@ -205,8 +204,8 @@ Add, Subtract, Multiply, Divide Currencies and don't lose a dime. The result wil
   1.in(:usd) - 1.32.in(:eur)                              #=> #<Exchange::Money @value=-0.2 @currency=:usd>
   1.in(:usd) * 1.32.in(:eur)                              #=> #<Exchange::Money @value=3.44 @currency=:usd>
   1.in(:usd) / 1.32.in(:eur)                              #=> #<Exchange::Money @value=0.89 @currency=:usd>
-  
-  
+
+
 If you define a currency object as historic. It will use historic conversion if it gets converted (in this example, the 1.32 eur will get converted to usd at the rate of January 1 2008)
 
   1.in(:usd) - 1.32.in(:eur, :at => '2008-1-1')           #=> #<Exchange::Money @value=2.54 @currency=:usd>
@@ -214,7 +213,7 @@ If you define a currency object as historic. It will use historic conversion if 
 You can just instantiate currencies and apply operations. Rounding will by default round the currency to its ISO decimal precision:
 
   3.123.in(:eur).round                               #=> #<Exchange::Money @value=3.12 @currency=:eur>
-  
+
 You can also pass the precision you wish for as an argument, round, ceil, floor act like normal:
 
   3.1234.in(:eur).round(0)                           #=> #<Exchange::Money @value=3 @currency=:eur>
@@ -234,7 +233,7 @@ You can apply psychological pricing by passing the psych argument to the roundin
   9.999.in(:eur).floor(:psych)                        #=> 8.99
   10.345.in(:omr).ceil(:psych)                        #=> 10.999
   76.in(:jpy).floor(:psych)                           #=> 69
-  
+
 === Retain Information
 
 Access the original currency and its value after conversion, even over multiple steps
@@ -251,24 +250,24 @@ You can configure the exchange gem to a variety of options, allowing you to cont
   Exchange.configuration = Exchange::Configuration.new do |c|
     # your configuration goes here
   end
-  
+
 
 === Options
 
 The options available are
-  
+
   :cache                                    Takes the cache options as a hash, the options are:
     :subclass (default :memory)             The cache subclass to use for caching. Available: Memory, Rails cache, Redis, Memcached, File
     :host (default '127.0.0.1')             A string with the hostname or IP to set the cache host to. Does not have to be set for Rails cache
     :port (default 11211)                   An integer for the cache port. Does not have to be set for Rails cache
     :expire (default :daily)                Which period is used to expire the cache, :daily or :hourly are available
-    
+
   :api                                      Takes the conversion api as a hash, the options are:
-    :subclass (default :xavier_media)         The api to use. Available: Xavier Media, ECB, Currency Bot
+    :subclass (default :open_exchange_rates)         The api to use. Available: Open Exchange Rates, ECB
     :retries (default 5)                      The number of times the gem should retry to connect to the api host
     :app_id (default nil)                     The app id to use with your api request
     :protocol (default :http)                 The protocol to use with the request
-    
+
   :implicit_conversions (default true)      If set to false, Operations with with different currencies raise errors.
 
 If you want to maintain control over when a currency is converted, turn implicit conversions off
@@ -310,15 +309,8 @@ Use Rails to cache the result.
       :subclass => :rails
     }
   end
-  
-=== API Options
 
-Use the Xaviermedia API
-  Exchange.configuration = Exchange::Configuration.new do |c|
-    c.api = {
-      :subclass => :xavier_media
-    }
-  end
+=== API Options
 
 Use the open exchange rates Open Source API
   Exchange.configuration = Exchange::Configuration.new do |c|
@@ -327,14 +319,14 @@ Use the open exchange rates Open Source API
       :app_id => "Your open exchange rates app id"
     }
   end
-  
+
 Use https as request protocol of your api requests:
   Exchange.configuration = Exchange::Configuration.new do |c|
     c.api = {
       :protocol => :https
     }
   end
-  
+
 == Connect your own API and Cache
 
 === Your own API
@@ -433,7 +425,7 @@ Have fun, and don't forget to write tests.
 == Contributing to exchange
 
 Please note that only open source APIs can be accepted as contributions to this gem. Private / Premium APIs have to be written as your own extension and will not be added to the gem code.
- 
+
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet.
 * Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it.
 * Fork the project.

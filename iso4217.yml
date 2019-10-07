@@ -3,906 +3,1253 @@ NIO:
   minor_unit: 2
   currency: Cordoba Oro
   symbol: C$
+  supported_providers:
+  - :oxr
 LAK:
   minor_unit: 2
   currency: Kip
-  symbol: ₭
+  symbol: "₭"
+  supported_providers:
+  - :oxr
 SAR:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Saudi Riyal
-  symbol: ﷼
+  symbol: "﷼"
+  supported_providers:
+  - :oxr
 NOK:
   separators:
-    major: '.'
-    minor: ','
+    major: "."
+    minor: ","
   minor_unit: 2
   currency: Norwegian Krone
   symbol: kr
+  supported_providers:
+  - :oxr
 USD:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: US Dollar
-  symbol: $
+  symbol: "$"
+  supported_providers:
+  - :oxr
 RUB:
   separators:
-    major: '.'
-    minor: ','
+    major: "."
+    minor: ","
   minor_unit: 2
   currency: Russian Ruble
-  symbol: руб
+  symbol: "руб"
+  supported_providers:
+  - :oxr
 XCD:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: East Caribbean Dollar
-  symbol: $
+  symbol: "$"
+  supported_providers:
+  - :oxr
 OMR:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 3
   currency: Rial Omani
-  symbol: ﷼
+  symbol: "﷼"
+  supported_providers:
+  - :oxr
 AMD:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Armenian Dram
-  symbol: 
+  symbol:
+  supported_providers:
+  - :oxr
 CDF:
   minor_unit: 2
   currency: Congolese Franc
-  symbol: 
+  symbol:
+  supported_providers:
+  - :oxr
 KPW:
   minor_unit: 2
   currency: North Korean Won
-  symbol: ₩
+  symbol: "₩"
+  supported_providers:
+  - :oxr
 CNY:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Yuan Renminbi
-  symbol: ¥
+  symbol: "¥"
+  supported_providers:
+  - :oxr
 KES:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Kenyan Shilling
-  symbol: 
+  symbol:
+  supported_providers:
+  - :oxr
 KHR:
   minor_unit: 2
   currency: Riel
-  symbol: ៛
+  symbol: "៛"
+  supported_providers:
+  - :oxr
 PLN:
   separators:
-    major: ' '
-    minor: ','
+    major: "."
+    minor: ","
   minor_unit: 2
   currency: Zloty
   symbol: zł
+  supported_providers:
+  - :oxr
 MVR:
   minor_unit: 2
   currency: Rufiyaa
-  symbol: 
+  symbol:
+  supported_providers:
+  - :oxr
 GTQ:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Quetzal
   symbol: Q
+  supported_providers:
+  - :oxr
 CLP:
   separators:
-    major: '.'
+    major: "."
   minor_unit: 0
   currency: Chilean Peso
-  symbol: $
+  symbol: "$"
+  supported_providers:
+  - :oxr
 INR:
   separators:
-    major: ','
-    minor: '.'
-  format: ! '#,##,###.##'
+    major: ","
+    minor: "."
+  format: "#,##,###.##"
   minor_unit: 2
   currency: Indian Rupee
   symbol: ''
+  supported_providers:
+  - :oxr
 BZD:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Belize Dollar
   symbol: BZ$
+  supported_providers:
+  - :oxr
 MYR:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Malaysian Ringgit
   symbol: RM
+  supported_providers:
+  - :oxr
 HKD:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Hong Kong Dollar
-  symbol: $
+  symbol: "$"
+  supported_providers:
+  - :oxr
 COP:
   separators:
-    major: '.'
-    minor: ','
+    major: "."
+    minor: ","
   minor_unit: 2
   currency: Colombian Peso
-  symbol: $
+  symbol: "$"
+  supported_providers:
+  - :oxr
 DKK:
   separators:
-    major: '.'
-    minor: ','
+    major: "."
+    minor: ","
   minor_unit: 2
   currency: Danish Krone
   symbol: kr
+  supported_providers:
+  - :oxr
 SEK:
   separators:
-    major: '.'
-    minor: ','
+    major: "."
+    minor: ","
   minor_unit: 2
   currency: Swedish Krona
   symbol: kr
+  supported_providers:
+  - :oxr
 BYR:
   minor_unit: 0
   currency: Belarussian Ruble
   symbol: p.
+  supported_providers:
+  - :oxr
+  :from_date: '2000-01-01'
+  :to_date: '2016-06-30'
+  :replaced_by: :byn
 LYD:
   minor_unit: 3
   currency: Libyan Dinar
-  symbol: 
+  symbol:
+  supported_providers:
+  - :oxr
 RON:
   separators:
-    major: '.'
-    minor: ','
+    major: "."
+    minor: ","
   minor_unit: 2
   currency: New Romanian Leu
   symbol: lei
+  supported_providers:
+  - :oxr
 DZD:
   minor_unit: 2
   currency: Algerian Dinar
-  symbol: 
+  symbol:
+  supported_providers:
+  - :oxr
 BIF:
   minor_unit: 0
   currency: Burundi Franc
-  symbol: 
+  symbol:
+  supported_providers:
+  - :oxr
 ARS:
   separators:
-    major: '.'
-    minor: ','
+    major: "."
+    minor: ","
   minor_unit: 2
   currency: Argentine Peso
-  symbol: $
+  symbol: "$"
+  supported_providers:
+  - :oxr
 GIP:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Gibraltar Pound
-  symbol: £
+  symbol: "£"
+  supported_providers:
+  - :oxr
 UYI:
   minor_unit: 0
   currency: Uruguay Peso en Unidades Indexadas (URUIURUI)
-  symbol: 
+  symbol:
+  supported_providers:
+  - :oxr
 BOB:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Boliviano
-  symbol: $b
+  symbol: "$b"
+  supported_providers:
+  - :oxr
 SSP:
   minor_unit: 2
   currency: South Sudanese Pound
-  symbol: 
+  symbol:
+  supported_providers:
+  - :oxr
 NGN:
   minor_unit: 2
   currency: Naira
-  symbol: ₦
+  symbol: "₦"
+  supported_providers:
+  - :oxr
 PGK:
   minor_unit: 2
   currency: Kina
-  symbol: 
-STD:
-  minor_unit: 2
-  currency: Dobra
-  symbol: 
+  symbol:
+  supported_providers:
+  - :oxr
 XOF:
   minor_unit: 0
   currency: CFA Franc BCEAO
-  symbol: 
+  symbol:
+  supported_providers:
+  - :oxr
 AED:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: UAE Dirham
-  symbol: 
+  symbol:
+  supported_providers:
+  - :oxr
 ERN:
   minor_unit: 2
   currency: Nakfa
-  symbol: 
+  symbol:
+  supported_providers:
+  - :oxr
 MWK:
   minor_unit: 2
   currency: Kwacha
-  symbol: 
+  symbol:
+  supported_providers:
+  - :oxr
 CUP:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Cuban Peso
-  symbol: ₱
+  symbol: "₱"
+  supported_providers:
+  - :oxr
 USN:
   minor_unit: 2
   currency: US Dollar (Next day)
-  symbol: 
+  symbol:
+  supported_providers:
+  - :oxr
 GMD:
   minor_unit: 2
   currency: Dalasi
-  symbol: 
+  symbol:
+  supported_providers:
+  - :oxr
 CVE:
   minor_unit: 2
   currency: Cape Verde Escudo
-  symbol: 
+  symbol:
+  supported_providers:
+  - :oxr
 TZS:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Tanzanian Shilling
-  symbol: 
+  symbol:
+  supported_providers:
+  - :oxr
 COU:
   minor_unit: 2
   currency: Unidad de Valor Real
-  symbol: 
+  symbol:
+  supported_providers:
+  - :oxr
 BTN:
   minor_unit: 2
   currency: Ngultrum
-  symbol: 
+  symbol:
+  supported_providers:
+  - :oxr
 ZWL:
   minor_unit: 2
   currency: Zimbabwe Dollar
-  symbol: 
+  symbol:
+  supported_providers:
+  - :oxr
 UGX:
   minor_unit: 2
   currency: Uganda Shilling
-  symbol: 
+  symbol:
+  supported_providers:
+  - :oxr
 SYP:
   minor_unit: 2
   currency: Syrian Pound
-  symbol: £
+  symbol: "£"
+  supported_providers:
+  - :oxr
 MAD:
   minor_unit: 2
   currency: Moroccan Dirham
-  symbol: 
+  symbol:
+  supported_providers:
+  - :oxr
 MNT:
   minor_unit: 2
   currency: Tugrik
-  symbol: ₮
+  symbol: "₮"
+  supported_providers:
+  - :oxr
 LSL:
   minor_unit: 2
   currency: Loti
-  symbol: 
+  symbol:
+  supported_providers:
+  - :oxr
 XAF:
   minor_unit: 0
   currency: CFA Franc BEAC
-  symbol: 
+  symbol:
+  supported_providers:
+  - :oxr
 SHP:
   minor_unit: 2
   currency: Saint Helena Pound
-  symbol: £
+  symbol: "£"
+  supported_providers:
+  - :oxr
 HTG:
   minor_unit: 2
   currency: Gourde
-  symbol: 
+  symbol:
+  supported_providers:
+  - :oxr
 RSD:
   minor_unit: 2
   currency: Serbian Dinar
-  symbol: Дин.
+  symbol: "Дин."
+  supported_providers:
+  - :oxr
 MGA:
   minor_unit: 2
   currency: Malagasy Ariary
-  symbol: 
+  symbol:
+  supported_providers:
+  - :oxr
 TOP:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Pa’anga
-  symbol: 
+  symbol:
+  supported_providers:
+  - :oxr
 MZN:
   minor_unit: 2
   currency: Mozambique Metical
   symbol: MT
-LVL:
-  separators:
-    major: ','
-    minor: '.'
-  minor_unit: 2
-  currency: Latvian Lats
-  symbol: Ls
+  supported_providers:
+  - :oxr
 FKP:
   minor_unit: 2
   currency: Falkland Islands Pound
-  symbol: £
-USS:
-  minor_unit: 2
-  currency: US Dollar (Same day)
-  symbol: 
+  symbol: "£"
+  supported_providers:
+  - :oxr
 BWP:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Pula
   symbol: P
+  supported_providers:
+  - :oxr
 HNL:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Lempira
   symbol: L
+  supported_providers:
+  - :oxr
 EUR:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Euro
-  symbol: €
+  symbol: "€"
+  supported_providers:
+  - :oxr
 EGP:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Egyptian Pound
-  symbol: £
+  symbol: "£"
+  supported_providers:
+  - :oxr
 CHF:
   separators:
     major: "'"
-    minor: '.'
+    minor: "."
   minor_unit: 2
   currency: Swiss Franc
+  supported_providers:
+  - :oxr
 ILS:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: New Israeli Sheqel
-  symbol: ₪
+  symbol: "₪"
+  supported_providers:
+  - :oxr
 PYG:
   minor_unit: 0
   currency: Guarani
   symbol: Gs
+  supported_providers:
+  - :oxr
 LBP:
   separators:
-    major: ' '
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Lebanese Pound
-  symbol: £
+  symbol: "£"
+  supported_providers:
+  - :oxr
 ANG:
   separators:
-    major: '.'
-    minor: ','
+    major: "."
+    minor: ","
   minor_unit: 2
   currency: Netherlands Antillean Guilder
-  symbol: ƒ
+  symbol: "ƒ"
+  supported_providers:
+  - :oxr
 KZT:
   minor_unit: 2
   currency: Tenge
-  symbol: лв
+  symbol: "₸"
+  supported_providers:
+  - :oxr
 GYD:
   minor_unit: 2
   currency: Guyana Dollar
-  symbol: $
+  symbol: "$"
+  supported_providers:
+  - :oxr
 WST:
   minor_unit: 2
   currency: Tala
-  symbol: 
+  symbol:
+  supported_providers:
+  - :oxr
 NPR:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Nepalese Rupee
-  symbol: ₨
+  symbol: "₨"
+  supported_providers:
+  - :oxr
 KMF:
   minor_unit: 0
   currency: Comoro Franc
-  symbol: 
+  symbol:
+  supported_providers:
+  - :oxr
 THB:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Baht
-  symbol: ฿
+  symbol: "฿"
+  supported_providers:
+  - :oxr
 IRR:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Iranian Rial
-  symbol: ﷼
+  symbol: "﷼"
+  supported_providers:
+  - :oxr
 SRD:
   minor_unit: 2
   currency: Surinam Dollar
-  symbol: $
+  symbol: "$"
+  supported_providers:
+  - :oxr
 JPY:
   separators:
-    major: ','
+    major: ","
   minor_unit: 0
   currency: Yen
-  symbol: ¥
+  symbol: "¥"
+  supported_providers:
+  - :oxr
 BRL:
   separators:
-    major: '.'
-    minor: ','
+    major: "."
+    minor: ","
   minor_unit: 2
   currency: Brazilian Real
   symbol: R$
+  supported_providers:
+  - :oxr
 UYU:
   separators:
-    major: '.'
-    minor: ','
+    major: "."
+    minor: ","
   minor_unit: 2
   currency: Peso Uruguayo
-  symbol: $U
+  symbol: "$U"
+  supported_providers:
+  - :oxr
 MOP:
   minor_unit: 2
   currency: Pataca
-  symbol: 
+  symbol:
+  supported_providers:
+  - :oxr
 BMD:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Bermudian Dollar
-  symbol: $
+  symbol: "$"
+  supported_providers:
+  - :oxr
 SZL:
   separators:
-    major: ', '
-    minor: '.'
+    major: ", "
+    minor: "."
   minor_unit: 2
   currency: Lilangeni
-  symbol: 
+  symbol:
+  supported_providers:
+  - :oxr
 ETB:
   minor_unit: 2
   currency: Ethiopian Birr
-  symbol: 
+  symbol:
+  supported_providers:
+  - :oxr
 JOD:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 3
   currency: Jordanian Dinar
-  symbol: 
+  symbol:
+  supported_providers:
+  - :oxr
 IDR:
   separators:
-    major: '.'
-    minor: ','
+    major: "."
+    minor: ","
   minor_unit: 2
   currency: Rupiah
   symbol: Rp
+  supported_providers:
+  - :oxr
 MDL:
   minor_unit: 2
   currency: Moldovan Leu
-  symbol: 
+  symbol:
+  supported_providers:
+  - :oxr
 XPF:
   minor_unit: 0
   currency: CFP Franc
-  symbol: 
-MRO:
-  minor_unit: 2
-  currency: Ouguiya
-  symbol: 
+  symbol:
+  supported_providers:
+  - :oxr
 YER:
   minor_unit: 2
   currency: Yemeni Rial
-  symbol: ﷼
+  symbol: "﷼"
+  supported_providers:
+  - :oxr
 BAM:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Convertible Mark
   symbol: KM
+  supported_providers:
+  - :oxr
 AWG:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Aruban Florin
-  symbol: ƒ
+  symbol: "ƒ"
+  supported_providers:
+  - :oxr
 NZD:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: New Zealand Dollar
-  symbol: $
+  symbol: "$"
+  supported_providers:
+  - :oxr
 PEN:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Nuevo Sol
   symbol: S/.
+  supported_providers:
+  - :oxr
 AOA:
   minor_unit: 2
   currency: Kwanza
-  symbol: 
+  symbol:
+  supported_providers:
+  - :oxr
 KYD:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Cayman Islands Dollar
-  symbol: $
+  symbol: "$"
+  supported_providers:
+  - :oxr
 SLL:
   minor_unit: 2
   currency: Leone
-  symbol: 
+  symbol:
+  supported_providers:
+  - :oxr
 TRY:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Turkish Lira
   symbol: ''
-VEF:
-  separators:
-    major: '.'
-    minor: ','
-  minor_unit: 2
-  currency: Bolivar Fuerte
-  symbol: Bs
+  supported_providers:
+  - :oxr
 ISK:
-  format: ! '#.###'
+  format: "#.###"
   minor_unit: 0
   currency: Iceland Krona
   symbol: kr
+  supported_providers:
+  - :oxr
 GNF:
   minor_unit: 0
   currency: Guinea Franc
-  symbol: 
+  symbol:
+  supported_providers:
+  - :oxr
 BSD:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Bahamian Dollar
-  symbol: $
+  symbol: "$"
+  supported_providers:
+  - :oxr
 DJF:
   minor_unit: 0
   currency: Djibouti Franc
-  symbol: 
+  symbol:
+  supported_providers:
+  - :oxr
 HUF:
   separators:
-    major: '.'
-    minor: '.'
+    major: "."
+    minor: "."
   minor_unit: 2
   currency: Forint
   symbol: Ft
-LTL:
-  separators:
-    major: ' '
-    minor: ','
-  minor_unit: 2
-  currency: Lithuanian Litas
-  symbol: Lt
+  supported_providers:
+  - :oxr
 MXN:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Mexican Peso
-  symbol: $
+  symbol: "$"
+  supported_providers:
+  - :oxr
 SCR:
   minor_unit: 2
   currency: Seychelles Rupee
-  symbol: ₨
+  symbol: "₨"
+  supported_providers:
+  - :oxr
 SGD:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Singapore Dollar
-  symbol: $
+  symbol: "$"
+  supported_providers:
+  - :oxr
 LKR:
   minor_unit: 2
   currency: Sri Lanka Rupee
-  symbol: ₨
+  symbol: "₨"
+  supported_providers:
+  - :oxr
 TJS:
   minor_unit: 2
   currency: Somoni
-  symbol: 
+  symbol:
+  supported_providers:
+  - :oxr
 TND:
   minor_unit: 3
   currency: Tunisian Dinar
-  symbol: 
+  symbol:
+  supported_providers:
+  - :oxr
 DOP:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Dominican Peso
   symbol: RD$
+  supported_providers:
+  - :oxr
 FJD:
   minor_unit: 2
   currency: Fiji Dollar
-  symbol: $
+  symbol: "$"
+  supported_providers:
+  - :oxr
 GEL:
   minor_unit: 2
   currency: Lari
-  symbol: 
+  symbol:
+  supported_providers:
+  - :oxr
 SDG:
   minor_unit: 2
   currency: Sudanese Pound
-  symbol: 
+  symbol:
+  supported_providers:
+  - :oxr
 VUV:
   separators:
-    major: ','
+    major: ","
   minor_unit: 0
   currency: Vatu
-  symbol: 
+  symbol:
+  supported_providers:
+  - :oxr
 BBD:
   minor_unit: 2
   currency: Barbados Dollar
-  symbol: $
+  symbol: "$"
+  supported_providers:
+  - :oxr
 LRD:
   minor_unit: 2
   currency: Liberian Dollar
-  symbol: $
+  symbol: "$"
+  supported_providers:
+  - :oxr
 KRW:
   separators:
-    major: ','
+    major: ","
   minor_unit: 0
   currency: Won
-  symbol: ₩
+  symbol: "₩"
+  supported_providers:
+  - :oxr
 MMK:
   minor_unit: 2
   currency: Kyat
-  symbol: 
+  symbol:
+  supported_providers:
+  - :oxr
 MUR:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Mauritius Rupee
-  symbol: ₨
+  symbol: "₨"
+  supported_providers:
+  - :oxr
 PHP:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Philippine Peso
-  symbol: ₱
+  symbol: "₱"
+  supported_providers:
+  - :oxr
 ZAR:
   separators:
-    major: ' '
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Rand
   symbol: R
+  supported_providers:
+  - :oxr
 KGS:
   minor_unit: 2
   currency: Som
-  symbol: лв
+  symbol: "лв"
+  supported_providers:
+  - :oxr
 GBP:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Pound Sterling
-  symbol: £
+  symbol: "£"
+  supported_providers:
+  - :oxr
 BGN:
   minor_unit: 2
   currency: Bulgarian Lev
-  symbol: лв
+  symbol: "лв"
+  supported_providers:
+  - :oxr
 IQD:
   minor_unit: 3
   currency: Iraqi Dinar
-  symbol: 
+  symbol:
+  supported_providers:
+  - :oxr
 TMT:
   minor_unit: 2
   currency: Turkmenistan New Manat
-  symbol: 
+  symbol:
+  supported_providers:
+  - :oxr
 UAH:
   separators:
-    major: ' '
-    minor: ','
+    major: "."
+    minor: ","
   minor_unit: 2
   currency: Hryvnia
-  symbol: ₴
+  symbol: "₴"
+  supported_providers:
+  - :oxr
 VND:
   separators:
-    major: '.'
+    major: "."
   minor_unit: 0
   currency: Dong
-  symbol: ₫
-ZMK:
-  minor_unit: 2
-  currency: Zambian Kwacha
-  symbol: 
+  symbol: "₫"
+  supported_providers:
+  - :oxr
 BOV:
   minor_unit: 2
   currency: Mvdol
-  symbol: 
+  symbol:
+  supported_providers:
+  - :oxr
 HRK:
   separators:
-    major: '.'
-    minor: ','
+    major: "."
+    minor: ","
   minor_unit: 2
   currency: Croatian Kuna
   symbol: kn
+  supported_providers:
+GMD:
+  minor_unit: 2
+  currency: Dalasi
+  symbol:
+  tags:
+  - :iso4217
+  - :oxr  - :oxr
 TTD:
   minor_unit: 2
   currency: Trinidad and Tobago Dollar
   symbol: TT$
+  supported_providers:
+  - :oxr
 BHD:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 3
   currency: Bahraini Dinar
-  symbol: 
+  symbol:
+  supported_providers:
+  - :oxr
 CLF:
   minor_unit: 0
   currency: Unidades de fomento
-  symbol: 
+  symbol:
+  supported_providers:
+  - :oxr
 RWF:
   minor_unit: 0
   currency: Rwanda Franc
-  symbol: 
+  symbol:
+  supported_providers:
+  - :oxr
 MKD:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Denar
-  symbol: ден
+  symbol: "ден"
+  supported_providers:
+  - :oxr
 AUD:
   separators:
-    major: ' '
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Australian Dollar
-  symbol: $
+  symbol: "$"
+  supported_providers:
+  - :oxr
 CRC:
   separators:
-    major: '.'
-    minor: ','
+    major: "."
+    minor: ","
   minor_unit: 2
   currency: Costa Rican Colon
-  symbol: ₡
+  symbol: "₡"
+  supported_providers:
+  - :oxr
 PKR:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Pakistan Rupee
-  symbol: ₨
+  symbol: "₨"
+  supported_providers:
+  - :oxr
 TWD:
   minor_unit: 2
   currency: New Taiwan Dollar
   symbol: NT$
+  supported_providers:
+  - :oxr
 UZS:
   minor_unit: 2
   currency: Uzbekistan Sum
-  symbol: лв
+  symbol: "лв"
+  supported_providers:
+  - :oxr
 CZK:
   separators:
-    major: '.'
-    minor: ','
+    major: "."
+    minor: ","
   minor_unit: 2
   currency: Czech Koruna
   symbol: Kč
+  supported_providers:
+  - :oxr
 AZN:
   minor_unit: 2
   currency: Azerbaijanian Manat
-  symbol: ман
+  symbol: "ман"
+  supported_providers:
+  - :oxr
 BDT:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Taka
-  symbol: 
+  symbol:
+  supported_providers:
+  - :oxr
 NAD:
   minor_unit: 2
   currency: Namibia Dollar
-  symbol: $
+  symbol: "$"
+  supported_providers:
+  - :oxr
 AFN:
   minor_unit: 2
   currency: Afghani
-  symbol: ؋
+  symbol: "؋"
+  supported_providers:
+  - :oxr
 MXV:
   minor_unit: 2
   currency: Mexican Unidad de Inversion (UDI)
-  symbol: 
+  symbol:
+  supported_providers:
 CUC:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
-  currency: Peso Convertible
-  symbol: 
+  currency: Cuban Convertible Peso
+  symbol:
+  supported_providers:
+  - :oxr
 PAB:
   minor_unit: 2
   currency: Balboa
   symbol: B/.
+  supported_providers:
+  - :oxr
 QAR:
   minor_unit: 2
   currency: Qatari Rial
-  symbol: ﷼
+  symbol: "﷼"
+  supported_providers:
+  - :oxr
 SOS:
   minor_unit: 2
   currency: Somali Shilling
   symbol: S
+  supported_providers:
+  - :oxr
 CHW:
   minor_unit: 2
   currency: WIR Franc
-  symbol: 
+  symbol:
+  supported_providers:
 CAD:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Canadian Dollar
-  symbol: $
+  symbol: "$"
+  supported_providers:
+  - :oxr
 JMD:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Jamaican Dollar
   symbol: J$
+  supported_providers:
+  - :oxr
 BND:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: Brunei Dollar
-  symbol: $
+  symbol: "$"
+  supported_providers:
+  - :oxr
 ALL:
   minor_unit: 2
   currency: Lek
   symbol: Lek
+  supported_providers:
+  - :oxr
 SVC:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 2
   currency: El Salvador Colon
-  symbol: $
+  symbol: "$"
+  supported_providers:
+  - :oxr
 SBD:
   minor_unit: 2
   currency: Solomon Islands Dollar
-  symbol: $
+  symbol: "$"
+  supported_providers:
+  - :oxr
 GHS:
   minor_unit: 2
   currency: Ghana Cedi
-  symbol: 
+  symbol:
+  supported_providers:
+  - :oxr
 KWD:
   separators:
-    major: ','
-    minor: '.'
+    major: ","
+    minor: "."
   minor_unit: 3
   currency: Kuwaiti Dinar
-  symbol: 
+  symbol:
+  supported_providers:
+  - :oxr
+XAG:
+  minor_unit: 2
+  currency: Silver
+  symbol: oz
+  supported_providers:
+  - :oxr
+XAU:
+  minor_unit: 2
+  currency: Gold
+  symbol: oz
+  supported_providers:
+  - :oxr
+XPT:
+  minor_unit: 2
+  currency: Platinum
+  symbol: oz
+  supported_providers:
+  - :oxr
+XPD:
+  minor_unit: 2
+  currency: Palladium
+  symbol: oz
+  supported_providers:
+  - :oxr
+BYN:
+  minor_unit: 2
+  currency: Belarusian Ruble
+  symbol: Br
+  supported_providers:
+  - :oxr
+STN:
+  minor_unit: 2
+  currency: Dobra
+  symbol: Db
+  supported_providers:
+  - :oxr
+MRU:
+  minor_unit: 2
+  currency: Ouguiya
+  symbol: UM
+  supported_providers:
+  - :oxr
+VES:
+  separators:
+    major: "."
+    minor: ","
+  minor_unit: 2
+  currency: Bolivar Fuerte
+  symbol: Bs
+  supported_providers:
+  - :oxr
+ZMW:
+  minor_unit: 2
+  currency: Zambian Kwacha
+  symbol: K
+  supported_providers:
+  - :oxr

@@ -1,0 +1,28 @@
+---
+BTC:
+  separators:
+    major: ","
+    minor: "."
+  minor_unit: 2
+  currency: Bitcoin
+  symbol: B⃦
+  supported_providers:
+  - :oxr
+GGP:
+  minor_unit: 2
+  currency: Guernsey Pound
+  symbol: "£"
+  supported_providers:
+  - :oxr
+IMP:
+  minor_unit: 2
+  currency: Isle of Man Pound
+  symbol: "£"
+  supported_providers:
+  - :oxr
+JEP:
+  minor_unit: 2
+  currency: Jersey Pound
+  symbol: "£"
+  supported_providers:
+  - :oxr
