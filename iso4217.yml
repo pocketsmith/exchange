@@ -265,7 +265,6 @@ UYI:
   currency: Uruguay Peso en Unidades Indexadas (URUIURUI)
   symbol:
   supported_providers:
-  - :oxr
 BOB:
   separators:
     major: ","
@@ -334,7 +333,6 @@ USN:
   currency: US Dollar (Next day)
   symbol:
   supported_providers:
-  - :oxr
 GMD:
   minor_unit: 2
   currency: Dalasi
@@ -361,7 +359,6 @@ COU:
   currency: Unidad de Valor Real
   symbol:
   supported_providers:
-  - :oxr
 BTN:
   minor_unit: 2
   currency: Ngultrum
@@ -969,7 +966,6 @@ BOV:
   currency: Mvdol
   symbol:
   supported_providers:
-  - :oxr
 HRK:
   separators:
     major: "."
@@ -978,13 +974,7 @@ HRK:
   currency: Croatian Kuna
   symbol: kn
   supported_providers:
-GMD:
-  minor_unit: 2
-  currency: Dalasi
-  symbol:
-  tags:
-  - :iso4217
-  - :oxr  - :oxr
+  - :oxr
 TTD:
   minor_unit: 2
   currency: Trinidad and Tobago Dollar
