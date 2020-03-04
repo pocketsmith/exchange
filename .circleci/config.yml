@@ -12,6 +12,9 @@ version: 2
           # Any branch if there are none on the default branch - this should be unnecessary if you have your default branch configured correctly
           - v1-dep-
     - run:
+        name: Update bundler
+        command: gem install bundler
+    - run:
         name: Install dependencies
         command: 'bundle check --path=vendor/bundle || bundle install --path=vendor/bundle
           --jobs=4 --retry=3 '
