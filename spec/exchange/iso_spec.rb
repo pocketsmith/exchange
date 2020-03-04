@@ -53,22 +53,22 @@ describe "Exchange::Currencies" do
     context "given a float or an integer" do
       context "with bigger precision than the definition" do
         it "should instantiate a big decimal with the given precision" do
-          expect(BigDecimal).to receive(:new).with('23.2345', 6).and_return('INSTANCE')
+          expect(subject.instance).to receive(:BigDecimal).with('23.2345', 6).and_return('INSTANCE')
           expect(subject.instantiate(23.2345, :tnd)).to eq('INSTANCE')
-          expect(BigDecimal).to receive(:new).with('22223.2323444', 12).and_return('INSTANCE')
+          expect(subject.instance).to receive(:BigDecimal).with('22223.2323444', 12).and_return('INSTANCE')
           expect(subject.instantiate(22223.2323444, :sar)).to eq('INSTANCE')
-          expect(BigDecimal).to receive(:new).with('23.23', 4).and_return('INSTANCE')
+          expect(subject.instance).to receive(:BigDecimal).with('23.23', 4).and_return('INSTANCE')
           expect(subject.instantiate(23.23, :clp)).to eq('INSTANCE')
         end
       end
 
       context "with smaller precision than the definition" do
         it "should instantiate a big decimal with the defined precision" do
-          expect(BigDecimal).to receive(:new).with('23382343.1',11).and_return('INSTANCE')
+          expect(subject.instance).to receive(:BigDecimal).with('23382343.1',11).and_return('INSTANCE')
           expect(subject.instantiate(23382343.1, :tnd)).to eq('INSTANCE')
-          expect(BigDecimal).to receive(:new).with('23',4).and_return('INSTANCE')
+          expect(subject.instance).to receive(:BigDecimal).with('23',4).and_return('INSTANCE')
           expect(subject.instantiate(23, :sar)).to eq('INSTANCE')
-          expect(BigDecimal).to receive(:new).with('23.2',5).and_return('INSTANCE')
+          expect(subject.instance).to receive(:BigDecimal).with('23.2',5).and_return('INSTANCE')
           expect(subject.instantiate(23.2, :omr)).to eq('INSTANCE')
         end
       end
@@ -77,26 +77,26 @@ describe "Exchange::Currencies" do
     context "given a float with scientific notation" do
       context "with bigger precision than the definition" do
         it "should instantiate a big decimal with the given precision" do
-          expect(BigDecimal).to receive(:new).with("6.0e-05",6).and_return('INSTANCE')
+          expect(subject.instance).to receive(:BigDecimal).with("6.0e-05",6).and_return('INSTANCE')
           expect(subject.instantiate(6.0e-05, :tnd)).to eq('INSTANCE')
-          expect(BigDecimal).to receive(:new).with("600000.0",8).and_return('INSTANCE')
+          expect(subject.instance).to receive(:BigDecimal).with("600000.0",8).and_return('INSTANCE')
           expect(subject.instantiate(6.0e05, :sar)).to eq('INSTANCE')
-          expect(BigDecimal).to receive(:new).with("1.456e-08",12).and_return('INSTANCE')
+          expect(subject.instance).to receive(:BigDecimal).with("1.456e-08",12).and_return('INSTANCE')
           expect(subject.instantiate(1.456e-08, :omr)).to eq('INSTANCE')
-          expect(BigDecimal).to receive(:new).with("145600000.0",12).and_return('INSTANCE')
+          expect(subject.instance).to receive(:BigDecimal).with("145600000.0",12).and_return('INSTANCE')
           expect(subject.instantiate(1.456e08, :omr)).to eq('INSTANCE')
         end
       end
 
       context "with smaller precision than the definition" do
         it "should instantiate a big decimal with the defined precision" do
-          expect(BigDecimal).to receive(:new).with("0.6",4).and_return('INSTANCE')
+          expect(subject.instance).to receive(:BigDecimal).with("0.6",4).and_return('INSTANCE')
           expect(subject.instantiate(6.0e-01, :tnd)).to eq('INSTANCE')
-          expect(BigDecimal).to receive(:new).with("60.0",4).and_return('INSTANCE')
+          expect(subject.instance).to receive(:BigDecimal).with("60.0",4).and_return('INSTANCE')
           expect(subject.instantiate(6.0e01, :sar)).to eq('INSTANCE')
-          expect(BigDecimal).to receive(:new).with("0.14",4).and_return('INSTANCE')
+          expect(subject.instance).to receive(:BigDecimal).with("0.14",4).and_return('INSTANCE')
           expect(subject.instantiate(1.4e-01, :omr)).to eq('INSTANCE')
-          expect(BigDecimal).to receive(:new).with("14.56",5).and_return('INSTANCE')
+          expect(subject.instance).to receive(:BigDecimal).with("14.56",5).and_return('INSTANCE')
           expect(subject.instantiate(1.456e01, :omr)).to eq('INSTANCE')
         end
       end
@@ -105,7 +105,7 @@ describe "Exchange::Currencies" do
     context "given a big decimal" do
       let!(:bigdecimal) { BigDecimal("23.23") }
       it "should instantiate a big decimal according to the iso standards" do
-        expect(BigDecimal).to receive(:new).never
+        expect(subject.instance).to receive(:BigDecimal).never
         expect(subject.instantiate(bigdecimal, :tnd)).to eq(bigdecimal)
       end
     end
