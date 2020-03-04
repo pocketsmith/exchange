@@ -103,7 +103,7 @@ describe "Exchange::Currencies" do
     end
 
     context "given a big decimal" do
-      let!(:bigdecimal) { BigDecimal.new("23.23") }
+      let!(:bigdecimal) { BigDecimal("23.23") }
       it "should instantiate a big decimal according to the iso standards" do
         expect(BigDecimal).to receive(:new).never
         expect(subject.instantiate(bigdecimal, :tnd)).to eq(bigdecimal)
@@ -113,43 +113,43 @@ describe "Exchange::Currencies" do
 
   describe "self.round" do
     it "should round a currency according to ISO 4217 Definitions" do
-      expect(subject.round(BigDecimal.new("23.232524"), :tnd)).to eq(BigDecimal.new("23.233"))
-      expect(subject.round(BigDecimal.new("23.232524"), :sar)).to eq(BigDecimal.new("23.23"))
-      expect(subject.round(BigDecimal.new("23.232524"), :clp)).to eq(BigDecimal.new("23"))
+      expect(subject.round(BigDecimal("23.232524"), :tnd)).to eq(BigDecimal("23.233"))
+      expect(subject.round(BigDecimal("23.232524"), :sar)).to eq(BigDecimal("23.23"))
+      expect(subject.round(BigDecimal("23.232524"), :clp)).to eq(BigDecimal("23"))
     end
 
     it "should round psychologically if asked" do
-      expect(subject.round(BigDecimal.new("23.232524"), :tnd, nil, {:psych => true})).to eq(BigDecimal.new("22.999"))
-      expect(subject.round(BigDecimal.new("23.232524"), :sar, nil, {:psych => true})).to eq(BigDecimal.new("22.99"))
-      expect(subject.round(BigDecimal.new("23.232524"), :clp, nil, {:psych => true})).to eq(BigDecimal.new("19"))
+      expect(subject.round(BigDecimal("23.232524"), :tnd, nil, {:psych => true})).to eq(BigDecimal("22.999"))
+      expect(subject.round(BigDecimal("23.232524"), :sar, nil, {:psych => true})).to eq(BigDecimal("22.99"))
+      expect(subject.round(BigDecimal("23.232524"), :clp, nil, {:psych => true})).to eq(BigDecimal("19"))
     end
   end
 
   describe "self.ceil" do
     it "should ceil a currency according to ISO 4217 Definitions" do
-      expect(subject.ceil(BigDecimal.new("23.232524"), :tnd)).to eq(BigDecimal.new("23.233"))
-      expect(subject.ceil(BigDecimal.new("23.232524"), :sar)).to eq(BigDecimal.new("23.24"))
-      expect(subject.ceil(BigDecimal.new("23.232524"), :clp)).to eq(BigDecimal.new("24"))
+      expect(subject.ceil(BigDecimal("23.232524"), :tnd)).to eq(BigDecimal("23.233"))
+      expect(subject.ceil(BigDecimal("23.232524"), :sar)).to eq(BigDecimal("23.24"))
+      expect(subject.ceil(BigDecimal("23.232524"), :clp)).to eq(BigDecimal("24"))
     end
 
     it "should ceil psychologically if asked" do
-      expect(subject.ceil(BigDecimal.new("23.232524"), :tnd, nil, {:psych => true})).to eq(BigDecimal.new("23.999"))
-      expect(subject.ceil(BigDecimal.new("23.232524"), :sar, nil, {:psych => true})).to eq(BigDecimal.new("23.99"))
-      expect(subject.ceil(BigDecimal.new("23.232524"), :clp, nil, {:psych => true})).to eq(BigDecimal.new("29"))
+      expect(subject.ceil(BigDecimal("23.232524"), :tnd, nil, {:psych => true})).to eq(BigDecimal("23.999"))
+      expect(subject.ceil(BigDecimal("23.232524"), :sar, nil, {:psych => true})).to eq(BigDecimal("23.99"))
+      expect(subject.ceil(BigDecimal("23.232524"), :clp, nil, {:psych => true})).to eq(BigDecimal("29"))
     end
   end
 
   describe "self.floor" do
     it "should floor a currency according to ISO 4217 Definitions" do
-      expect(subject.floor(BigDecimal.new("23.232524"), :tnd)).to eq(BigDecimal.new("23.232"))
-      expect(subject.floor(BigDecimal.new("23.232524"), :sar)).to eq(BigDecimal.new("23.23"))
-      expect(subject.floor(BigDecimal.new("23.232524"), :clp)).to eq(BigDecimal.new("23"))
+      expect(subject.floor(BigDecimal("23.232524"), :tnd)).to eq(BigDecimal("23.232"))
+      expect(subject.floor(BigDecimal("23.232524"), :sar)).to eq(BigDecimal("23.23"))
+      expect(subject.floor(BigDecimal("23.232524"), :clp)).to eq(BigDecimal("23"))
     end
 
     it "should floor psychologically if asked" do
-      expect(subject.floor(BigDecimal.new("23.232524"), :tnd, nil, {:psych => true})).to eq(BigDecimal.new("22.999"))
-      expect(subject.floor(BigDecimal.new("23.232524"), :sar, nil, {:psych => true})).to eq(BigDecimal.new("22.99"))
-      expect(subject.floor(BigDecimal.new("23.232524"), :clp, nil, {:psych => true})).to eq(BigDecimal.new("19"))
+      expect(subject.floor(BigDecimal("23.232524"), :tnd, nil, {:psych => true})).to eq(BigDecimal("22.999"))
+      expect(subject.floor(BigDecimal("23.232524"), :sar, nil, {:psych => true})).to eq(BigDecimal("22.99"))
+      expect(subject.floor(BigDecimal("23.232524"), :clp, nil, {:psych => true})).to eq(BigDecimal("19"))
     end
   end
 
@@ -173,50 +173,50 @@ describe "Exchange::Currencies" do
 
   describe "self.stringify" do
     it "should stringify a currency according to ISO 4217 Definitions" do
-      expect(subject.stringify(BigDecimal.new("23234234.232524"), :tnd)).to eq("TND 23234234.233")
-      expect(subject.stringify(BigDecimal.new("23234234.232524"), :sar)).to eq("SAR 23,234,234.23")
-      expect(subject.stringify(BigDecimal.new("2323434223.232524"), :clp)).to eq("CLP 2.323.434.223")
-      expect(subject.stringify(BigDecimal.new("232344.2"), :tnd)).to eq("TND 232344.200")
-      expect(subject.stringify(BigDecimal.new("233432434.4"), :sar)).to eq("SAR 233,432,434.40")
-      expect(subject.stringify(BigDecimal.new("23234234.0"), :clp)).to eq("CLP 23.234.234")
+      expect(subject.stringify(BigDecimal("23234234.232524"), :tnd)).to eq("TND 23234234.233")
+      expect(subject.stringify(BigDecimal("23234234.232524"), :sar)).to eq("SAR 23,234,234.23")
+      expect(subject.stringify(BigDecimal("2323434223.232524"), :clp)).to eq("CLP 2.323.434.223")
+      expect(subject.stringify(BigDecimal("232344.2"), :tnd)).to eq("TND 232344.200")
+      expect(subject.stringify(BigDecimal("233432434.4"), :sar)).to eq("SAR 233,432,434.40")
+      expect(subject.stringify(BigDecimal("23234234.0"), :clp)).to eq("CLP 23.234.234")
     end
 
     context "amount only" do
       it "should not render the currency" do
-        expect(subject.stringify(BigDecimal.new("23.232524"), :tnd, :format => :amount)).to eq("23.233")
-        expect(subject.stringify(BigDecimal.new("223423432343.232524"), :chf, :format => :amount)).to eq("223'423'432'343.23")
-        expect(subject.stringify(BigDecimal.new("23.232524"), :clp, :format => :amount)).to eq("23")
-        expect(subject.stringify(BigDecimal.new("23.2"), :tnd, :format => :amount)).to eq("23.200")
-        expect(subject.stringify(BigDecimal.new("25645645663.4"), :sar, :format => :amount)).to eq("25,645,645,663.40")
-        expect(subject.stringify(BigDecimal.new("23.0"), :clp, :format => :amount)).to eq("23")
+        expect(subject.stringify(BigDecimal("23.232524"), :tnd, :format => :amount)).to eq("23.233")
+        expect(subject.stringify(BigDecimal("223423432343.232524"), :chf, :format => :amount)).to eq("223'423'432'343.23")
+        expect(subject.stringify(BigDecimal("23.232524"), :clp, :format => :amount)).to eq("23")
+        expect(subject.stringify(BigDecimal("23.2"), :tnd, :format => :amount)).to eq("23.200")
+        expect(subject.stringify(BigDecimal("25645645663.4"), :sar, :format => :amount)).to eq("25,645,645,663.40")
+        expect(subject.stringify(BigDecimal("23.0"), :clp, :format => :amount)).to eq("23")
       end
     end
 
     context "plain amount" do
       it "should not render the currency or separators" do
-        expect(subject.stringify(BigDecimal.new("23.232524"), :tnd, :format => :plain)).to eq("23.233")
-        expect(subject.stringify(BigDecimal.new("223423432343.232524"), :chf, :format => :plain)).to eq("223423432343.23")
-        expect(subject.stringify(BigDecimal.new("23.232524"), :clp, :format => :plain)).to eq("23")
-        expect(subject.stringify(BigDecimal.new("23.2"), :tnd, :format => :plain)).to eq("23.200")
-        expect(subject.stringify(BigDecimal.new("25645645663.4"), :sar, :format => :plain)).to eq("25645645663.40")
-        expect(subject.stringify(BigDecimal.new("23.0"), :clp, :format => :plain)).to eq("23")
+        expect(subject.stringify(BigDecimal("23.232524"), :tnd, :format => :plain)).to eq("23.233")
+        expect(subject.stringify(BigDecimal("223423432343.232524"), :chf, :format => :plain)).to eq("223423432343.23")
+        expect(subject.stringify(BigDecimal("23.232524"), :clp, :format => :plain)).to eq("23")
+        expect(subject.stringify(BigDecimal("23.2"), :tnd, :format => :plain)).to eq("23.200")
+        expect(subject.stringify(BigDecimal("25645645663.4"), :sar, :format => :plain)).to eq("25645645663.40")
+        expect(subject.stringify(BigDecimal("23.0"), :clp, :format => :plain)).to eq("23")
       end
     end
 
     context "symbol" do
       context "with a symbol present" do
         it "should render a symbol for the currency" do
-          expect(subject.stringify(BigDecimal.new("23.232524"), :usd, :format => :symbol)).to eq("$23.23")
-          expect(subject.stringify(BigDecimal.new("23.232524"), :irr, :format => :symbol)).to eq("﷼23.23")
-          expect(subject.stringify(BigDecimal.new("345543453453.232524"), :gbp, :format => :symbol)).to eq("£345,543,453,453.23")
-          expect(subject.stringify(BigDecimal.new("23.232524"), :eur, :format => :symbol)).to eq("€23.23")
+          expect(subject.stringify(BigDecimal("23.232524"), :usd, :format => :symbol)).to eq("$23.23")
+          expect(subject.stringify(BigDecimal("23.232524"), :irr, :format => :symbol)).to eq("﷼23.23")
+          expect(subject.stringify(BigDecimal("345543453453.232524"), :gbp, :format => :symbol)).to eq("£345,543,453,453.23")
+          expect(subject.stringify(BigDecimal("23.232524"), :eur, :format => :symbol)).to eq("€23.23")
         end
       end
 
       context "without a symbol present" do
         it "should render the currency abbreviation" do
-          expect(subject.stringify(BigDecimal.new("32741393.232524"), :chf, :format => :symbol)).to eq("CHF 32'741'393.23")
-          expect(subject.stringify(BigDecimal.new("23.232524"), :etb, :format => :symbol)).to eq("ETB 23.23")
+          expect(subject.stringify(BigDecimal("32741393.232524"), :chf, :format => :symbol)).to eq("CHF 32'741'393.23")
+          expect(subject.stringify(BigDecimal("23.232524"), :etb, :format => :symbol)).to eq("ETB 23.23")
         end
       end
     end

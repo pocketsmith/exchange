@@ -44,7 +44,7 @@ module Exchange
         is_xml_format = options[:format] == :xml || result.match(/<\?xml/) != nil
         parsed = is_xml_format ? Nokogiri::XML.parse(result.sub("\n", '')) : ::JSON.load(result)
         if is_xml_format && options[:format] != :xml
-          array = parsed.css('fx currency_code').children.map{|c| c.to_s }.zip(parsed.css('fx rate').children.map{|c| BigDecimal.new(c.to_s) }).flatten
+          array = parsed.css('fx currency_code').children.map{|c| c.to_s }.zip(parsed.css('fx rate').children.map{|c| BigDecimal(c.to_s) }).flatten
           timestamp = Time.gm(*parsed.css('fx_date').children[0].to_s.split('-')).to_i
           base = parsed.css('basecurrency').children[0].to_s.downcase.to_sym
           parsed = { 'rates' => Hash[*array], 'timestamp' => timestamp, 'base' => base, 'is_fallback' => true }

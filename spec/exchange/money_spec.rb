@@ -181,13 +181,13 @@ describe "Exchange::Money" do
         subject { Exchange::Money.new(0.82, :omr) }
 
         it "should be able to add a big decimal below zero" do
-          expect((subject + BigDecimal.new("0.45454545")).value.round(8)).
-            to eq(BigDecimal.new("0.127454545E1"))
+          expect((subject + BigDecimal("0.45454545")).value.round(8)).
+            to eq(BigDecimal("0.127454545E1"))
         end
 
         it "should be able to add a big decimal above zero" do
-          expect((subject + BigDecimal.new("12.455")).round(2).value).
-            to eq(BigDecimal.new("0.1328E2"))
+          expect((subject + BigDecimal("12.455")).round(2).value).
+            to eq(BigDecimal("0.1328E2"))
         end
       end
 
@@ -291,13 +291,13 @@ describe "Exchange::Money" do
         subject { Exchange::Money.new(1829.82, :omr) }
 
         it "should be able to subtract a big decimal below zero" do
-          expect((subject - BigDecimal.new("0.45454545")).value.round(8)).
-            to eq(BigDecimal.new("0.182936545455E4"))
+          expect((subject - BigDecimal("0.45454545")).value.round(8)).
+            to eq(BigDecimal("0.182936545455E4"))
         end
 
         it "should be able to subtract a big decimal above zero" do
-          expect((subject - BigDecimal.new("12.455")).round(2).value).
-            to eq(BigDecimal.new("0.181737E4"))
+          expect((subject - BigDecimal("12.455")).round(2).value).
+            to eq(BigDecimal("0.181737E4"))
         end
       end
 
@@ -409,13 +409,13 @@ describe "Exchange::Money" do
         subject { Exchange::Money.new(1829.82, :omr) }
 
         it "should be able to multiply by a big decimal below zero" do
-          expect((subject * BigDecimal.new("0.45454545")).value.round(8)).
-            to eq(BigDecimal.new("0.83173635532E3"))
+          expect((subject * BigDecimal("0.45454545")).value.round(8)).
+            to eq(BigDecimal("0.83173635532E3"))
         end
 
         it "should be able to multiply by a big decimal above zero" do
-          expect((subject * BigDecimal.new("12.455")).round(2).value).
-            to eq(BigDecimal.new("0.2279041E5"))
+          expect((subject * BigDecimal("12.455")).round(2).value).
+            to eq(BigDecimal("0.2279041E5"))
         end
       end
 
@@ -524,13 +524,13 @@ describe "Exchange::Money" do
         subject { Exchange::Money.new(1829.82, :omr) }
 
         it "should be able to divide by a big decimal below zero" do
-          expect((subject / BigDecimal.new("0.45454545")).value.round(8)).
-            to eq(BigDecimal.new("0.402560404026E4"))
+          expect((subject / BigDecimal("0.45454545")).value.round(8)).
+            to eq(BigDecimal("0.402560404026E4"))
         end
 
         it "should be able to divide by a big decimal above zero" do
-          expect((subject / BigDecimal.new("12.455")).round(2).value).
-            to eq(BigDecimal.new("0.14691E3"))
+          expect((subject / BigDecimal("12.455")).round(2).value).
+            to eq(BigDecimal("0.14691E3"))
         end
       end
 
@@ -550,7 +550,7 @@ describe "Exchange::Money" do
         Exchange.configuration.implicit_conversions = true
 
         expect((subject / Exchange::Money.new(10, :chf)).value.round(2)).
-          to eq(BigDecimal.new("3.65"))
+          to eq(BigDecimal("3.65"))
         expect((subject / Exchange::Money.new(23.3, :eur)).currency).to eq(:usd)
 
         expect(a_request(:get, test_url)).to have_been_made.times(2)
