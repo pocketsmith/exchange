@@ -54,7 +54,7 @@ describe "Exchange::ExternalAPI::Ecb" do
 
     it "should convert negative numbers right" do
       expect(subject.convert(-70, :chf, :usd).round(2)).
-        to eq(BigDecimal.new("-76.45"))
+        to eq(BigDecimal("-76.45"))
     end
 
     it "should convert when given symbols" do
@@ -76,7 +76,7 @@ describe "Exchange::ExternalAPI::Ecb" do
 
     it "should convert negative numbers right" do
       expect(subject.convert(-70, :chf, :usd, :at => Time.gm(2011,9,9)).round(2)).
-        to eq(BigDecimal.new("-76.08"))
+        to eq(BigDecimal("-76.08"))
     end
 
     it "should convert when given symbols" do

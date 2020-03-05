@@ -56,14 +56,14 @@ describe "Exchange::ExternalAPI::OpenExchangeRates" do
 
     it "should convert right" do
       expect(subject.convert(78, :eur, :usd).round(2)).
-        to eq(BigDecimal.new("103.12"))
+        to eq(BigDecimal("103.12"))
 
       expect(a_request(:get, test_url)).to have_been_made.times(1)
     end
 
     it "should convert negative numbers right" do
       expect(subject.convert(-70, :chf, :usd).round(2)).
-        to eq(BigDecimal.new("-76.71"))
+        to eq(BigDecimal("-76.71"))
 
       expect(a_request(:get, test_url)).to have_been_made.times(1)
     end
@@ -82,7 +82,7 @@ describe "Exchange::ExternalAPI::OpenExchangeRates" do
       stub_request(:get, test_hist_url).to_return(body: test_response)
 
       expect(subject.convert(72, :eur, :usd, :at => Time.gm(2011,9,9)).round(2)).
-        to eq(BigDecimal.new("95.19"))
+        to eq(BigDecimal("95.19"))
 
       expect(a_request(:get, test_hist_url)).to have_been_made.times(1)
     end
@@ -91,7 +91,7 @@ describe "Exchange::ExternalAPI::OpenExchangeRates" do
       stub_request(:get, test_hist_url).to_return(body: test_response)
 
       expect(subject.convert(-70, :chf, :usd, :at => Time.gm(2011,9,9)).round(2)).
-        to eq(BigDecimal.new("-76.71"))
+        to eq(BigDecimal("-76.71"))
 
       expect(a_request(:get, test_hist_url)).to have_been_made.times(1)
     end

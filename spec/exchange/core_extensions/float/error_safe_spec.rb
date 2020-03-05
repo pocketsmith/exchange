@@ -32,18 +32,18 @@ describe "Exchange::ErrorSafe" do
     end
     describe "+" do
       it "should calculate correctly with exchange money" do
-        expect((1.0e+25 + BigDecimal.new("9999999999999999900000000").in(:usd)).round.to_f).to eq(2.0e+25)
+        expect((1.0e+25 + BigDecimal("9999999999999999900000000").in(:usd)).round.to_f).to eq(2.0e+25)
       end
       it "should not touch other operations" do
-        expect((1.0e+25 + BigDecimal.new("9999999999999999900000000")).round).to eq(BigDecimal.new("0.199999999999999999E26"))
+        expect((1.0e+25 + BigDecimal("9999999999999999900000000")).round).to eq(BigDecimal("0.199999999999999999E26"))
       end
     end
     describe "-" do
       it "should calculate correctly with exchange money" do
-        expect((1.0e+25 - BigDecimal.new("9999999999999999900000000").in(:usd)).round).to eq(100000000)
+        expect((1.0e+25 - BigDecimal("9999999999999999900000000").in(:usd)).round).to eq(100000000)
       end
       it "should not touch other operations" do
-        expect(1.0e+25 - BigDecimal.new("9999999999999999900000000")).to eq(BigDecimal.new("0.1E9"))
+        expect(1.0e+25 - BigDecimal("9999999999999999900000000")).to eq(BigDecimal("0.1E9"))
       end
     end
   end

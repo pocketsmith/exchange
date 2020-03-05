@@ -2,10 +2,10 @@
 require 'spec_helper'
 
 describe "Exchange::Cachify" do
-  
+
   describe "cachify" do
     context "with a big decimal" do
-      subject { BigDecimal.new("5") }
+      subject { BigDecimal("5") }
       it "should marshal dump" do
         expect(subject.cachify).to eq(Marshal.dump(subject))
       end
@@ -23,5 +23,5 @@ describe "Exchange::Cachify" do
       end
     end
   end
-  
+
 end

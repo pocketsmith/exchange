@@ -13,8 +13,7 @@ version: 2
           - v1-dep-
     - run:
         name: Update bundler
-        # Bundler 2.x dropped support for ruby < 2.3.0
-        command: gem install bundler -v "~>1.0"
+        command: gem install bundler
     - run:
         name: Install dependencies
         command: 'bundle check --path=vendor/bundle || bundle install --path=vendor/bundle
@@ -30,23 +29,23 @@ version: 2
   working_directory: ~/app
 
 jobs:
+  build_ruby2_7:
+    <<: *build_definition
+    docker:
+      - image: ruby:2.7
+  build_ruby2_6:
+    <<: *build_definition
+    docker:
+      - image: ruby:2.6
   build_ruby2_5:
     <<: *build_definition
     docker:
       - image: ruby:2.5
-  build_ruby2_4:
-    <<: *build_definition
-    docker:
-      - image: ruby:2.4
-  build_ruby2_3:
-    <<: *build_definition
-    docker:
-      - image: ruby:2.3
 
 workflows:
   version: 2
   build_ruby_versions:
     jobs:
       - build_ruby2_5
-      - build_ruby2_4
-      - build_ruby2_3
+      - build_ruby2_6
+      - build_ruby2_7

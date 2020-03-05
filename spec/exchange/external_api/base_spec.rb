@@ -12,7 +12,7 @@ describe "Exchange::ExternalAPI::Base" do
     Exchange.configuration.reset
   end
   before(:each) do
-    subject.instance_variable_set("@rates", {:eur => BigDecimal.new("3.45"), :chf => BigDecimal.new("5.565")})
+    subject.instance_variable_set("@rates", {:eur => BigDecimal("3.45"), :chf => BigDecimal("5.565")})
     subject.instance_variable_set("@base", :usd)
   end
   describe "rate" do
