@@ -3,7 +3,7 @@ BTC:
   separators:
     major: ","
     minor: "."
-  minor_unit: 2
+  minor_unit: 8
   currency: Bitcoin
   symbol: B⃦
   supported_providers:
